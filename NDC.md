@@ -196,7 +196,6 @@ Parmi ces fonctions nous pouvons citer :
 -   dernier poids mesuré (en kg), *nombre réel obligatoire*
 -   dernière taille mesurée (en cm), *nombre réel obligatoire*
 -   année de naissance, *nombre entier, non obligatoire*
-
 -   client propriétaire, *obligatoire*
 
 
@@ -214,7 +213,6 @@ Parmi ces fonctions nous pouvons citer :
 
 -   début, *date obligatoire*
 -   durée (en jours), *entier obligatoire*
-
 -   vétérinaire, *obligatoire*
 
 **Prescription de médicament**
