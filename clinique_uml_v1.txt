@@ -4,7 +4,7 @@ class Personne {
     prenom : string 
     dateNaissance : date 
     adresse : string 
-    numero : int  ??
+    numero : int  
 }
 
 class Client {
