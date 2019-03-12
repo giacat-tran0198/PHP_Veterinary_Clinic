@@ -1,0 +1,87 @@
+@startuml
+class Personne {
+    nom : string 
+    prenom : string 
+    dateNaissance : date 
+    adresse : string 
+    numero : int  ??
+}
+
+class Client {
+
+}
+
+class Personnel {
+    specialite : string 
+}
+
+class Poste {
+    nom : string 
+}
+
+class Veterinaire {
+
+}
+
+class Animal {
+    nom : string 
+    poids : float 
+    taille : float 
+    dateNaissance : date 
+}
+
+class Espece {
+    nom : string 
+}
+
+class ClasseEspece {
+    nom : string 
+}
+
+
+
+class Traitement {
+    debut : date 
+    duree : integer 
+}
+
+class Prescription {
+    quantite : integer 
+}
+
+class Medicament {
+    nomMolecule : string 
+    description : string 
+}
+
+
+
+
+Poste "1" -- "*" Personnel : travaille comme 
+Veterinaire "1" -- "*" Traitement : prescrit 
+Client "1" -- "1..*" Animal : possede 
+Animal "1" -- "*" Traitement : suit 
+Medicament "1" -- "*" Prescription : concerne 
+Prescription "1..*" -- "1" Traitement : contient 
+Animal "1..*" -- "1" Espece : appartient 
+Espece "1..*" -- "1" ClasseEspece : appartient
+Personnel "*" -- "1" ClasseEspece : travaille avec 
+
+
+Personne  <|-- Client
+Personne  <|-- Personnel
+Personnel <|-- Veterinaire
+
+
+note "Le numero de telephone est compose de 10 chiffres " as N1 
+note "Le poids est en gramme et la taille en centimetres" as N2
+note "La duree d'un traitement est en jour.s" as N3 
+note "Nous ne considérons pas les individus d'une espece disparue" as N4 
+note "Il peut exister des ClasseEspece pour lesquelles il n'y pas de personnel specialise" as N5 
+Personne -- N1 
+Animal -- N2 
+Traitement -- N3 
+Espece -- N4 
+ClasseEspece -- N5 
+
+@enduml
