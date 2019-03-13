@@ -56,7 +56,7 @@ class Medicament {
 }
 
 
-abstract class Personnel_Medical
+abstract class PersonnelMedical
 abstract class Personne
 
 Veterinaire "1" -- "*" Traitement : prescrit  >
@@ -71,9 +71,9 @@ Medicament "*" -- "1..*" Espèce : autorisé pour >
 
 
 Personne            <|-- Client
-Personne            <|-- Personnel_Medical
-Personnel_Medical   <|-- Veterinaire
-Personnel_Medical   <|-- Assistant
+Personne            <|-- PersonnelMedical
+PersonnelMedical   <|-- Veterinaire
+PersonnelMedical   <|-- Assistant
 
 
 note "Le numero de telephone est compose de 10 chiffres " as N1 
