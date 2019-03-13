@@ -11,7 +11,7 @@ class Client {
 
 }
 
-class Personnel_Medical  {
+class PersonnelMedical  {
 
 }
 
@@ -66,7 +66,7 @@ Medicament "1" -- "*" Préscription : concerne  <
 Préscription "1..*" --* "1" Traitement : contient <
 Animal "*" -- "1" Espèce : appartient >
 Espèce "*" -- "1" ClasseEspèce : appartient >
-Personnel_Medical "*" -- "1" ClasseEspèce : spécialiste de  > 
+PersonnelMedical "*" -- "1" ClasseEspèce : spécialiste de  > 
 Medicament "*" -- "1..*" Espèce : autorisé pour > 
 
 
