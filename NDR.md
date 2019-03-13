@@ -10,7 +10,7 @@ Il était auparavant envisagé que d'autres postes soient ajoutés plus tard dan
 
 ### Gestion des clients et de leurs animaux
 
-Deux animaux traités dans la clinique peuvent porter le même nom. Cependant, les animaux traités appartenant à un même client ont tous un prénom unique.
+Deux animaux traités dans la clinique peuvent porter le même nom. Cependant, plusieurs animaux traités ayant le même propriétaire ont tous un nom unique.
 
 ## Analyse des données statistiques de la clinique
 
