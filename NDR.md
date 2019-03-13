@@ -1,5 +1,6 @@
 Note de rectification 
 ===
+Cette note vient rapporter les changements apportés à la note de clarification.
 Gestion du personnel
 ===
 Il était auparavant envisagé que d'autres postes soient ajoutés plus tard dans la base de données. Cette décision est abandonnée, seul les postes de vétérinaire et d'assistant seront gérés. 
