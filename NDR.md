@@ -1,4 +1,5 @@
-#Note de rectification 
+Note de rectification 
+==
 
 Cette note vient apporter des changements et des précisions à la note de clarification.
 
