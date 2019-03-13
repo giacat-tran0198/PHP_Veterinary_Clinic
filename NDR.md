@@ -13,7 +13,10 @@ Il était auparavant envisagé que d'autres postes soient ajoutés plus tard dan
 Deux animaux traités dans la clinique peuvent porter le même nom. Cependant, plusieurs animaux traités ayant le même propriétaire ont tous un nom unique.
 
 ### Gestion des traitements
-Un médicament enregistré dans les données de la clinique est forcément autorisé à au moins une espèce. 
+Un médicament enregistré dans les données de la clinique est forcément autorisé à au moins une espèce.
+
+## Propriétés des objets principaux de la base
+Une personne, donc un client ou un membre du personnel, est identifié de façon unique par la combinaison de son nom, son prénom et sa date de naissance.
 
 ## Analyse des données statistiques de la clinique
 
