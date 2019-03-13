@@ -4,24 +4,25 @@ class Personne {
     prenom : string 
     dateNaissance : date 
     adresse : string 
-    numero : int  
+    numero : char[10]
 }
 
 class Client {
 
 }
 
-class Personnel {
-    specialite : string 
-}
-
-class Poste {
-    nom : string 
-}
-
-class Veterinaire {
+class Personnel_Medical  {
 
 }
+
+class Veterinaire{
+
+}
+
+class Assistant {
+
+}
+
 
 class Animal {
     nom : string 
@@ -30,58 +31,70 @@ class Animal {
     dateNaissance : date 
 }
 
-class Espece {
-    nom : string 
+class Espèce {
+    nom : string {key}
 }
 
-class ClasseEspece {
-    nom : string 
+class ClasseEspèce {
+    nom : string {key}
 }
 
 
 
 class Traitement {
-    debut : date 
-    duree : integer 
+    début : date 
+    durée : integer 
 }
 
-class Prescription {
-    quantite : integer 
+class Préscription {
+    quantité : integer 
 }
 
 class Medicament {
-    nomMolecule : string 
+    nomMolecule : string {key}
     description : string 
 }
 
 
+abstract class Personnel_Medical
+abstract class Personne
+
+Veterinaire "1" -- "*" Traitement : prescrit  >
+Client "1" -- "1..*" Animal : possede  >
+Animal "1" -- "*" Traitement : suit >
+Medicament "1" -- "*" Préscription : concerne  <
+Préscription "1..*" --* "1" Traitement : contient <
+Animal "*" -- "1" Espèce : appartient >
+Espèce "*" -- "1" ClasseEspèce : appartient >
+Personnel_Medical "*" -- "1" ClasseEspèce : spécialiste de  > 
+Medicament "*" -- "1..*" Espèce : autorisé pour > 
 
 
-Poste "1" -- "*" Personnel : travaille comme 
-Veterinaire "1" -- "*" Traitement : prescrit 
-Client "1" -- "1..*" Animal : possede 
-Animal "1" -- "*" Traitement : suit 
-Medicament "1" -- "*" Prescription : concerne 
-Prescription "1..*" -- "1" Traitement : contient 
-Animal "1..*" -- "1" Espece : appartient 
-Espece "1..*" -- "1" ClasseEspece : appartient
-Personnel "*" -- "1" ClasseEspece : travaille avec 
-
-
-Personne  <|-- Client
-Personne  <|-- Personnel
-Personnel <|-- Veterinaire
+Personne            <|-- Client
+Personne            <|-- Personnel_Medical
+Personnel_Medical   <|-- Veterinaire
+Personnel_Medical   <|-- Assistant
 
 
 note "Le numero de telephone est compose de 10 chiffres " as N1 
-note "Le poids est en gramme et la taille en centimetres" as N2
-note "La duree d'un traitement est en jour.s" as N3 
-note "Nous ne considérons pas les individus d'une espece disparue" as N4 
-note "Il peut exister des ClasseEspece pour lesquelles il n'y pas de personnel specialise" as N5 
+note "Le poids est en kilo gramme et la taille en centimetres \n avec poids > 0 et taille > 0" as N2
+note "La duree d'un traitement est en jour.s \n avec durée > 0" as N3 
+note "Il peut exister des ClasseEspèce pour lesquelles il n'y pas de personnel specialisé" as N5 
+note "La clinique utilise uniquement des médicament autorisé" as N6
+note  "{(nom,prenom,date) key }" as N7
+note " quantité > 0 " as N8 
+
+note " Tous les attributs sont en NOT NULL excepté \n pour la dateNaissance de l'Animal " as N9 
+note " Tous les héritages sont exclusifs" as N10 
+
 Personne -- N1 
 Animal -- N2 
 Traitement -- N3 
-Espece -- N4 
-ClasseEspece -- N5 
+ClasseEspèce -- N5 
+Medicament -- N6 
+Personne -- N7 
+Préscription -- N8 
+
+
 
 @enduml
