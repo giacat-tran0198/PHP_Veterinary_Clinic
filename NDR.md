@@ -12,6 +12,9 @@ Il était auparavant envisagé que d'autres postes soient ajoutés plus tard dan
 
 Deux animaux traités dans la clinique peuvent porter le même nom. Cependant, plusieurs animaux traités ayant le même propriétaire ont tous un nom unique.
 
+### Gestion des traitements
+Un médicament enregistré dans les données de la clinique est forcément autorisé à au moins une espèce. 
+
 ## Analyse des données statistiques de la clinique
 
 Le client voudrait avoir les poids et tailles moyens des animaux d'une espèce traités. Il n'a donc pas besoin d'un historique des differents poids et taille d'un même individu (animal). A chaque nouvelle mesure, celle-ci est mise à jour en écrasant l'ancienne valeur. 
