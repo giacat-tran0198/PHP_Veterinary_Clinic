@@ -1,8 +1,11 @@
 Note de révision
 ==
 Cette note vient apporter des changements et des précisions à la note de clarification.
+
 ## Fonctions principales de la base de données
 
+### Gestion des personnes
+Une personne, donc un client ou un membre du personnel, est identifiée de façon unique par la combinaison de son nom, son prénom et sa date de naissance.
 
 ### Gestion du personnel
 
@@ -12,20 +15,32 @@ Nous avons restreint la gestion du personnel au personnel médical uniquement. I
 
 L'hypothèse suivante a été rajoutée : tous les membres du personnel médical ont une spécialité.
 
-### Gestion des clients et de leurs animaux
+### Gestion des animaux
 
-Plusieurs animaux traités dans la clinique peuvent porter le même nom. Cependant, plusieurs animaux traités ayant le même propriétaire ont tous un nom unique.
+Plusieurs animaux traités dans la clinique peuvent porter le même nom. Cependant, les animaux portant un même nom ont des propriétaires différents.
 
-### Gestion des animaux : 
-Nous nous autorisons à avoir des classes d'espèces pour lesquels il n'existe pas de personnel médical spécialisé dans la clinique. L'ajout de nouvelles classes d'espèces est possible, pour permettre l'ajout d'une plus grande variété d'animaux. 
+Un animal n’est pas obligé de suivre un traitement (effectivement une simple consultation sans prescription de médicaments donnera lieu à l'enregistrement de l'animal dans la base).
+
+Nous nous autorisons à avoir des classes d'espèces pour lesquelles il n'existe pas de personnel médical spécialisé dans la clinique. 
+
+De plus, une classe d'espèce peut ne pas avoir d'espèce associée dans la base de données.
+
+Enfin une espèce peut ne pas avoir d'animal associé dans la base de données.
+
 
 ### Gestion des traitements
 Un médicament enregistré dans les données de la clinique est forcément autorisé pour au moins une espèce.
 
-## Propriétés des objets principaux de la base
-Une personne, donc un client ou un membre du personnel, est identifié de façon unique par la combinaison de son nom, son prénom et sa date de naissance.
 
-## Analyse des données statistiques de la clinique
 
-Le client voudrait avoir les poids et tailles moyens des animaux d'une espèce traités. Il n'a donc pas besoin d'un historique des différents poids et taille d'un même individu. A chaque nouvelle mesure, celle-ci écrase l'ancienne valeur. 
+### Analyse des données statistiques de la clinique
 
+Le client voudrait avoir les poids et tailles moyens des animaux d'une espèce traitée. Il n'a donc pas besoin d'un historique des différents poids et taille d'un même individu. A chaque nouvelle mesure, celle-ci écrase l'ancienne valeur. 
+
+
+_______________________________
+
+
+| Document : Note de révision version 1 | Date: 14/03/2019 |
+| -------------------------------------------| ---------------- |
+| Signature : MOA                | Signature : MOE    |
