@@ -77,15 +77,17 @@ PersonnelMedical   <|-- Assistant
 
 
 note "Le numéro de téléphone est composé de 10 chiffres " as N1 
-note "Le poids est en kilogrammes et la taille en centimètres \n avec poids > 0 et taille > 0 \n\n Les animaux portant un même nom \n ont des propriétaires différents " as N2
-note "La durée d'un traitement est en jour.s \n avec durée > 0" as N3 
-note "Il peut exister des ClasseEspèce pour lesquelles il n'y pas de personnel specialisé" as N5 
+note "Le poids est en kilogrammes et la taille en centimètres \n avec poids > 0 et taille > 0 \n\nLes animaux portant un même nom \n ont des propriétaires différents \n\n Un animal n'est pas obligé de suivre un traitement" as N2
+note "La durée d'un traitement est en jours \navec durée > 0" as N3 
+note "Il peut exister des classes espèces pour lesquelles il n'y pas de personnel médical specialisé \n\nUne classe d'espèce peut ne pas avoir d'espèce associée" as N5 
 note "La clinique utilise uniquement des médicaments autorisés" as N6
-note  "{(nom,prenom,date) key }" as N7
+note  "{(nom,prenom,dateNaissance) key }" as N7
 note " quantité > 0 " as N8 
-note " Tous les attributs sont en NOT NULL excepté \n pour la dateNaissance de l'animal " as N9 
+note " Tous les attributs sont en NOT NULL excepté \npour la dateNaissance de l'animal " as N9 
 note " Tous les héritages sont exclusifs" as N10 
 note " Tous les membres du personnel médical ont forcément une spécialité" as N11
+note "Une espèce peut ne pas avoir d'animal associé " as N12 
+
 
 Personne -- N1 
 Animal -- N2 
@@ -95,6 +97,7 @@ Medicament -- N6
 Personne -- N7 
 Préscription -- N8 
 PersonnelMedical -- N11 
+Espèce -- N12 
 
 
 
