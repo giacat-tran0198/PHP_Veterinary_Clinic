@@ -23,5 +23,3 @@ Une personne, donc un client ou un membre du personnel, est identifié de façon
 ## Analyse des données statistiques de la clinique
 
 Le client voudrait avoir les poids et tailles moyens des animaux d'une espèce traités. Il n'a donc pas besoin d'un historique des différents poids et taille d'un même individu. A chaque nouvelle mesure, celle-ci écrase l'ancienne valeur. 
-
-### Gestion des animaux 
