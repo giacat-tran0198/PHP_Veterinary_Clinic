@@ -12,6 +12,8 @@ Il était auparavant envisagé que d'autres postes soient ajoutés plus tard dan
 
 Deux animaux traités dans la clinique peuvent porter le même nom. Cependant, plusieurs animaux traités ayant le même propriétaire ont tous un nom unique.
 
+Nous nous autorisons d'avoir des classes d'espèces pour lesquels il n'existe pas de personnel médical spécialisé dans la clinique. L'ajout de nouvelles classes d'espèces est possible, pour permettre l'ajout d'une plus grande variété d'animaux. 
+
 ### Gestion des traitements
 Un médicament enregistré dans les données de la clinique est forcément autorisé à au moins une espèce.
 
@@ -21,6 +23,3 @@ Une personne, donc un client ou un membre du personnel, est identifié de façon
 ## Analyse des données statistiques de la clinique
 
 Le client voudrait avoir les poids et tailles moyens des animaux d'une espèce traités. Il n'a donc pas besoin d'un historique des différents poids et taille d'un même individu. A chaque nouvelle mesure, celle-ci écrase l'ancienne valeur. 
-
-### Gestion des animaux : 
-Nous nous autorisons d'avoir des classes d'espèces pour lesquels il n'existe pas de personnel médical spécialisé dans la clinique. L'ajout de nouvelles classes d'espèces est possible, pour permettre l'ajout d'une plus grande variété d'animaux. 
