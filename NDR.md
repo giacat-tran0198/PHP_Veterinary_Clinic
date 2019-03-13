@@ -1,4 +1,4 @@
-Note de rectification 
+Note de révision
 ==
 Cette note vient apporter des changements et des précisions à la note de clarification.
 ## Fonctions principales de la base de données
