@@ -83,7 +83,6 @@ note "Il peut exister des ClasseEspèce pour lesquelles il n'y pas de personnel 
 note "La clinique utilise uniquement des médicament autorisé" as N6
 note  "{(nom,prenom,date) key }" as N7
 note " quantité > 0 " as N8 
-
 note " Tous les attributs sont en NOT NULL excepté \n pour la dateNaissance de l'Animal " as N9 
 note " Tous les héritages sont exclusifs" as N10 
 
