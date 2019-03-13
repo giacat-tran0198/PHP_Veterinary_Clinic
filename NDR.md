@@ -20,7 +20,7 @@ Une personne, donc un client ou un membre du personnel, est identifié de façon
 
 ## Analyse des données statistiques de la clinique
 
-Le client voudrait avoir les poids et tailles moyens des animaux d'une espèce traités. Il n'a donc pas besoin d'un historique des differents poids et taille d'un même individu (animal). A chaque nouvelle mesure, celle-ci est mise à jour en écrasant l'ancienne valeur. 
+Le client voudrait avoir les poids et tailles moyens des animaux d'une espèce traités. Il n'a donc pas besoin d'un historique des différents poids et taille d'un même individu. A chaque nouvelle mesure, celle-ci écrase l'ancienne valeur. 
 
 ### Gestion des animaux : 
 Nous nous autorisons d'avoir des classes d'espèces pour lesquels il n'existe pas de personnel médical spécialisé dans la clinique. L'ajout de nouvelles classes d'espèces est possible, pour permettre l'ajout d'une plus grande variété d'animaux. 
