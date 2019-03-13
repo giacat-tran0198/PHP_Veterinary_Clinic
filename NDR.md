@@ -18,3 +18,6 @@ Un médicament enregistré dans les données de la clinique est forcément autor
 ## Analyse des données statistiques de la clinique
 
 Le client voudrait avoir les poids et tailles moyens des animaux d'une espèce traités. Il n'a donc pas besoin d'un historique des differents poids et taille d'un même individu (animal). A chaque nouvelle mesure, celle-ci est mise à jour en écrasant l'ancienne valeur. 
+
+### Gestion des animaux : 
+Pour la classe espèce, nous nous autorisons une plus grande liberté pour la classe des espèces, en s'autorisant d'avoir des classes d'espèces pour lesquels ils n'existent pas de personnel médical spécialisé. De plus, on s'autorise à ajouter des classes en plus, pour permettre l'ajout d'une plus grande variété d'animaux. 
