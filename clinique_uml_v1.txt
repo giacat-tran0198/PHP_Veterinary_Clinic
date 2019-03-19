@@ -46,7 +46,7 @@ class Traitement {
     durée : integer 
 }
 
-class Préscription {
+class Prescription {
     quantité : integer 
 }
 
@@ -62,12 +62,14 @@ abstract class Personne
 Veterinaire "1" -- "*" Traitement : prescrit  >
 Client "1" -- "1..*" Animal : possede  >
 Animal "1" -- "*" Traitement : suit >
-Medicament "1" -- "*" Préscription : concerne  <
-Préscription "1..*" --* "1" Traitement : contient <
 Animal "*" -- "1" Espèce : appartient >
 Espèce "*" -- "1" ClasseEspèce : appartient >
 PersonnelMedical "*" -- "1" ClasseEspèce : spécialiste de  > 
 Medicament "*" -- "1..*" Espèce : autorisé pour > 
+
+Medicament "1..*" - "*" Traitement
+(Medicament,Traitement)..Prescription
+
 
 
 Personne            <|-- Client
@@ -95,7 +97,7 @@ Traitement -- N3
 ClasseEspèce -- N5 
 Medicament -- N6 
 Personne -- N7 
-Préscription -- N8 
+Prescription -- N8 
 PersonnelMedical -- N11 
 Espèce -- N12 
 
