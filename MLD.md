@@ -6,7 +6,7 @@
 
 **Animal**(#id : integer, nom : string, proprietaire=>Client(id), poids : float, taille: float, dateNaissance : date , espece=>Espece(nom))
   
-  avec {(poids,taille,espece) NOT NULL AND (poids > 0) AND (taille > 0) AND (nom, proprietaire) clé candidate }
+  avec {(nom, proprietaire, poids, taille, espece) NOT NULL AND (poids > 0) AND (taille > 0) AND (nom, proprietaire) clé candidate }
 
 **Veterinaire**(#id : integer, nom : string, prenom : string, dateNaissance : date, adresse : string, numero: char(10),specialite=>ClasseEspece(nom))
   
