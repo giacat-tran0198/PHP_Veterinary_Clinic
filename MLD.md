@@ -4,9 +4,9 @@
   
   avec {(nom,prenom,dateNaissance,adresse,numero) NOT NULL AND (numero compose de 10 chiffres) AND (nom,prenom,dateNaissance) clé candidate }
 
-**Animal**(#nom : string, #proprietaire=>Client(id), poids : float, taille: float, dateNaissance : date , espece=>Espece(nom))
+**Animal**(#id : integer, nom : string, proprietaire=>Client(id), poids : float, taille: float, dateNaissance : date , espece=>Espece(nom))
   
-  avec {(poids,taille,espece) NOT NULL AND (poids > 0) AND (taille > 0) }
+  avec {(poids,taille,espece) NOT NULL AND (poids > 0) AND (taille > 0) AND (nom, proprietaire) clé candidate }
 
 **Veterinaire**(#id : integer, nom : string, prenom : string, dateNaissance : date, adresse : string, numero: char(10),specialite=>ClasseEspece(nom))
   
@@ -28,7 +28,7 @@
 
 **AutorisationMedicament**(#medicament=>Medicament(nomMolecule),#espece=>Espece(nom))
 
-**Traitement**(#id : integer, debut : date, animal=>Animal(nom), duree :integer, veterinaire=>Veterinaire(id))
+**Traitement**(#id : integer, debut : date, animal=>Animal(id), duree :integer, veterinaire=>Veterinaire(id))
   
   avec {(debut,animal,duree,veterinaire) NOT NULL AND (duree > 0)}
 
@@ -51,4 +51,4 @@
 ## Justifications : 
 Pour les personnes nous avons choisi un héritage par classe fille car ce sont des héritages exclusifs, de plus la classe mère est abstraite et ne possède aucune association.
 
-Nous avons choisi de créer une clé artificielle pour les relations suivantes : Client, Veterinaire, Assistant et Traitement. Utiliser une clé naturelle aurait nécéssité l'ajout de plusieurs attributs dans les relations, ce qui complexifie la manipulation et la récupération des données.
+Nous avons choisi de créer une clé artificielle pour les relations suivantes : Client, Animal, Veterinaire, Assistant et Traitement. Utiliser une clé naturelle aurait nécéssité l'ajout de plusieurs attributs dans les relations, ce qui complexifie la manipulation et la récupération des données.
