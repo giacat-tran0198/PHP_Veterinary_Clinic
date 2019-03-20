@@ -32,8 +32,8 @@
 
 Projection(Medicament,nomMolecule)=Projection(AutorisationMedicament,medicament). Permet de vérifier que tous les médicaments sont autorisés pour au moins une espèce.
 Projection(Animal,proprietaire)=Projection(Client,id). Permet de vérifier que tous les clients font soigner au moins un animal dans la clinique.
-
-## Questions et justification à voir : 
+vPersonnelMedical=Projection(Union(Veterinaire,Assistant),id,nom,prenom,dateNaissance)
+## Questions et justifications : 
 Pour les personnes nous avons choisi un héritage par classe fille car ce sont des héritages exclusifs,de plus la classe mère est abstraite et ne possède aucune association.
 
 
