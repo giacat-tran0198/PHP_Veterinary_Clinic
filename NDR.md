@@ -37,7 +37,9 @@ Un médicament enregistré dans les données de la clinique est forcément autor
 
 Le client voudrait avoir les poids et tailles moyens des animaux d'une espèce traitée. Il n'a donc pas besoin d'un historique des différents poids et taille d'un même individu. A chaque nouvelle mesure, celle-ci écrase l'ancienne valeur. 
 
+## MCD : UML
 
+La classe Prescription a été transformée en une classe association entre Traitement et Médicament.
 _______________________________
 
 
