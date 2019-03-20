@@ -29,18 +29,24 @@
 **AutorisationMedicament**(#medicament=>Medicament(nomMolecule),#espece=>Espece(nom))
 
 **Traitement**(#id : integer, debut : date, animal=>Animal(nom), duree :integer, veterinaire=>Veterinaire(id))
+  
   avec {(debut,animal,duree,veterinaire) NOT NULL AND (duree > 0)}
 
 **Prescription**(#medicament=>Medicament(nomMolecule),#traitement=>Traitement(idTraitement),quantite : integer)
+  
   avec {(quantite) NOT NULL AND (quantite > 0)}
 
 ## Contraintes
 
-Projection(Medicament,nomMolecule)=Projection(AutorisationMedicament,medicament). Permet de vérifier que tous les médicaments sont autorisés pour au moins une espèce.
-Projection(Animal,proprietaire)=Projection(Client,id). Permet de vérifier que tous les clients font soigner au moins un animal dans la clinique.
-vPersonnelMedical=Union(Veterinaire,Assistant)
-Pour s'assurer qu'aucun membre du personnel médical ne fait soigner un de ses animaux dans la clinique, il faut vérifier que :
-Jointure(vPersonnelMedical,Client,vPersonnelMedical.nom=Client.nom, vPersonnelMedical.prenom=Client.prenom, vPersonnelMedical.dateNaissance=Client.dateNaissance)=ensemble vide.
+- Projection(Medicament,nomMolecule)=Projection(AutorisationMedicament,medicament). 
+  - Permet de vérifier que tous les médicaments sont autorisés pour au moins une espèce.
+- Projection(Animal,proprietaire)=Projection(Client,id). 
+  - Permet de vérifier que tous les clients font soigner au moins un animal dans la clinique.
+- vPersonnelMedical=Union(Veterinaire,Assistant)
+  - Permet d'obtenir l'ensemble du personnel médical.
+- Jointure(vPersonnelMedical,Client,vPersonnelMedical.nom=Client.nom, vPersonnelMedical.prenom=Client.prenom, vPersonnelMedical.dateNaissance=Client.dateNaissance)=ensemble vide.
+  - Pour s'assurer qu'aucun membre du personnel médical ne fait soigner un de ses animaux dans la clinique. 
+
 
 ## Questions et justifications : 
 Pour les personnes nous avons choisi un héritage par classe fille car ce sont des héritages exclusifs, de plus la classe mère est abstraite et ne possède aucune association.
