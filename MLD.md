@@ -30,10 +30,9 @@
 
 
 ## Questions et justification à voir : 
-Pour les personnes nous avons choisi un héritage par classe fille car ce sont des hériatges exclusifs et de plus la classe mère est abstraite et ne possède aucune association.
-Idée : changer la clé de Client et PersonnelMedical au numéro de téléphone car toutes personnes à un numéro unique et non null. De plus cela faiclite les références entre classe.
+Pour les personnes nous avons choisi un héritage par classe fille car ce sont des hériatges exclusifs,de plus la classe mère est abstraite et ne possède aucune association.
 
 
-Problème avec PersonnelMedical, Veterinaire et Assistant : héritage par classe fille ou référence ??????
-Problème avec traitement : un animal peut suivre plusieurs traitement avec meme date de début préscrit par différent veterinaire ??????
-Création d'une clé artificielle pour Traitement, en raison de la complexité des clés naturelles existantes
+
+
+Nous avons choisi de créer une clé artificielle pour les relations suivantes : Client, Veterinaire, Assistant et Traitement.
