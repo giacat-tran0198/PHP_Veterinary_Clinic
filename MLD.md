@@ -5,21 +5,26 @@
   avec {(nom,prenom,dateNaissance,adresse,numero) NOT NULL AND (numero compose de 10 chiffres) AND (nom,prenom,dateNaissance) clé candidate }
 
 **Animal**(#nom : string, #proprietaire=>Client(id), poids : float, taille: float, dateNaissance : date , espece=>Espece(nom))
+  
   avec {(poids,taille,espece) NOT NULL AND (poids > 0) AND (taille > 0) }
 
 **Veterinaire**(#id : integer, nom : string, prenom : string, dateNaissance : date, adresse : string, numero: char(10),specialite=>ClasseEspece(nom))
+  
   avec {(nom,prenom,dateNaissance,adresse,numero,specialite) NOT NULL AND (numero compose de 10 chiffres) AND (nom,prenom,dateNaissance) clé candidate }
 
 **Assistant**(#id : integer, nom : string, prenom : string, dateNaissance : date, adresse : string, numero: char(10),specialite=>ClasseEspece(nom))
+  
   avec {(nom,prenom,dateNaissance,adresse,numero,specialite) NOT NULL AND (numero compose de 10 chiffres) AND (nom,prenom,dateNaissance) clé candidate }
 
 **ClasseEspece**(#nom : string)
 
 **Espece**(#nom: string,classe=>ClasseEspece(nom))
-    avec {(classe) NOT NULL}
+  
+  avec {(classe) NOT NULL}
 
 **Medicament**(#nomMolecule : string, description : string )
-    avec {(description) NOT NULL}
+  
+  avec {(description) NOT NULL}
 
 **AutorisationMedicament**(#medicament=>Medicament(nomMolecule),#espece=>Espece(nom))
 
