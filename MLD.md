@@ -1,6 +1,7 @@
 # MLD : Clinique Vétérinaire :
 
 **Client**(#id : integer, nom : string, prenom : string, dateNaissance : date, adresse : string, numero: char(10))
+  
   avec {(nom,prenom,dateNaissance,adresse,numero) NOT NULL AND (numero compose de 10 chiffres) AND (nom,prenom,dateNaissance) clé candidate }
 
 **Animal**(#nom : string, #proprietaire=>Client(id), poids : float, taille: float, dateNaissance : date , espece=>Espece(nom))
@@ -33,7 +34,8 @@
 Projection(Medicament,nomMolecule)=Projection(AutorisationMedicament,medicament). Permet de vérifier que tous les médicaments sont autorisés pour au moins une espèce.
 Projection(Animal,proprietaire)=Projection(Client,id). Permet de vérifier que tous les clients font soigner au moins un animal dans la clinique.
 vPersonnelMedical=Union(Veterinaire,Assistant)
-Il faut vérifier que Jointure(vPersonnelMedical,Client,vPersonnelMedical.nom=Client.nom, vPersonnelMedical.prenom=Client.prenom, vPersonnelMedical.dateNaissance=Client.dateNaissance)=ensemble vide.
+Pour s'assurer qu'aucun membre du personnel médical ne fait soigner un de ses animaux dans la clinique, il faut vérifier que :
+Jointure(vPersonnelMedical,Client,vPersonnelMedical.nom=Client.nom, vPersonnelMedical.prenom=Client.prenom, vPersonnelMedical.dateNaissance=Client.dateNaissance)=ensemble vide.
 
 ## Questions et justifications : 
 Pour les personnes nous avons choisi un héritage par classe fille car ce sont des héritages exclusifs, de plus la classe mère est abstraite et ne possède aucune association.
