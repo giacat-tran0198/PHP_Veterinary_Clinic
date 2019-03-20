@@ -1,16 +1,16 @@
 # MLD : Clinique Vétérinaire :
 
 **Client**(#id : integer, nom : string, prenom : string, dateNaissance : date, adresse : string, numero: char(10))
-  avec {(id,nom,prenom,dateNaissance,adresse,numero) NOT NULL AND (numero compose de 10 chiffres) }
+  avec {(nom,prenom,dateNaissance,adresse,numero) NOT NULL AND (numero compose de 10 chiffres) AND (nom,prenom,dateNaissance) clé candidate }
 
-**Animal**(#nom : string, #proprietaire=>Client(numero), poids : float, taille: float, dateNaissance : date , espece=>Espece(nom))
+**Animal**(#nom : string, #proprietaire=>Client(id), poids : float, taille: float, dateNaissance : date , espece=>Espece(nom))
   avec {(poids,taille,espece) NOT NULL AND (poids > 0) AND (taille > 0) }
 
 **Veterinaire**(#id : integer, nom : string, prenom : string, dateNaissance : date, adresse : string, numero: char(10),specialite=>ClasseEspece(nom))
-  avec {(nom,prenom,dateNaissance,adresse,numero,specialite) NOT NULL AND (numero compose de 10 chiffres) }
+  avec {(nom,prenom,dateNaissance,adresse,numero,specialite) NOT NULL AND (numero compose de 10 chiffres) AND (nom,prenom,dateNaissance) clé candidate }
 
 **Assistant**(#id : integer, nom : string, prenom : string, dateNaissance : date, adresse : string, numero: char(10),specialite=>ClasseEspece(nom))
-  avec {(nom,prenom,dateNaissance,adresse,numero,specialite) NOT NULL AND (numero compose de 10 chiffres) }
+  avec {(nom,prenom,dateNaissance,adresse,numero,specialite) NOT NULL AND (numero compose de 10 chiffres) AND (nom,prenom,dateNaissance) clé candidate }
 
 **ClasseEspece**(#nom : string)
 
@@ -20,17 +20,21 @@
 **Medicament**(#nomMolecule : string, description : string )
     avec {(description) NOT NULL}
 
-**MedicamentAutorise**(#medicament=>Medicament(nomMolecule),#espece=>Espece(nom))
+**AutorisationMedicament**(#medicament=>Medicament(nomMolecule),#espece=>Espece(nom))
 
-**Traitement**(#idTraitement : integer, debut : date, animal=>Animal(nom),proprietaire=>Animal(proprietaire), duree :integer, veterinaire=>Veterinaire(numero))
-  avec {(debut,animal,proprietaire,duree,veterinaire) NOT NULL AND (duree > 0)}
+**Traitement**(#id : integer, debut : date, animal=>Animal(nom), duree :integer, veterinaire=>Veterinaire(id))
+  avec {(debut,animal,duree,veterinaire) NOT NULL AND (duree > 0)}
 
 **Prescription**(#medicament=>Medicament(nomMolecule),#traitement=>Traitement(idTraitement),quantite : integer)
   avec {(quantite) NOT NULL AND (quantite > 0)}
 
+## Contraintes
+
+Projection(Medicament,nomMolecule)=Projection(AutorisationMedicament,medicament). Permet de vérifier que tous les médicaments sont autorisés pour au moins une espèce.
+Projection(Animal,proprietaire)=Projection(Client,id). Permet de vérifier que tous les clients font soigner au moins un animal dans la clinique.
 
 ## Questions et justification à voir : 
-Pour les personnes nous avons choisi un héritage par classe fille car ce sont des hériatges exclusifs,de plus la classe mère est abstraite et ne possède aucune association.
+Pour les personnes nous avons choisi un héritage par classe fille car ce sont des héritages exclusifs,de plus la classe mère est abstraite et ne possède aucune association.
 
 
 
