@@ -1,16 +1,16 @@
 # MLD : Clinique Vétérinaire :
 
-**Client**(nom : string, prenom : string, dateNaissance : date, adresse : string, #numero: char(10))
-  avec {(nom,prenom,dateNaissance,adresse) NOT NULL AND (numero compose de 10 chiffres) }
+**Client**(#id : integer, nom : string, prenom : string, dateNaissance : date, adresse : string, numero: char(10))
+  avec {(id,nom,prenom,dateNaissance,adresse,numero) NOT NULL AND (numero compose de 10 chiffres) }
 
 **Animal**(#nom : string, #proprietaire=>Client(numero), poids : float, taille: float, dateNaissance : date , espece=>Espece(nom))
   avec {(poids,taille,espece) NOT NULL AND (poids > 0) AND (taille > 0) }
 
-**Veterinaire**(nom : string, prenom : string, dateNaissance : date, adresse : string, #numero: char(10),specialite=>ClasseEspece(nom))
-  avec {(nom,prenom,dateNaissance,adresse,specialite) NOT NULL AND (numero compose de 10 chiffres) }
+**Veterinaire**(#id : integer, nom : string, prenom : string, dateNaissance : date, adresse : string, numero: char(10),specialite=>ClasseEspece(nom))
+  avec {(nom,prenom,dateNaissance,adresse,numero,specialite) NOT NULL AND (numero compose de 10 chiffres) }
 
-**Assistant**(nom : string, prenom : string, dateNaissance : date, adresse : string, #numero: char(10),specialite=>ClasseEspece(nom))
-  avec {(nom,prenom,dateNaissance,adresse,specialite) NOT NULL AND (numero compose de 10 chiffres) }
+**Assistant**(#id : integer, nom : string, prenom : string, dateNaissance : date, adresse : string, numero: char(10),specialite=>ClasseEspece(nom))
+  avec {(nom,prenom,dateNaissance,adresse,numero,specialite) NOT NULL AND (numero compose de 10 chiffres) }
 
 **ClasseEspece**(#nom : string)
 
