@@ -48,7 +48,7 @@
   - Pour s'assurer qu'aucun membre du personnel médical ne fait soigner un de ses animaux dans la clinique. 
 
 
-## Questions et justifications : 
+## Justifications : 
 Pour les personnes nous avons choisi un héritage par classe fille car ce sont des héritages exclusifs, de plus la classe mère est abstraite et ne possède aucune association.
 
 Nous avons choisi de créer une clé artificielle pour les relations suivantes : Client, Veterinaire, Assistant et Traitement. Utiliser une clé naturelle aurait nécéssité l'ajout de plusieurs attributs dans les relations, ce qui complexifie la manipulation et la récupération des données.
