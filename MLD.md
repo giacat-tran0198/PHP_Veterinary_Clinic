@@ -32,7 +32,7 @@
   
   avec {(debut,animal,duree,veterinaire) NOT NULL AND (duree > 0)}
 
-**Prescription**(#medicament=>Medicament(nomMolecule),#traitement=>Traitement(idTraitement),quantite : integer)
+**Prescription**(#medicament=>Medicament(nomMolecule),#traitement=>Traitement(id),quantite : integer)
   
   avec {(quantite) NOT NULL AND (quantite > 0)}
 
