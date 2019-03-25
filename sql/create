@@ -1,0 +1,23 @@
+Creation des tables
+
+1 <PRENOM>
+
+Client
+Animal
+
+2 <PRENOM>
+
+Veterinaire
+Assistant
+
+3 <PRENOM>
+Classe espèce
+espèce
+Medicament
+
+
+4 WILLIAM
+
+Autorisation Medicament
+Traitement
+Prescription
