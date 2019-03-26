@@ -12,14 +12,14 @@ Insertion Vétérinaire / Assistant
 
 Insertion Espèce / Classe Espèce
 
-INSERT INTO classeEspece(nom) VALUES(mammifere);
-INSERT INTO classeEspece(nom) VALUES(reptile);
-INSERT INTO classeEspece(nom) VALUES(oiseau);
-INSERT INTO classeEspece(nom) VALUES(autre);
+INSERT INTO classeEspece(nom) VALUES('mammifere');
+INSERT INTO classeEspece(nom) VALUES('reptile');
+INSERT INTO classeEspece(nom) VALUES('oiseau');
+INSERT INTO classeEspece(nom) VALUES('autre');
 
-INSERT INTO espece (nom,classe) VALUES(chat,mammifere);
-INSERT INTO espece (nom,classe) VALUES(chien,mammifere);
-INSERT INTO espece (nom,classe) VALUES(anaconda,reptile);
+INSERT INTO espece (nom,classe) VALUES('chat','mammifere');
+INSERT INTO espece (nom,classe) VALUES('chien','mammifere');
+INSERT INTO espece (nom,classe) VALUES('anaconda','reptile');
 
 4 <Prenom>
 
