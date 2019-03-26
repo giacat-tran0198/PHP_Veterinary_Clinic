@@ -17,20 +17,20 @@ Medicament
 
 CREATE TABLE classeEspece (
 
-    nom: VARCHAR PRIMARY KEY
+    nom VARCHAR PRIMARY KEY
 );
 
 CREATE TABLE espece (
 
-    nom: VARCHAR PRIMARY KEY,
-    classe: VARCHAR NOT NULL,
+    nom VARCHAR PRIMARY KEY,
+    classe VARCHAR NOT NULL,
     FOREIGN KEY(classe) REFERENCES classeEspece(classe)
 );
 
 CREATE TABLE medicament (
 
-    nomMolecule: VARCHAR(100) PRIMARY KEY,
-    description : VARCHAR NOT NULL
+    nomMolecule VARCHAR(100) PRIMARY KEY,
+    description VARCHAR NOT NULL
 );
 
 
