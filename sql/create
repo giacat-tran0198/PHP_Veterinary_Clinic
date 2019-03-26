@@ -24,7 +24,7 @@ CREATE TABLE espece (
 
     nom VARCHAR PRIMARY KEY,
     classe VARCHAR NOT NULL,
-    FOREIGN KEY(classe) REFERENCES classeEspece(classe)
+    FOREIGN KEY(classe) REFERENCES classeEspece(nom)
 );
 
 CREATE TABLE medicament (
