@@ -15,6 +15,25 @@ Classe espèce
 espèce
 Medicament
 
+CREATE TABLE classeEspece (
+
+    nom: VARCHAR PRIMARY KEY
+);
+
+CREATE TABLE espece (
+
+    nom: VARCHAR,
+    classe: VARCHAR NOT NULL,
+    PRIMARY KEY(nom)
+    FOREIGN KEY(classe) REFERENCES classeEspece(classe)
+);
+
+CREATE TABLE medicament (
+
+    nomMolecule: VARCHAR(100) PRIMARY KEY,
+    description : VARCHAR NOT NULL
+);
+
 
 4 WILLIAM
 
