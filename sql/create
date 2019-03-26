@@ -22,9 +22,8 @@ CREATE TABLE classeEspece (
 
 CREATE TABLE espece (
 
-    nom: VARCHAR,
+    nom: VARCHAR PRIMARY KEY,
     classe: VARCHAR NOT NULL,
-    PRIMARY KEY(nom)
     FOREIGN KEY(classe) REFERENCES classeEspece(classe)
 );
 
