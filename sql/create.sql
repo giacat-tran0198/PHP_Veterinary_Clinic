@@ -1,7 +1,8 @@
 # Creation des tables
 
+CREATE SCHEMA Clinique
 
-CREATE TABLE Client ( 
+CREATE TABLE Clinique.Client ( 
     id INTEGER SERIAL, 
     nom VARCHAR(50) NOT NULL, 
     prenom VARCHAR(50) NOT NULL, 
@@ -15,7 +16,7 @@ CREATE TABLE Client (
             LIKE ('[0-9]{10}')) 
 );
 
-CREATE TABLE Animal (
+CREATE TABLE Clinique.Animal (
     id INTEGER SERIAL, 
     nom VARCHAR(50) NOT NULL, 
     proprietaire INTEGER NOT NULL, 
@@ -29,7 +30,7 @@ CREATE TABLE Animal (
     CONSTRAINT chk_taille CHECK (taille > 0 )
 );
 
-CREATE TABLE Veterinaire(
+CREATE TABLE Clinique.Veterinaire(
   id            SERIAL,
   nom           VARCHAR(50) NOT NULL,
   prenom        VARCHAR(50) NOT NULL,
@@ -44,7 +45,7 @@ CREATE TABLE Veterinaire(
     CHECK ( numero LIKE ('0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'))
 );
 
-CREATE TABLE Assiant
+CREATE TABLE Clinique.Assistant
 (
   id            SERIAL,
   nom           VARCHAR(50) NOT NULL,
@@ -61,23 +62,23 @@ CREATE TABLE Assiant
 );
 
 
-CREATE TABLE ClasseEspece (
+CREATE TABLE Clinique.ClasseEspece (
     nom VARCHAR(50) PRIMARY KEY
 );
 
-CREATE TABLE Espece (
+CREATE TABLE Clinique.Espece (
     nom VARCHAR(50) PRIMARY KEY,
     classe VARCHAR(50) NOT NULL,
     FOREIGN KEY(classe) REFERENCES ClasseEspece(nom)
 );
 
-CREATE TABLE Medicament (
+CREATE TABLE Clinique.Medicament (
     nomMolecule VARCHAR(100) PRIMARY KEY,
     description TEXT NOT NULL
 );
 
 
-CREATE TABLE AutorisationMedicament(
+CREATE TABLE Clinique.AutorisationMedicament(
     medicament VARCHAR(100),
     espece VARCHAR(100),
     PRIMARY KEY(medicament, espece),
@@ -85,7 +86,7 @@ CREATE TABLE AutorisationMedicament(
     FOREIGN KEY(espece) REFERENCES Espece(nom)
 );
 
-CREATE TABLE Traitement (
+CREATE TABLE Clinique.Traitement (
     id INTEGER SERIAL, 
     debut DATE NOT NULL,
     animal INTEGER NOT NULL,
@@ -97,7 +98,7 @@ CREATE TABLE Traitement (
     CONSTRAINT chk_duree CHECK (duree > 0)
 );
 
-CREATE TABLE Prescription (
+CREATE TABLE Clinique.Prescription (
     medicament VARCHAR(100),
     traitement INTEGER,
     quantite INTEGER NOT NULL,
