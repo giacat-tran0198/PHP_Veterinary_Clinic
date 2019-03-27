@@ -39,12 +39,13 @@ CREATE TABLE animal (
 /* 2 <CAT> */
 CREATE TABLE Veterinaire
 (
-  id            INTEGER AUTO_INCREMENT,
+  id            SERIAL,
   nom           VARCHAR(50) NOT NULL,
   prenom        VARCHAR(50) NOT NULL,
   dateNaissance DATE        NOT NULL,
   adreesse      VARCHAR(50) NOT NULL,
   numero        CHAR(10)    NOT NULL,
+  specialite    VARCHAR(50),
   FOREIGN KEY (specialite) REFERENCES classeEspece (nom),
   PRIMARY KEY (id),
   UNIQUE (nom, prenom, dateNaissance),
@@ -53,12 +54,13 @@ CREATE TABLE Veterinaire
 );
 CREATE TABLE Assiant
 (
-  id            INTEGER AUTO_INCREMENT,
+  id            SERIAL,
   nom           VARCHAR(50) NOT NULL,
   prenom        VARCHAR(50) NOT NULL,
   dateNaissance DATE        NOT NULL,
   adreesse      VARCHAR(50) NOT NULL,
   numero        CHAR(10)    NOT NULL,
+  specialite    VARCHAR(50),
   FOREIGN KEY (specialite) REFERENCES classeEspece (nom),
   PRIMARY KEY (id),
   UNIQUE (nom, prenom, dateNaissance),
