@@ -96,6 +96,11 @@ INSERT INTO Clinique.AutorisationMedicament(medicament,espece) VALUES('ANIMAZEN'
 INSERT INTO Clinique.AutorisationMedicament(medicament,espece) VALUES('ANIMAZEN','chat');
 INSERT INTO Clinique.AutorisationMedicament(medicament,espece) VALUES('OCEVIT','perroquet');
 
+INSERT INTO Clinique.Traitement(debut,animal,duree,veterinaire) VALUES('2019-01-15',1,10,1);
+INSERT INTO Clinique.Traitement(debut,animal,duree,veterinaire) VALUES('2019-02-5',1,40,2);
+INSERT INTO Clinique.Traitement(debut,animal,duree,veterinaire) VALUES('2019-03-10',3,5,1);
+INSERT INTO Clinique.Traitement(debut,animal,duree,veterinaire) VALUES('2019-03-10',4,5,3);
+
 
 /*
 Traitement
