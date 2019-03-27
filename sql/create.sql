@@ -12,7 +12,7 @@ CREATE TABLE Client (
     UNIQUE (nom,prenom,dateNaissance), 
     CONSTRAINT ck_phone 
         CHECK(numero 
-            LIKE ('[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')) 
+            LIKE ('[0-9]{10}')) 
 );
 
 CREATE TABLE Animal (
