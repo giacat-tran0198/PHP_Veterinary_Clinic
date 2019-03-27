@@ -42,6 +42,8 @@
   - Permet de vérifier que tous les médicaments sont autorisés pour au moins une espèce.
 - Projection(Animal,proprietaire)=Projection(Client,id). 
   - Permet de vérifier que tous les clients font soigner au moins un animal dans la clinique.
+- Projection(Traitement,id)=Projection(Prescription,traitement)
+    - Permet de vérifier que tout traitement a au moins un médicament.
 - vPersonnelMedical=Union(Veterinaire,Assistant)
   - Permet d'obtenir l'ensemble du personnel médical.
 - Jointure(vPersonnelMedical,Client,vPersonnelMedical.nom=Client.nom, vPersonnelMedical.prenom=Client.prenom, vPersonnelMedical.dateNaissance=Client.dateNaissance)=ensemble vide.
