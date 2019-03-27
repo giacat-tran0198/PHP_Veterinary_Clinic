@@ -50,9 +50,14 @@ INSERT INTO espece (nom,classe) VALUES('anaconda','reptile');
 
 Insertion Medicament / Autorisation Medicament + insérer espèce + classe si non présent sur git
 
-INSERT INTO Medicament(nomMolecule,description) VALUES("Milbemax","Vermifuge pour les chiens.");
-INSERT INTO Medicament(nomMolecule,description) VALUES("Milbemax","Vermifuge pour les chiens.");
-INSERT INTO Medicament(nomMolecule,description) VALUES("Milbemax","Vermifuge pour les chiens.");
+INSERT INTO Medicament(nomMolecule,description) VALUES('MILBEMAX Comprimés Chiens','Antiparasitaire (milbémycine et praziquantel) contre les cestodes et les nématodes des chiens');
+INSERT INTO Medicament(nomMolecule,description) VALUES('ANIMAZEN','Aliment complémentaire pour les périodes de stress chez les chiens, chats.');
+INSERT INTO Medicament(nomMolecule,description) VALUES('OCEVIT','Aliment complémentaire chez les oiseaux de cage et de voliere');
+
+INSERT INTO MedicamentAutorise(medicament,espece) VALUES('MILBEMAX Comprimés Chiens','chien');
+INSERT INTO MedicamentAutorise(medicament,espece) VALUES('ANIMAZEN','chien');
+INSERT INTO MedicamentAutorise(medicament,espece) VALUES('ANIMAZEN','chat');
+INSERT INTO MedicamentAutorise(medicament,espece) VALUES('OCEVIT','oiseau');
 
 5 <En groupe mercredi>
 
