@@ -46,7 +46,7 @@ INSERT INTO espece (nom,classe) VALUES('chat','mammifere');
 INSERT INTO espece (nom,classe) VALUES('chien','mammifere');
 INSERT INTO espece (nom,classe) VALUES('anaconda','reptile');
 
-/* 4 <Prenom> */ 
+/* 4 <CAT> */ 
 
 Insertion Medicament / Autorisation Medicament + insérer espèce + classe si non présent sur git
 
