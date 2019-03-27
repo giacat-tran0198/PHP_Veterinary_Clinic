@@ -18,10 +18,13 @@ INSERT INTO Clinique.Client(nom,prenom,dateNaissance,adresse,numero) VALUES('All
 INSERT INTO Clinique.Client(nom,prenom,dateNaissance,adresse,numero) VALUES('Danilo','Melani','1999-04-15','Guerande','0643784890');
 INSERT INTO Clinique.Client(nom,prenom,dateNaissance,adresse,numero) VALUES('Halgand','Melanie','1998-01-01','Herbignac','0656764829');
 
-INSERT INTO Clinique.Animal(nom,proprietaire,poids,taille,dateNaissance,espece) VALUES ('Filou','1','500','45','2000-04-18','chat');
-INSERT INTO Clinique.Animal(nom,proprietaire,poids,taille,espece) VALUES ('Izao','3','700','55','chien');
-INSERT INTO Clinique.Animal(nom,proprietaire,poids,taille,espece) VALUES ('Cristale','4','800','60','chien');
-INSERT INTO Clinique.Animal(nom,proprietaire,poids,taille,dateNaissance,espece) VALUES ('Sunny','2','600','40','2014-12-15','chien');
+INSERT INTO Clinique.Animal(nom,proprietaire,poids,taille,dateNaissance,espece) VALUES ('Filou','1','5','45','2000-04-18','chat');
+INSERT INTO Clinique.Animal(nom,proprietaire,poids,taille,espece) VALUES ('Izao','3','7','55','chien');
+INSERT INTO Clinique.Animal(nom,proprietaire,poids,taille,espece) VALUES ('Cristale','4','8','60','chien');
+INSERT INTO Clinique.Animal(nom,proprietaire,poids,taille,dateNaissance,espece) VALUES ('Sunny','2','6','40','2014-12-15','chien');
+INSERT INTO Clinique.Animal(nom,proprietaire,poids,taille,dateNaissance,espece) VALUES ('Bob','1','20','40','2013-12-15','anaconda');
+INSERT INTO Clinique.Animal(nom,proprietaire,poids,taille,dateNaissance,espece) VALUES ('Margerite','1','600','80','2018-12-15','vache');
+
 
 INSERT INTO Clinique.Veterinaire(nom,prenom,dateNaissance,adresse,numero, specialite) VALUES('Harry','Mason','1970-02-03','Saint-Andre','0643558829', 'mammifere');
 INSERT INTO Clinique.Veterinaire(nom,prenom,dateNaissance,adresse,numero, specialite) VALUES('Cybil','Bennett','1980-12-08','Saint-Andre','0666564529', 'reptile');
@@ -35,7 +38,7 @@ INSERT INTO Clinique.Assistant(nom,prenom,dateNaissance,adresse,numero, speciali
 INSERT INTO Clinique.Assistant(nom,prenom,dateNaissance,adresse,numero, specialite) VALUES('Vincent','Smith','1988-07-12','Saint-Ange','0646564260', 'oiseau');
 INSERT INTO Clinique.Assistant(nom,prenom,dateNaissance,adresse,numero, specialite) VALUES('Eileen','Galvin','1982-05-14','Saint-Ange','0645964135', 'mammifere');
 
-INSERT INTO Clinique.Medicament(nomMolecule,description) VALUES('MILBEMAX Comprimés Chiens','Antiparasitaire (milbémycine et praziquantel) contre les cestodes et les nématodes des chiens');
+INSERT INTO Clinique.Medicament(nomMolecule,description) VALUES('MILBEMAX','Antiparasitaire (milbémycine et praziquantel) contre les cestodes et les nématodes des chiens');
 INSERT INTO Clinique.Medicament(nomMolecule,description) VALUES('ANIMAZEN','Aliment complémentaire pour les périodes de stress chez les chiens, chats.');
 INSERT INTO Clinique.Medicament(nomMolecule,description) VALUES('OCEVIT','Aliment complémentaire chez les oiseaux de cage et de voliere');
 
@@ -59,49 +62,27 @@ VALUES(
     'Anti-inflammatoire non-stéroïdien (carprofène) en solution injectable pour bovins'
 );
 
-INSERT INTO Clinique.AutorisationMedicament(medicament,espece)
-VALUES(
-    'ACTICARP 50 mg/ml',
-    'vache'
-);
+INSERT INTO Clinique.AutorisationMedicament(medicament,espece) VALUES('ACTICARP 50 mg/ml','vache');
+INSERT INTO Clinique.Medicament(nomMolecule,description) VALUES('CALCIUM REPTILE','Aliment complémentaire pour assurer la solidité de la carapace et du squelette chez les reptiles');
+INSERT INTO Clinique.Medicament(nomMolecule,description) VALUES('VITA REPTILE','Aliment complémentaire riche en vitamine pour reptiles');
 
-
-INSERT INTO Clinique.Medicament(nomMolecule,description)
-VALUES(
-    'CALCIUM REPTILE',
-    'Aliment complémentaire pour assurer la solidité de la carapace et du squelette chez les reptiles'
-);
-
-
-INSERT INTO Clinique.AutorisationMedicament(medicament,espece)
-VALUES(
-    'CALCIUM REPTILE',
-    'anaconda'
-);
-
-INSERT INTO Clinique.Medicament(nomMolecule,description)
-VALUES(
-    'VITA REPTILE',
-    'Aliment complémentaire riche en vitamine pour reptiles'
-);
-
-INSERT INTO Clinique.AutorisationMedicament(medicament,espece)
-VALUES(
-    'VITA REPTILE',
-    'anaconda'
-);
-
-INSERT INTO Clinique.AutorisationMedicament(medicament,espece) VALUES('MILBEMAX Comprimés Chiens','chien');
+INSERT INTO Clinique.AutorisationMedicament(medicament,espece) VALUES('CALCIUM REPTILE','anaconda');
+INSERT INTO Clinique.AutorisationMedicament(medicament,espece) VALUES('VITA REPTILE','anaconda');
+INSERT INTO Clinique.AutorisationMedicament(medicament,espece) VALUES('MILBEMAX','chien');
 INSERT INTO Clinique.AutorisationMedicament(medicament,espece) VALUES('ANIMAZEN','chien');
 INSERT INTO Clinique.AutorisationMedicament(medicament,espece) VALUES('ANIMAZEN','chat');
 INSERT INTO Clinique.AutorisationMedicament(medicament,espece) VALUES('OCEVIT','perroquet');
 
 INSERT INTO Clinique.Traitement(debut,animal,duree,veterinaire) VALUES('2019-01-15',1,10,1);
-INSERT INTO Clinique.Traitement(debut,animal,duree,veterinaire) VALUES('2019-02-5',1,40,2);
+INSERT INTO Clinique.Prescription(medicament,traitement,quantite) VALUES('ANIMAZEN',1,3);
+
+INSERT INTO Clinique.Traitement(debut,animal,duree,veterinaire) VALUES('2019-02-5',5,40,2);
+INSERT INTO Clinique.Prescription(medicament,traitement,quantite) VALUES('VITA REPTILE',2,3);
+INSERT INTO Clinique.Prescription(medicament,traitement,quantite) VALUES('CALCIUM REPTILE',2,3);
+
 INSERT INTO Clinique.Traitement(debut,animal,duree,veterinaire) VALUES('2019-03-10',3,5,1);
-INSERT INTO Clinique.Traitement(debut,animal,duree,veterinaire) VALUES('2019-03-10',4,5,3);
+INSERT INTO Clinique.Prescription(medicament,traitement,quantite) VALUES('MILBEMAX',3,3);
 
-
-/*
-Traitement
-Prescription */
+INSERT INTO Clinique.Traitement(debut,animal,duree,veterinaire) VALUES('2019-03-10',6,5,3);
+INSERT INTO Clinique.Prescription(medicament,traitement,quantite) VALUES('ACTICARP 50 mg/ml',4,3);
+INSERT INTO Clinique.Prescription(medicament,traitement,quantite) VALUES('ACTIDRALYTE',4,1);
