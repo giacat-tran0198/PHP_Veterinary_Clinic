@@ -1,5 +1,9 @@
 Insertions
 
+A corriger :
+
+- il manque les point virgule
+
 /* 1 <Floriane>  
 A voir pour l'insertion avec foreign key car pas sur d'etre bon  
 et pas besoin d'id car incrémenté automatiqument normalement */
@@ -16,7 +20,18 @@ INSERT INTO animal(nom,proprietaire,poids,taille,dateNaissance,espece) VALUES ('
 
 /* 2 <William> */
 
-Insertion Vétérinaire / Assistant
+
+INSERT INTO veterinaire(nom,prenom,dateNaissance,adresse,numero, specialite) VALUES('Harry','Mason','1970-02-03','Saint-Andre','0643558829', 'mammifere');
+INSERT INTO veterinaire(nom,prenom,dateNaissance,adresse,numero, specialite) VALUES('Cybil','Bennett','1980-15-08','Saint-Andre','0666564529', 'reptile');
+INSERT INTO veterinaire(nom,prenom,dateNaissance,adresse,numero, specialite) VALUES('Alessa','Gillespie','1960-18-08','Saint-Brieux','0662565859', 'oiseau');
+INSERT INTO veterinaire(nom,prenom,dateNaissance,adresse,numero, specialite) VALUES('Michael','Kaufmann','1965-05-23','Saint-Ange','0646564595', 'reptile');
+INSERT INTO veterinaire(nom,prenom,dateNaissance,adresse,numero, specialite) VALUES('James','Sunderland','1975-06-16','Saint-Mils','0648264459', 'oiseau');
+
+INSERT INTO Assistant(nom,prenom,dateNaissance,adresse,numero, specialite) VALUES('Lisa','Garland','1983-04-04','Saint-Jean','0644664456', 'oiseau');
+INSERT INTO Assistant(nom,prenom,dateNaissance,adresse,numero, specialite) VALUES('Douglas','Cartland','1972-11-10','Saint-Mils','0690564782', 'mammifere');
+INSERT INTO Assistant(nom,prenom,dateNaissance,adresse,numero, specialite) VALUES('Claudia','Wolf','1987-03-01','Saint-Andre','0641364168', 'reptile');
+INSERT INTO Assistant(nom,prenom,dateNaissance,adresse,numero, specialite) VALUES('Vincent','Smith','1988-07-12','Saint-Ange','0646564260', 'oiseau');
+INSERT INTO Assistant(nom,prenom,dateNaissance,adresse,numero, specialite) VALUES('Eileen','Galvin','1982-05-14','Saint-Ange','0645964135', 'mammifere');
 
 /* 3 <ANNA> */
 
