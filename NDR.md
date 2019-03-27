@@ -53,6 +53,6 @@ _______________________________
 
 
 ## Code SQL : 
-On suppose que tous les individus de la base ainsi que les animaux ne peuvent être né dans le futur. Pour cela, on impose une contrainte sur la date de naissance. 
+On suppose que tous les individus de la base ainsi que les animaux ne peuvent être né dans le futur. Pour cela, on impose une contrainte sur la date de naissance qui doit être dans le passé ou aujourd'hui (surtout pour les animaux). 
 
 Pour les traitements, la date de début doit soit être aujourd'hui ou dans le futur. Il est inutile pour un vétérinaire de prescrire un traitement dans le passé pour un de ses patients. La date de début doit donc être aujourd'hui ou dans le futur pour qu'elle soit respectée. 
