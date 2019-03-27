@@ -1,12 +1,5 @@
-Insertions
+# Insertions
 
-A corriger :
-
-- il manque les point virgule
-
-/* 1 <Floriane>  
-A voir pour l'insertion avec foreign key car pas sur d'etre bon  
-et pas besoin d'id car incrémenté automatiqument normalement */
 
 INSERT INTO client(nom,prenom,dateNaissance,adresse,numero) VALUES('Guerin','Maurice','1940-04-04','Saint-Andre','0643564829');
 INSERT INTO client(nom,prenom,dateNaissance,adresse,numero) VALUES('Allaire','Laurence','1969-02-04','Saint-Molf','0761444829');
@@ -18,7 +11,7 @@ INSERT INTO animal(nom,proprietaire,poids,taille,espece) VALUES ('Izao','3','700
 INSERT INTO animal(nom,proprietaire,poids,taille,espece) VALUES ('Cristale','4','800','60','chien');
 INSERT INTO animal(nom,proprietaire,poids,taille,dateNaissance,espece) VALUES ('Sunny','2','600','40','2014-12-15','chien');
 
-/* 2 <William> */
+
 
 
 INSERT INTO veterinaire(nom,prenom,dateNaissance,adresse,numero, specialite) VALUES('Harry','Mason','1970-02-03','Saint-Andre','0643558829', 'mammifere');
@@ -33,9 +26,8 @@ INSERT INTO Assistant(nom,prenom,dateNaissance,adresse,numero, specialite) VALUE
 INSERT INTO Assistant(nom,prenom,dateNaissance,adresse,numero, specialite) VALUES('Vincent','Smith','1988-07-12','Saint-Ange','0646564260', 'oiseau');
 INSERT INTO Assistant(nom,prenom,dateNaissance,adresse,numero, specialite) VALUES('Eileen','Galvin','1982-05-14','Saint-Ange','0645964135', 'mammifere');
 
-/* 3 <ANNA> */
 
-Insertion Espèce / Classe Espèce
+
 
 INSERT INTO classeEspece(nom) VALUES('mammifere');
 INSERT INTO classeEspece(nom) VALUES('reptile');
@@ -46,20 +38,69 @@ INSERT INTO espece (nom,classe) VALUES('chat','mammifere');
 INSERT INTO espece (nom,classe) VALUES('chien','mammifere');
 INSERT INTO espece (nom,classe) VALUES('anaconda','reptile');
 
-/* 4 <CAT> */ 
-
-Insertion Medicament / Autorisation Medicament + insérer espèce + classe si non présent sur git
 
 INSERT INTO Medicament(nomMolecule,description) VALUES('MILBEMAX Comprimés Chiens','Antiparasitaire (milbémycine et praziquantel) contre les cestodes et les nématodes des chiens');
 INSERT INTO Medicament(nomMolecule,description) VALUES('ANIMAZEN','Aliment complémentaire pour les périodes de stress chez les chiens, chats.');
 INSERT INTO Medicament(nomMolecule,description) VALUES('OCEVIT','Aliment complémentaire chez les oiseaux de cage et de voliere');
+
+
+INSERT INTO Medicament(nomMolecule,description) 
+VALUES(
+    'ACTIDRALYTE',
+    'Aliment complémentaire pour compenser la perte en électrolytes chez les poulains, veaux, agneaux, chevreaux et porcelets'    
+);
+
+
+INSERT INTO AutorisationMedicament(medicament,espece) 
+VALUES(
+    'ACTIDRALYTE',
+    'vache'    
+);
+
+INSERT INTO Medicament(nomMolecule,description) 
+VALUES(
+    'ACTICARP 50 mg/ml',
+    'Anti-inflammatoire non-stéroïdien (carprofène) en solution injectable pour bovins'    
+);
+
+INSERT INTO AutorisationMedicament(medicament,espece) 
+VALUES(
+    'ACTICARP 50 mg/ml',
+    'vache'    
+);
+
+
+INSERT INTO Medicament(nomMolecule,description) 
+VALUES(
+    'CALCIUM REPTILE',
+    'Aliment complémentaire pour assurer la solidité de la carapace et du squelette chez les reptiles'    
+);
+
+
+INSERT INTO AutorisationMedicament(medicament,espece) 
+VALUES(
+    'CALCIUM REPTILE',
+    'anaconda'    
+);
+
+INSERT INTO Medicament(nomMolecule,description) 
+VALUES(
+    'VITA REPTILE',
+    'Aliment complémentaire riche en vitamine pour reptiles'    
+);
+
+INSERT INTO AutorisationMedicament(medicament,espece) 
+VALUES(
+    'VITA REPTILE',
+    'anaconda'    
+);
 
 INSERT INTO MedicamentAutorise(medicament,espece) VALUES('MILBEMAX Comprimés Chiens','chien');
 INSERT INTO MedicamentAutorise(medicament,espece) VALUES('ANIMAZEN','chien');
 INSERT INTO MedicamentAutorise(medicament,espece) VALUES('ANIMAZEN','chat');
 INSERT INTO MedicamentAutorise(medicament,espece) VALUES('OCEVIT','oiseau');
 
-5 <En groupe mercredi>
+
 
 Traitement
 Prescription
