@@ -109,3 +109,13 @@ CREATE TABLE Clinique.Prescription (
     FOREIGN KEY(traitement) REFERENCES Clinique.Traitement(id),
     CONSTRAINT chk_quantite CHECK (quantite > 0)
 );
+
+
+
+/* Vues */
+
+CREATE VIEW Clinique.VPersonnelMedical (nom,prenom,dateNaissance,adresse,numero,specialite)
+AS
+SELECT V.nom,V.prenom,V.dateNaissance,V.adresse,V.numero,V.specialite FROM Clinique.Veterinaire V
+UNION
+SELECT A.nom,A.prenom,A.dateNaissance,A.adresse,A.numero,A.specialite FROM Clinique.Assistant A;
