@@ -1,10 +1,10 @@
-Creation des tables
+/*Creation des tables
 
 A corriger :
 
 - nom d'une table commence par une majuscule
 - manque des virgules parfois
-- vérifier que des types équivalents ont été mis à chaque fois (notamment pour les clefs étrangères), parfois les varchar n'ont pas de limite de caractères
+- vérifier que des types équivalents ont été mis à chaque fois (notamment pour les clefs étrangères), parfois les varchar n'ont pas de limite de caractères*/
 
 /* 1 <Floriane> De plus correction du prof a faire ! */
 
@@ -36,10 +36,35 @@ CREATE TABLE animal (
     CONSTRAINT chk_taille CHECK (taille > 0 )
 )
 
-/* 2 <PRENOM> */
-
-Veterinaire
-Assistant
+/* 2 <CAT> */
+CREATE TABLE Veterinaire
+(
+  id            INTEGER AUTO_INCREMENT,
+  nom           VARCHAR(50) NOT NULL,
+  prenom        VARCHAR(50) NOT NULL,
+  dateNaissance DATE        NOT NULL,
+  adreesse      VARCHAR(50) NOT NULL,
+  numero        CHAR(10)    NOT NULL,
+  FOREIGN KEY (specialite) REFERENCES classeEspece (nom),
+  PRIMARY KEY (id),
+  UNIQUE (nom, prenom, dateNaissance),
+  CONSTRAINT ck_phone
+    CHECK ( numero LIKE ('0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'))
+);
+CREATE TABLE Assiant
+(
+  id            INTEGER AUTO_INCREMENT,
+  nom           VARCHAR(50) NOT NULL,
+  prenom        VARCHAR(50) NOT NULL,
+  dateNaissance DATE        NOT NULL,
+  adreesse      VARCHAR(50) NOT NULL,
+  numero        CHAR(10)    NOT NULL,
+  FOREIGN KEY (specialite) REFERENCES classeEspece (nom),
+  PRIMARY KEY (id),
+  UNIQUE (nom, prenom, dateNaissance),
+  CONSTRAINT ck_phone
+    CHECK ( numero LIKE ('0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'))
+);
 
 /* 3 <ANNA> */
 Classe espèce
