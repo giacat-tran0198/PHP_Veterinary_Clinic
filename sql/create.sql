@@ -2,8 +2,6 @@
 
 CREATE SCHEMA Clinique ;
 
-
-
 CREATE TABLE Clinique.ClasseEspece (
     nom VARCHAR(50) PRIMARY KEY
 );
