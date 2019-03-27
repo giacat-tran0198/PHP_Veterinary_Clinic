@@ -107,3 +107,5 @@ CREATE TABLE Clinique.Prescription (
     FOREIGN KEY(traitement) REFERENCES Traitement(id),
     CONSTRAINT chk_quantite CHECK (quantite > 0)
 );
+
+
