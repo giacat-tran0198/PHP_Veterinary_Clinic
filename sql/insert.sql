@@ -53,11 +53,11 @@ INSERT INTO Clinique.Medicament(nomMolecule,description) VALUES('MILBEMAX','Anti
 INSERT INTO Clinique.Medicament(nomMolecule,description) VALUES('ANIMAZEN','Aliment complémentaire pour les périodes de stress chez les chiens, chats.');
 INSERT INTO Clinique.Medicament(nomMolecule,description) VALUES('OCEVIT','Aliment complémentaire chez les oiseaux de cage et de voliere');
 INSERT INTO Clinique.Medicament(nomMolecule,description) VALUES('ACTIDRALYTE', 'Aliment complémentaire pour compenser la perte en électrolytes chez les poulains, veaux, agneaux, chevreaux et porcelets');
-INSERT INTO Clinique.Medicament(nomMolecule,description) VALUES('ACTICARP 50 mg/ml','Anti-inflammatoire non-stéroïdien (carprofène) en solution injectable pour bovins');
+INSERT INTO Clinique.Medicament(nomMolecule,description) VALUES('ACTICARP','Anti-inflammatoire non-stéroïdien (carprofène) en solution injectable pour bovins');
 INSERT INTO Clinique.Medicament(nomMolecule,description) VALUES('CALCIUM REPTILE','Aliment complémentaire pour assurer la solidité de la carapace et du squelette chez les reptiles');
 INSERT INTO Clinique.Medicament(nomMolecule,description) VALUES('VITA REPTILE','Aliment complémentaire riche en vitamine pour reptiles');
 
-INSERT INTO Clinique.AutorisationMedicament(medicament,espece) VALUES('ACTICARP 50 mg/ml','vache');
+INSERT INTO Clinique.AutorisationMedicament(medicament,espece) VALUES('ACTICARP','vache');
 INSERT INTO Clinique.AutorisationMedicament(medicament,espece) VALUES('ACTIDRALYTE','vache');
 INSERT INTO Clinique.AutorisationMedicament(medicament,espece) VALUES('CALCIUM REPTILE','anaconda');
 INSERT INTO Clinique.AutorisationMedicament(medicament,espece) VALUES('VITA REPTILE','anaconda');
@@ -77,5 +77,5 @@ INSERT INTO Clinique.Traitement(debut,animal,duree,veterinaire) VALUES('2019-03-
 INSERT INTO Clinique.Prescription(medicament,traitement,quantite) VALUES('MILBEMAX',3,3);
 
 INSERT INTO Clinique.Traitement(debut,animal,duree,veterinaire) VALUES('2019-03-10',6,5,3);
-INSERT INTO Clinique.Prescription(medicament,traitement,quantite) VALUES('ACTICARP 50 mg/ml',4,3);
+INSERT INTO Clinique.Prescription(medicament,traitement,quantite) VALUES('ACTICARP',4,3);
 INSERT INTO Clinique.Prescription(medicament,traitement,quantite) VALUES('ACTIDRALYTE',4,1);
