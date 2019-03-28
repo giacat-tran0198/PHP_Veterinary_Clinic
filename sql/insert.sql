@@ -66,16 +66,16 @@ INSERT INTO Clinique.AutorisationMedicament(medicament,espece) VALUES('ANIMAZEN'
 INSERT INTO Clinique.AutorisationMedicament(medicament,espece) VALUES('ANIMAZEN','chat');
 INSERT INTO Clinique.AutorisationMedicament(medicament,espece) VALUES('OCEVIT','perroquet');
 
-INSERT INTO Clinique.Traitement(debut,animal,duree,veterinaire) VALUES('2019-01-15',1,10,1);
+INSERT INTO Clinique.Traitement(debut,animal,duree,veterinaire) VALUES('2019-08-15',1,10,1);
 INSERT INTO Clinique.Prescription(medicament,traitement,quantite) VALUES('ANIMAZEN',1,3);
 
-INSERT INTO Clinique.Traitement(debut,animal,duree,veterinaire) VALUES('2019-02-5',5,40,2);
+INSERT INTO Clinique.Traitement(debut,animal,duree,veterinaire) VALUES('2019-07-5',5,40,2);
 INSERT INTO Clinique.Prescription(medicament,traitement,quantite) VALUES('VITA REPTILE',2,3);
 INSERT INTO Clinique.Prescription(medicament,traitement,quantite) VALUES('CALCIUM REPTILE',2,3);
 
-INSERT INTO Clinique.Traitement(debut,animal,duree,veterinaire) VALUES('2019-03-10',3,5,1);
+INSERT INTO Clinique.Traitement(debut,animal,duree,veterinaire) VALUES('2019-09-10',3,5,1);
 INSERT INTO Clinique.Prescription(medicament,traitement,quantite) VALUES('MILBEMAX',3,3);
 
-INSERT INTO Clinique.Traitement(debut,animal,duree,veterinaire) VALUES('2019-03-10',6,5,3);
+INSERT INTO Clinique.Traitement(debut,animal,duree,veterinaire) VALUES('2019-10-10',6,5,3);
 INSERT INTO Clinique.Prescription(medicament,traitement,quantite) VALUES('ACTICARP',4,3);
 INSERT INTO Clinique.Prescription(medicament,traitement,quantite) VALUES('ACTIDRALYTE',4,1);
