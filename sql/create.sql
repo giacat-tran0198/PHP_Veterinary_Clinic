@@ -1,5 +1,10 @@
 /* Creation des tables */
 
+/* Pas besoin de contraintes sur les dates : 
+    CONSTRAINT chk_naissance 
+        CHECK (dateNaissance <= NOW())
+*/ 
+
 CREATE SCHEMA Clinique ;
 
 CREATE TABLE Clinique.ClasseEspece (
@@ -23,8 +28,6 @@ CREATE TABLE Clinique.Client (
     UNIQUE (nom,prenom,dateNaissance),
     CONSTRAINT ck_phone
         CHECK(numero ~ '[0-9]{10}'),
-    CONSTRAINT chk_naissance 
-        CHECK (dateNaissance <= NOW())
 );
 
 CREATE TABLE Clinique.Animal (
@@ -40,8 +43,6 @@ CREATE TABLE Clinique.Animal (
     UNIQUE (nom,proprietaire),
     CONSTRAINT chk_poids CHECK (poids > 0),
     CONSTRAINT chk_taille CHECK (taille > 0 ),
-    CONSTRAINT chk_naissance 
-        CHECK (dateNaissance <= NOW())
 );
 
 CREATE TABLE Clinique.Veterinaire(
@@ -57,8 +58,6 @@ CREATE TABLE Clinique.Veterinaire(
     UNIQUE (nom, prenom, dateNaissance),
     CONSTRAINT ck_phone
         CHECK ( numero ~ '[0-9]{10}'),
-    CONSTRAINT chk_naissance 
-        CHECK (dateNaissance <= NOW())
 );
 
 CREATE TABLE Clinique.Assistant
@@ -75,8 +74,6 @@ CREATE TABLE Clinique.Assistant
     UNIQUE (nom, prenom, dateNaissance),
     CONSTRAINT ck_phone
         CHECK ( numero ~ '[0-9]{10}'), 
-    CONSTRAINT chk_naissance 
-        CHECK (dateNaissance <= NOW())
 );
 
 
@@ -104,8 +101,6 @@ CREATE TABLE Clinique.Traitement (
     FOREIGN KEY(animal) REFERENCES Clinique.Animal(id),
     FOREIGN KEY(veterinaire) REFERENCES Clinique.Veterinaire(id),
     CONSTRAINT chk_duree CHECK (duree > 0),
-    CONSTRAINT chk_debut 
-        CHECK (debut >= NOW())
 );
 
 CREATE TABLE Clinique.Prescription (
