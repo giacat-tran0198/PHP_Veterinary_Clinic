@@ -80,7 +80,7 @@ Veterinaire et Assistant  sont en **3NF**
 
 Medicament est en **3NF** 
 
-AutorisationMedicament 
+`AutorisationMedicament`
 - 2NF ? 
     - 1NF 
     - Oui, ccar il n'y pas d'attribut non clé  
@@ -88,22 +88,24 @@ AutorisationMedicament
     - 2NF 
     - Oui, car il n'y pas d'attribut non clé 
 
-Traitement 
+AutorisationMedicament est en **3NF**
+
+`Traitement`
 - 2NF ? 
     - 1NF 
-    - Oui, car une clé composé d'un seul attribut 
+    - Oui, car la clé est composée d'un seul attribut 
 - 3NF ? 
     - 2NF 
-    - Oui, car il n'y a aycun lien entre début, animal, duree et veterinaire. 
+    - Oui, car debut, animal, duree et veterinaire ne se déterminent pas les uns les autres
 
-La `Traitement` est en **3NF** 
+Traitement est en **3NF** 
 
-Prescription 
+`Prescription`
 - 2NF ? 
     - 1NF 
-    - Oui, car medicament ne peut déterminer une quantite et car traitement ne peut déterminer une quantité
+    - Oui, car medicament  ne peut seul déterminer une quantité, et traitement ne peut seul déterminer une quantité
 - 3NF ? 
     - 2NF 
     - Oui, car un seul attribut non clé 
 
-La `Prescription` est en **3NF** 
+Prescription est en **3NF** 
