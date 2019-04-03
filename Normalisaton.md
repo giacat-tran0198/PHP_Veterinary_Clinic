@@ -1,6 +1,6 @@
 # Normalisation 
 
-L'objectif est de revoir notre modèle actuel sur les compositions, les contraintes ansi que s'assurer que le modèle respecte une **3NF** 
+L'objectif est de revoir notre modèle actuel sur les compositions, les contraintes ansi que de s'assurer que le modèle respecte une **3NF** 
 
 Pour chaque table il faudra vérifier : 
 - 1NF ? : 
@@ -25,7 +25,7 @@ ClasseEspece :
     - 2NF
     - Oui, car un seul attribut dans la classe 
 
-La `ClasseEsece` est en **3NF** 
+La `ClasseEspece` est en **3NF** 
 
 Espece : 
 - 2NF ? 
