@@ -1,19 +1,19 @@
 # Normalisation 
 
-L'objectif est de revoir notre modèle actuel sur les compositions, les contraintes ansi que de s'assurer que le modèle respecte une **3NF** 
+L'objectif est de revoir notre modèle actuel sur les compositions, les contraintes ansi que de s'assurer que toutes les tables du modèle sont en **3NF**.
 
 Pour chaque table il faudra vérifier : 
 - 1NF ? : 
-    - clé ? 
+    - existence d'une clé ? 
     - atomicité ? 
 - 2NF ? : 
     - 1NF ? 
     - Attribut non clé qui ne peuvent être déterminé par une partie de la clé ? 
 - 3NF ? 
     - 2NF ? 
-    - Un attribut non clé ne détermine pas d'attribut non clé ? 
+    - Un attribut non clé ne détermine pas d'autre attribut non clé ? 
 
-La partie 1NF est respecté pour toutes les tables car elles comportent toutes au moins une clé candidate et car une clé  est un ensemble d’attribut minimal qui permet de determiner tous les autres attributs de facon unique.. Et tous les attributs de ces tables sont atomiques. 
+Toutes les relation sont en 1NF car elles comportent toutes au moins une clé candidate, et une clé  est un ensemble d’attributs minimal qui permet de déterminer tous les autres attributs de facon unique. Tous les attributs de ces tables sont atomiques. 
 
 Ensuite pour la vérification de 2NF et 3NF, nous allons analysé chaque table séparément de la même manièe que cela a été présenté ci-dessus :  
 
