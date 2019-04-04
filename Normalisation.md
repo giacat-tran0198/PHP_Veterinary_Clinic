@@ -83,7 +83,7 @@ Medicament est en **3NF**
 `AutorisationMedicament`
 - 2NF ? 
     - 1NF 
-    - Oui, ccar il n'y pas d'attribut non clé  
+    - Oui, car il n'y pas d'attribut non clé  
 - 3NF ? 
     - 2NF 
     - Oui, car il n'y pas d'attribut non clé 
