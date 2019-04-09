@@ -109,3 +109,11 @@ Traitement est en **3NF**
     - Oui, car un seul attribut non clé 
 
 Prescription est en **3NF** 
+
+Dans toutes les tables, F désigne l'ensemble des DF, F+ la fermeture transitive et CM la couverture minimale.
+
+ClasseEspece :F={} car un seul attribut (nom). Une seule clé candidate : nom.
+
+Espece : F={nom → classe}. F+=F et CM=F. La seule clé candidate est nom.
+
+Medicament : F={nomMolecule → description}
