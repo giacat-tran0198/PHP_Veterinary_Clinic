@@ -30,3 +30,13 @@ WHERE P.medicament = M.nomMolecule AND
 GROUP BY M.nomMolecule ;
 
 /* 3) Les poids et taille moyenne des animaux d'une espèce traités */ 
+
+
+/* 4) Faire les listes des animaux pour un client donnée */ 
+
+
+/* 5) Liste des animaux par classe d'espèce */ 
+
+
+/* 6) Selection des animaux d'une tranche d'age avec $inf et $sup */ 
+

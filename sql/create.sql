@@ -61,8 +61,7 @@ CREATE TABLE Clinique.Veterinaire(
         CHECK ( numero ~ '[0-9]{10}')
 );
 
-CREATE TABLE Clinique.Assistant
-(
+CREATE TABLE Clinique.Assistant (
     id            SERIAL,
     nom           VARCHAR(50) NOT NULL,
     prenom        VARCHAR(50) NOT NULL,
@@ -120,7 +119,7 @@ CREATE TABLE Clinique.Prescription (
 /*------------------ Réalisation de vues :--------------------*/ 
 /*------------------------------------------------------------*/
 CREATE VIEW Clinique.VPersonnelMedical (nom,prenom,dateNaissance,adresse,numero,specialite)
-AS
-SELECT V.nom,V.prenom,V.dateNaissance,V.adresse,V.numero,V.specialite FROM Clinique.Veterinaire V
-UNION
-SELECT A.nom,A.prenom,A.dateNaissance,A.adresse,A.numero,A.specialite FROM Clinique.Assistant A;
+    AS
+        SELECT V.nom,V.prenom,V.dateNaissance,V.adresse,V.numero,V.specialite FROM Clinique.Veterinaire V
+        UNION
+        SELECT A.nom,A.prenom,A.dateNaissance,A.adresse,A.numero,A.specialite FROM Clinique.Assistant A;
