@@ -112,8 +112,10 @@ Prescription est en **3NF**
 
 Dans toutes les tables, F désigne l'ensemble des DF, F+ la fermeture transitive et CM la couverture minimale.
 
-ClasseEspece :F={} car un seul attribut (nom). Une seule clé candidate : nom.
+`ClasseEspece` :F={} car un seul attribut (nom). Une seule clé candidate : nom.
 
-Espece : F={nom → classe}. F+=F et CM=F. La seule clé candidate est nom.
+`Espece` : F={nom → classe}. F+=F et CM=F. La seule clé candidate est nom.
 
-Medicament : F={nomMolecule → description}
+`Medicament` : F={nomMolecule → description}. Une seule DF donc F+=F et CM=F. Une seule clé candidate : nomMolecule.
+
+`Prescription` : F={(medicament,traitement) → quantite}. Une seule DF donc F+=F. CM=F car on a besoin des 2 attributs medicament et traitement pour déterminer la quantité à prescrire. Une seule clé candidate : (médicament,traitement).
