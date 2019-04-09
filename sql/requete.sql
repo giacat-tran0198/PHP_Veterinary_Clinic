@@ -31,6 +31,11 @@ GROUP BY M.nomMolecule ;
 
 /* 3) Les poids et taille moyenne des animaux d'une espèce traités */ 
 
+SELECT A.espece, AVG(A.taille) AS tailleMoyenne, AVG(A.poids) AS poidsMoyen
+FROM Animal A
+GROUP BY A.espece
+ORDER BY A.espece ; 
+
 
 /* 4) Faire les listes des animaux pour un client donnée */ 
 
