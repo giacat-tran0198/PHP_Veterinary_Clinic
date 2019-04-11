@@ -121,8 +121,10 @@ Dans toutes les tables, F désigne l'ensemble des DF, F+ la fermeture transitive
 `Client` : 
 
 F={
+
     id → nom, prenom, dateNaissance, adresse, numero ; 
     (nom, prenom, dateNaissance) → id, adresse, numero
+
 }
 
 Numero et adresse ne se déterminent pas l'un l'autre, car le numéro peut être un numéro de portable ou de fixe.
@@ -134,14 +136,19 @@ De la même manière, (nom,prenom,dateNaissance) est une clé candidate.
 `Animal` : 
 
 F={
+
     id → nom, proprietaire,poids, taille, dateNaissance, espece ;
     (nom, proprietaire) → id, poids, taille, dateNaissance, espece
+    
 }
 
 F+= F U 
+
     {
+    
         id → classe ;
         (nom, proprietaire) → classe
+    
     }
 
 car on a espece → classe et id → espece ainsi que (nom, proprietaire) → espece
