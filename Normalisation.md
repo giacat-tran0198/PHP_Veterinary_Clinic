@@ -156,16 +156,7 @@ F={
 
 }
 
-F+= F U 
-    {
-     
-        id → classe ;
-        (nom, proprietaire) → classe
-        id → nomProprietaire, prenomProprietaire, dateNaissanceProprietaire, adresseProprietaire, numeroProprietaire
-        (nom, proprietaire) → nomProprietaire, prenomProprietaire, dateNaissanceProprietaire, adresseProprietaire, numeroProprietaire
-         
-    }
-
+F+= F
 
 CM = F
 
@@ -182,14 +173,7 @@ F={
 
 }
 
-F+= F U 
-    {
-     
-        id → nomAnimal, proprietaire, poidsAnimal, tailleAnimal, dateNaissanceAnimal, especeAnimal, classeAnimal
-        id → nomProprietaire, prenomProprietaire, dateNaissanceProprietaire, adresseProprietaire, numeroProprietaire
-        id → nomVeterinaire, prenomVeterinaire, dateNaissanceVeterinaire, adresseVeterinaire, numeroVeterinaire, specialiteVeterinaire
-         
-    }
+F+= F
 
 CM = F
 
