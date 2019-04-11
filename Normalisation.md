@@ -2,7 +2,7 @@
 
 L'objectif est de revoir notre modèle actuel sur les compositions, les contraintes ansi que de s'assurer que toutes les tables du modèle sont en **3NF**.
 
-Pour chaque table il faudra déterminer les DF, en déduire les clés candidates et vérifier : 
+Pour chaque table il faudra déterminer les DF, en déduire les clés candidates et vérifier leur forme normale: 
 - 1NF ? : 
     - existence d'une clé ? 
     - atomicité ? 
@@ -16,9 +16,6 @@ Pour chaque table il faudra déterminer les DF, en déduire les clés candidates
 Dans toutes les tables, F désigne l'ensemble des DF, F+ la fermeture transitive et CM la couverture minimale.
 
 
-Toutes les relations sont en 1NF car elles comportent toutes au moins une clé candidate, et une clé  est un ensemble d’attributs minimal qui permet de déterminer tous les autres attributs de facon unique. Tous les attributs de ces tables sont atomiques. 
-
-Ensuite, pour la vérification de 2NF et 3NF, nous allons analyser chaque table séparément de la même manière que cela a été présenté ci-dessus :  
 
 `ClasseEspece` : F={} car la table comporte un seul attribut (nom). La seule clé candidate est donc (nom).
 - 1NF ? : 
@@ -33,6 +30,7 @@ Ensuite, pour la vérification de 2NF et 3NF, nous allons analyser chaque table 
 
 ClasseEspece est en **3NF** 
 
+
 `Espece` : F={nom → classe}. F+=F et CM=F. La seule clé candidate est nom. 
 - 1NF ? : 
     - une clé : nom
@@ -45,6 +43,7 @@ ClasseEspece est en **3NF**
     - Oui, car il y a un seul attribut non clé 
 
 Espece est en **3NF** 
+
 
 `Client` :
 
@@ -87,6 +86,7 @@ De manière analogue, (nom,prenom,dateNaissance) est une clé candidate.
 
 Client est en **3NF** 
 
+
 `Animal` : 
 
 F={
@@ -128,78 +128,6 @@ id et (nom, proprietaire) sont clés candidates : ils déterminent tous les autr
 
 Animal est en **3NF** 
 
-`Veterinaire` et `Assistant`
-- 1NF ? : 
-    - deux clés : id et (nom,prenom,dateNaissance)
-    - attributs atomiques
-- 2NF ? 
-    - 1NF 
-    - Pour la clé candidate (id), c'est trivial car un seul attribut 
-    - La clé candidate (nom,prenom,dateNaissance) est bien minimale d'après la note de clarification, pour déterminer une personne. 
-- 3NF ? 
-    - 2NF 
-    - Oui, car aucun attribut non clé ne peut déterminer l'adresse, le téléphone ou la spécialité
-
-Veterinaire et Assistant  sont en **3NF** 
-
-`Medicament`
-- 1NF ? : 
-    - deux clés : id et (nom,prenom,dateNaissance)
-    - attributs atomiques
-- 2NF ? 
-    - 1NF 
-    - Oui, car il n'y a qu'un seul attribut dans la clé
-- 3NF ? 
-    - 2NF 
-    - Oui, car il y a qu'un seul attribut non clé 
-
-Medicament est en **3NF** 
-
-`AutorisationMedicament`
-- 1NF ? : 
-    - deux clés : id et (nom,prenom,dateNaissance)
-    - attributs atomiques
-- 2NF ? 
-    - 1NF 
-    - Oui, car il n'y pas d'attribut non clé  
-- 3NF ? 
-    - 2NF 
-    - Oui, car il n'y pas d'attribut non clé 
-
-AutorisationMedicament est en **3NF**
-
-`Traitement`
-- 1NF ? : 
-    - deux clés : id et (nom,prenom,dateNaissance)
-    - attributs atomiques
-- 2NF ? 
-    - 1NF 
-    - Oui, car la clé est composée d'un seul attribut 
-- 3NF ? 
-    - 2NF 
-    - Oui, car debut, animal, duree et veterinaire ne se déterminent pas les uns les autres
-
-Traitement est en **3NF** 
-
-`Prescription`
-- 1NF ? : 
-    - deux clés : id et (nom,prenom,dateNaissance)
-    - attributs atomiques
-- 2NF ? 
-    - 1NF 
-    - Oui, car medicament  ne peut seul déterminer une quantité, et traitement ne peut seul déterminer une quantité
-- 3NF ? 
-    - 2NF 
-    - Oui, car un seul attribut non clé 
-
-Prescription est en **3NF** 
-
-
-
-
-
-
-
 
 `Veterinaire` et `Assistant`
 
@@ -227,8 +155,19 @@ CM = {
     
 }
 
-id et (nom, prenom, dateNaissance) sont clés candidates.
+id et (nom, prenom, dateNaissance) sont des clés candidates, car ils déterminent tous les autres attributs.
+- 1NF ? : 
+    - deux clés : id et (nom,prenom,dateNaissance)
+    - attributs atomiques
+- 2NF ? 
+    - 1NF 
+    - Pour la clé candidate (id), c'est trivial car un seul attribut 
+    - La clé candidate (nom,prenom,dateNaissance) est bien minimale d'après la note de clarification, pour déterminer une personne. 
+- 3NF ? 
+    - 2NF 
+    - Oui, car aucun attribut non clé ne peut déterminer l'adresse, le téléphone ou la spécialité
 
+Veterinaire et Assistant  sont en **3NF** 
 
 
 `Medicament` : 
@@ -240,6 +179,41 @@ F= {
 }
 
 Une seule DF donc F+=F et CM=F. Une seule clé candidate : nomMolecule.
+- 1NF ? : 
+    - une clé : nomMolecule
+    - attributs atomiques
+- 2NF ? 
+    - 1NF 
+    - Oui, car il n'y a qu'un seul attribut dans la clé
+- 3NF ? 
+    - 2NF 
+    - Oui, car il y a qu'un seul attribut non clé 
+
+Medicament est en **3NF** 
+
+
+`AutorisationMedicament` : 
+F= {
+
+    medicament → espece
+    
+}
+
+(car une espece peut être traitée par plusieurs médicaments)
+
+Une seule DF donc F+=F et CM=F. Une seule clé candidate : medicament.
+- 1NF ? : 
+    - une clé : medicament
+    - attributs atomiques
+- 2NF ? 
+    - 1NF 
+    - Oui, car il n'y pas d'attribut non clé  
+- 3NF ? 
+    - 2NF 
+    - Oui, car il n'y pas d'attribut non clé 
+
+AutorisationMedicament est en **3NF**
+
 
 `Traitement` :
 
@@ -260,7 +234,20 @@ CM = {
 
 }
 
-id est clé candidate
+id n'est déterminé par aucun autre attribut, il fait donc partie de la clé. Comme il détermine tous les autres attributs, il est déjà une clé.
+Donc la seule clé candidate est : id.
+- 1NF ? : 
+    - une clé : id
+    - attributs atomiques
+- 2NF ? 
+    - 1NF 
+    - Oui, car la clé est composée d'un seul attribut 
+- 3NF ? 
+    - 2NF 
+    - Oui, car debut, animal, duree et veterinaire ne se déterminent pas les uns les autres
+
+Traitement est en **3NF** 
+
 
 `Prescription` : 
 
@@ -270,12 +257,23 @@ F= {
     
 }
 
-Une seule DF donc 
+Une seule DF donc F+=F et CM=F, car on a besoin des 2 attributs medicament et traitement pour déterminer la quantité à prescrire. 
 
-F+=F
+Une seule clé candidate : (medicament,traitement).
 
-CM=F 
+- 1NF ? : 
+    - une clé : (medicament, traitement)
+    - attributs atomiques
+- 2NF ? 
+    - 1NF 
+    - Oui, car medicament  ne peut seul déterminer une quantité, et traitement ne peut seul déterminer une quantité
+- 3NF ? 
+    - 2NF 
+    - Oui, car un seul attribut non clé 
 
-car on a besoin des 2 attributs medicament et traitement pour déterminer la quantité à prescrire. 
+Prescription est en **3NF** 
 
-Une seule clé candidate : (médicament,traitement).
+
+
+
+
