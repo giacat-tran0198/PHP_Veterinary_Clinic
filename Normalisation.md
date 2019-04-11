@@ -121,10 +121,8 @@ Dans toutes les tables, F désigne l'ensemble des DF, F+ la fermeture transitive
 `Client` : 
 
 F={
-
     id → nom, prenom, dateNaissance, adresse, numero ; 
-    (nom, prenom, dateNaissance) → id, adresse, numero
-
+    (nom, prenom, dateNaissance) → id, adresse, numero ; 
 }
 
 Numero et adresse ne se déterminent pas l'un l'autre, car le numéro peut être un numéro de portable ou de fixe.

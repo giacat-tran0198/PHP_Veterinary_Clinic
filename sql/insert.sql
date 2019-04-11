@@ -38,7 +38,7 @@ INSERT INTO Clinique.Assistant(nom,prenom,dateNaissance,adresse,numero, speciali
 /*------------------------------------------------------------*/
 /*---------------------- Les animaux :------------------------*/ 
 /*------------------------------------------------------------*/
-INSERT INTO Clinique.Animal(nom,proprietaire,poids,taille,dateNaissance,espece) VALUES ('Filou','1','5','45','2000-04-18','chat');
+INSERT INTO Clinique.Animal(nom,proprietaire,poids,taille,espece) VALUES ('Filou','1','5','45','chat');
 INSERT INTO Clinique.Animal(nom,proprietaire,poids,taille,espece) VALUES ('Izao','3','7','55','chien');
 INSERT INTO Clinique.Animal(nom,proprietaire,poids,taille,espece) VALUES ('Cristale','4','8','60','chien');
 INSERT INTO Clinique.Animal(nom,proprietaire,poids,taille,dateNaissance,espece) VALUES ('Sunny','2','6','40','2014-12-15','chien');
