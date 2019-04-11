@@ -46,85 +46,7 @@ ClasseEspece est en **3NF**
 
 Espece est en **3NF** 
 
-`Client`
-- 2NF ?
-    - 1NF 
-    - Pour la clé candidate (id), c'est trivial car un seul attribut 
-    - La clé candidate (nom,prenom,dateNaissance) est bien minimale, d'après la note de clarification, pour déterminer une personne. 
-- 3NF ? 
-    - 2NF 
-    - Oui, car un téléphone et une adresse ne se déterminent pas l'un l'autre : deux personnes habitant à la même adresse ont deux numéros de portable différents.
-
-Client est en **3NF** 
-
-`Animal`
-- 2NF ? 
-    - 1NF 
-    - Pour la clé candiate (id) il y a un seul attribut 
-    - Pour la clé candidate (nom,proprietaire), il n'y a aucune partie de la clé qui puisse déterminer poids, taille, dateNaissance et espece. 
-- 3NF ? 
-    - 2NF 
-    - Oui car poids, taille, dateNaissance et espece ne se déterminent pas les uns les autres
-
-Animal est en **3NF** 
-
-`Veterinaire` et `Assistant`
-- 2NF ? 
-    - 1NF 
-    - Pour la clé candidate (id), c'est trivial car un seul attribut 
-    - La clé candidate (nom,prenom,dateNaissance) est bien minimale d'après la note de clarification, pour déterminer une personne. 
-- 3NF ? 
-    - 2NF 
-    - Oui, car aucun attribut non clé ne peut déterminer l'adresse, le téléphone ou la spécialité
-
-Veterinaire et Assistant  sont en **3NF** 
-
-`Medicament`
-- 2NF ? 
-    - 1NF 
-    - Oui, car il n'y a qu'un seul attribut dans la clé
-- 3NF ? 
-    - 2NF 
-    - Oui, car il y a qu'un seul attribut non clé 
-
-Medicament est en **3NF** 
-
-`AutorisationMedicament`
-- 2NF ? 
-    - 1NF 
-    - Oui, car il n'y pas d'attribut non clé  
-- 3NF ? 
-    - 2NF 
-    - Oui, car il n'y pas d'attribut non clé 
-
-AutorisationMedicament est en **3NF**
-
-`Traitement`
-- 2NF ? 
-    - 1NF 
-    - Oui, car la clé est composée d'un seul attribut 
-- 3NF ? 
-    - 2NF 
-    - Oui, car debut, animal, duree et veterinaire ne se déterminent pas les uns les autres
-
-Traitement est en **3NF** 
-
-`Prescription`
-- 2NF ? 
-    - 1NF 
-    - Oui, car medicament  ne peut seul déterminer une quantité, et traitement ne peut seul déterminer une quantité
-- 3NF ? 
-    - 2NF 
-    - Oui, car un seul attribut non clé 
-
-Prescription est en **3NF** 
-
-
-
-
-
-
-`Client` : 
+`Client` :
 
 F={
 
@@ -150,8 +72,134 @@ CM= {
     
 }
 
-id apparaissant toujours à gauche, il appartient à une clé candidate. Comme il détermine tous les autres attributs, c'est déjà une clé.Donc id est une clé candidate.
-De la même manière, (nom,prenom,dateNaissance) est une clé candidate.
+id détermine tous les autres attributs, c'est donc une clé candidate.
+De manière analogue, (nom,prenom,dateNaissance) est une clé candidate.
+- 1NF ? : 
+    - deux clés : id et (nom,prenom,dateNaissance)
+    - attributs atomiques
+- 2NF ?
+    - 1NF 
+    - Pour la clé candidate (id), c'est trivial car un seul attribut 
+    - La clé candidate (nom,prenom,dateNaissance) est bien minimale, d'après la note de clarification, pour déterminer une personne. 
+- 3NF ? 
+    - 2NF 
+    - Oui, car un téléphone et une adresse ne se déterminent pas l'un l'autre : deux personnes habitant à la même adresse ont deux numéros de portable différents.
+
+Client est en **3NF** 
+
+`Animal` : 
+
+F={
+
+    id → nom, proprietaire,poids, taille, dateNaissance, espece ;
+    (nom, proprietaire) → id, poids, taille, dateNaissance, espece
+
+}
+
+F+= F
+
+CM = {
+
+    id → nom;
+    id → proprietaire;
+    id → poids;
+    id → taille; 
+    id → dateNaissance; 
+    id → espece;
+    (nom, proprietaire) → id;
+    (nom, proprietaire) → poids;
+    (nom, proprietaire) → taille;
+    (nom, proprietaire) → dateNaissance; 
+    (nom, proprietaire) → espece;
+
+}
+
+id et (nom, proprietaire) sont clés candidates : ils déterminent tous les autres attributs de la table.
+- 1NF ? : 
+    - deux clés : id et (nom,prenom,dateNaissance)
+    - attributs atomiques
+- 2NF ? 
+    - 1NF 
+    - Pour la clé candiate (id) il y a un seul attribut 
+    - Pour la clé candidate (nom,proprietaire), il n'y a aucune partie de la clé qui puisse déterminer seule poids, taille, dateNaissance et espece. 
+- 3NF ? 
+    - 2NF 
+    - Oui car poids, taille, dateNaissance et espece ne se déterminent pas les uns les autres
+
+Animal est en **3NF** 
+
+`Veterinaire` et `Assistant`
+- 1NF ? : 
+    - deux clés : id et (nom,prenom,dateNaissance)
+    - attributs atomiques
+- 2NF ? 
+    - 1NF 
+    - Pour la clé candidate (id), c'est trivial car un seul attribut 
+    - La clé candidate (nom,prenom,dateNaissance) est bien minimale d'après la note de clarification, pour déterminer une personne. 
+- 3NF ? 
+    - 2NF 
+    - Oui, car aucun attribut non clé ne peut déterminer l'adresse, le téléphone ou la spécialité
+
+Veterinaire et Assistant  sont en **3NF** 
+
+`Medicament`
+- 1NF ? : 
+    - deux clés : id et (nom,prenom,dateNaissance)
+    - attributs atomiques
+- 2NF ? 
+    - 1NF 
+    - Oui, car il n'y a qu'un seul attribut dans la clé
+- 3NF ? 
+    - 2NF 
+    - Oui, car il y a qu'un seul attribut non clé 
+
+Medicament est en **3NF** 
+
+`AutorisationMedicament`
+- 1NF ? : 
+    - deux clés : id et (nom,prenom,dateNaissance)
+    - attributs atomiques
+- 2NF ? 
+    - 1NF 
+    - Oui, car il n'y pas d'attribut non clé  
+- 3NF ? 
+    - 2NF 
+    - Oui, car il n'y pas d'attribut non clé 
+
+AutorisationMedicament est en **3NF**
+
+`Traitement`
+- 1NF ? : 
+    - deux clés : id et (nom,prenom,dateNaissance)
+    - attributs atomiques
+- 2NF ? 
+    - 1NF 
+    - Oui, car la clé est composée d'un seul attribut 
+- 3NF ? 
+    - 2NF 
+    - Oui, car debut, animal, duree et veterinaire ne se déterminent pas les uns les autres
+
+Traitement est en **3NF** 
+
+`Prescription`
+- 1NF ? : 
+    - deux clés : id et (nom,prenom,dateNaissance)
+    - attributs atomiques
+- 2NF ? 
+    - 1NF 
+    - Oui, car medicament  ne peut seul déterminer une quantité, et traitement ne peut seul déterminer une quantité
+- 3NF ? 
+    - 2NF 
+    - Oui, car un seul attribut non clé 
+
+Prescription est en **3NF** 
+
+
+
+
+
+
+
 
 `Veterinaire` et `Assistant`
 
@@ -181,34 +229,6 @@ CM = {
 
 id et (nom, prenom, dateNaissance) sont clés candidates.
 
-`Animal` : 
-
-F={
-
-    id → nom, proprietaire,poids, taille, dateNaissance, espece ;
-    (nom, proprietaire) → id, poids, taille, dateNaissance, espece
-
-}
-
-F+= F
-
-CM = {
-
-    id → nom;
-    id → proprietaire;
-    id → poids;
-    id → taille; 
-    id → dateNaissance; 
-    id → espece;
-    (nom, proprietaire) → id;
-    (nom, proprietaire) → poids;
-    (nom, proprietaire) → taille;
-    (nom, proprietaire) → dateNaissance; 
-    (nom, proprietaire) → espece;
-
-}
-
-id et (nom, proprietaire) sont clés candidates
 
 
 `Medicament` : 
