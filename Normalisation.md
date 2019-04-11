@@ -142,7 +142,9 @@ F={
 }
 
 F+= F
+
 CM = F
+
 id et (nom, prenom, dateNaissance) sont clés candidates
 
 `Animal` : 
@@ -164,7 +166,9 @@ F+= F U
          
     }
 
+
 CM = F
+
 id et (nom, proprietaire) sont clés candidates
 
 
@@ -188,6 +192,7 @@ F+= F U
     }
 
 CM = F
+
 id est clé candidate
 
 `Prescription` : F={(medicament,traitement) → quantite}. Une seule DF donc F+=F. CM=F car on a besoin des 2 attributs medicament et traitement pour déterminer la quantité à prescrire. Une seule clé candidate : (médicament,traitement).
