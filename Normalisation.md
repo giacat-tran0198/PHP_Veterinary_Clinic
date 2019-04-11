@@ -143,9 +143,9 @@ F={
 
 F+= F
 
-CM = F
+CM = {id → nom ; id → prenom ; id → dateNaissance ; id → adresse ; id → numero ; id → specialite ; (nom, prenom, dateNaissance) → id ;  (nom, prenom, dateNaissance) → adresse ; (nom, prenom, dateNaissance) → numero ; (nom, prenom, dateNaissance) → specialite}
 
-id et (nom, prenom, dateNaissance) sont clés candidates
+id et (nom, prenom, dateNaissance) sont clés candidates.
 
 `Animal` : 
 
@@ -158,7 +158,21 @@ F={
 
 F+= F
 
-CM = F
+CM = {
+
+    id → nom;
+    id → proprietaire;
+    id → poids;
+    id → taille; 
+    id → dateNaissance; 
+    id → espece;
+    (nom, proprietaire) → id;
+    (nom, proprietaire) → poids;
+    (nom, proprietaire) → taille;
+    (nom, proprietaire) → dateNaissance; 
+    (nom, proprietaire) → espece;
+
+}
 
 id et (nom, proprietaire) sont clés candidates
 
@@ -175,7 +189,14 @@ F={
 
 F+= F
 
-CM = F
+CM = {
+
+    id → debut; 
+    id → animal;
+    id → duree;
+    id → veterinaire
+
+}
 
 id est clé candidate
 
