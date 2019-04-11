@@ -118,10 +118,33 @@ Dans toutes les tables, F désigne l'ensemble des DF, F+ la fermeture transitive
 
 `Espece` : F={nom → classe}. F+=F et CM=F. La seule clé candidate est nom.
 
-`Client` : F={id → nom, prenom, dateNaissance, adresse, numero ; (nom, prenom, dateNaissance) → id, adresse, numero}. Numero et adresse ne se déterminent pas l'un l'autre, car le numéro peut être un numéro de portable ou de fixe.
+`Client` : 
+
+F={
+    id → nom, prenom, dateNaissance, adresse, numero ; 
+    (nom, prenom, dateNaissance) → id, adresse, numero
+}
+
+Numero et adresse ne se déterminent pas l'un l'autre, car le numéro peut être un numéro de portable ou de fixe.
 F+=F, CM={id → nom ; id → prenom ; id → dateNaissance ; id → adresse ; id → numero ; (nom, prenom, dateNaissance) → id, (nom, prenom, dateNaissance) → adresse ; (nom, prenom, dateNaissance) → numero}. 
 id apparaissant toujours à gauche, il appartient à une clé candidate. Comme il détermine tous les autres attributs, c'est déjà une clé.Donc id est une clé candidate.
 De la même manière, (nom,prenom,dateNaissance) est une clé candidate.
+
+
+`Animal` : 
+
+F={
+    id → nom, proprietaire,poids, taille, dateNaissance, espece ;
+    (nom, proprietaire) → id, poids, taille, dateNaissance, espece
+}
+
+F+= F U 
+    {
+        id → classe ;
+        (nom, proprietaire) → classe
+    }
+
+car on a espece → classe et id → espece ainsi que (nom, proprietaire) → espece
 
 `Medicament` : F={nomMolecule → description}. Une seule DF donc F+=F et CM=F. Une seule clé candidate : nomMolecule.
 
