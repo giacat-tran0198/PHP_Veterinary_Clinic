@@ -61,7 +61,22 @@ ORDER BY A.espece ;
 /* ------------------------------------------------------------------ */ 
 /* ------------------------------------------------------------------ */ 
 
+/* PAS TESTE
 
+DO $$ 
+DECLARE
+   client_id INTEGER := 1 ;
+BEGIN 
+   RAISE NOTICE 'Le client a pour id :  %', client_id ;
+END $$;
+
+
+SELECT A.id, A.nom, A.poids, A.taille, A.dateNaissance, A.espece, E.classe
+FROM Clinique.Animal A, Clinique.Espece E
+WHERE A.proprietaire = client_id AND 
+      A.espece = E.nom
+;
+*/
 
 
 /* ------------------------------------------------------------------ */ 
