@@ -128,7 +128,22 @@ F={
 }
 
 Numero et adresse ne se déterminent pas l'un l'autre, car le numéro peut être un numéro de portable ou de fixe.
-F+=F, CM={id → nom ; id → prenom ; id → dateNaissance ; id → adresse ; id → numero ; (nom, prenom, dateNaissance) → id, (nom, prenom, dateNaissance) → adresse ; (nom, prenom, dateNaissance) → numero}. 
+
+F+=F, 
+
+CM= {
+
+    id → nom ; 
+    id → prenom ; 
+    id → dateNaissance ; 
+    id → adresse ; 
+    id → numero ; 
+    (nom, prenom, dateNaissance) → id; 
+    (nom, prenom, dateNaissance) → adresse ; 
+    (nom, prenom, dateNaissance) → numero
+    
+}
+
 id apparaissant toujours à gauche, il appartient à une clé candidate. Comme il détermine tous les autres attributs, c'est déjà une clé.Donc id est une clé candidate.
 De la même manière, (nom,prenom,dateNaissance) est une clé candidate.
 
@@ -143,7 +158,20 @@ F={
 
 F+= F
 
-CM = {id → nom ; id → prenom ; id → dateNaissance ; id → adresse ; id → numero ; id → specialite ; (nom, prenom, dateNaissance) → id ;  (nom, prenom, dateNaissance) → adresse ; (nom, prenom, dateNaissance) → numero ; (nom, prenom, dateNaissance) → specialite}
+CM = {
+
+    id → nom ;
+    id → prenom ;
+    id → dateNaissance ;
+    id → adresse ; 
+    id → numero ; 
+    id → specialite ; 
+    (nom, prenom, dateNaissance) → id ;
+    (nom, prenom, dateNaissance) → adresse ; 
+    (nom, prenom, dateNaissance) → numero ; 
+    (nom, prenom, dateNaissance) → specialite
+    
+}
 
 id et (nom, prenom, dateNaissance) sont clés candidates.
 
@@ -177,7 +205,15 @@ CM = {
 id et (nom, proprietaire) sont clés candidates
 
 
-`Medicament` : F={nomMolecule → description}. Une seule DF donc F+=F et CM=F. Une seule clé candidate : nomMolecule.
+`Medicament` : 
+
+F= {
+
+    nomMolecule → description
+    
+}
+
+Une seule DF donc F+=F et CM=F. Une seule clé candidate : nomMolecule.
 
 `Traitement` :
 
@@ -200,4 +236,20 @@ CM = {
 
 id est clé candidate
 
-`Prescription` : F={(medicament,traitement) → quantite}. Une seule DF donc F+=F. CM=F car on a besoin des 2 attributs medicament et traitement pour déterminer la quantité à prescrire. Une seule clé candidate : (médicament,traitement).
+`Prescription` : 
+
+F= {
+
+    (medicament,traitement) → quantite
+    
+}
+
+Une seule DF donc 
+
+F+=F
+
+CM=F 
+
+car on a besoin des 2 attributs medicament et traitement pour déterminer la quantité à prescrire. 
+
+Une seule clé candidate : (médicament,traitement).
