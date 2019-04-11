@@ -2,7 +2,7 @@
 
 L'objectif est de revoir notre modèle actuel sur les compositions, les contraintes ansi que de s'assurer que toutes les tables du modèle sont en **3NF**.
 
-Pour chaque table il faudra vérifier : 
+Pour chaque table il faudra déterminer les DF, en déduire les clés candidates et vérifier : 
 - 1NF ? : 
     - existence d'une clé ? 
     - atomicité ? 
@@ -13,11 +13,17 @@ Pour chaque table il faudra vérifier :
     - 2NF ? 
     - Un attribut non clé ne détermine pas d'autre attribut non clé ? 
 
-Toutes les relation sont en 1NF car elles comportent toutes au moins une clé candidate, et une clé  est un ensemble d’attributs minimal qui permet de déterminer tous les autres attributs de facon unique. Tous les attributs de ces tables sont atomiques. 
+Dans toutes les tables, F désigne l'ensemble des DF, F+ la fermeture transitive et CM la couverture minimale.
+
+
+Toutes les relations sont en 1NF car elles comportent toutes au moins une clé candidate, et une clé  est un ensemble d’attributs minimal qui permet de déterminer tous les autres attributs de facon unique. Tous les attributs de ces tables sont atomiques. 
 
 Ensuite, pour la vérification de 2NF et 3NF, nous allons analyser chaque table séparément de la même manière que cela a été présenté ci-dessus :  
 
-`ClasseEspece` : 
+`ClasseEspece` : F={} car la table comporte un seul attribut (nom). La seule clé candidate est donc (nom).
+- 1NF ? : 
+    - une clé : nom
+    - attribut atomique
 - 2NF ? 
     - 1NF 
     - Oui, car la clé est composé d'un attribut seulement 
@@ -27,7 +33,10 @@ Ensuite, pour la vérification de 2NF et 3NF, nous allons analyser chaque table 
 
 ClasseEspece est en **3NF** 
 
-`Espece` : 
+`Espece` : F={nom → classe}. F+=F et CM=F. La seule clé candidate est nom. 
+- 1NF ? : 
+    - une clé : nom
+    - attributs atomiques
 - 2NF ? 
     - 1NF 
     - Oui, car la clé est composé d'un seul attribut 
@@ -112,11 +121,8 @@ Prescription est en **3NF**
 
 
 
-Dans toutes les tables, F désigne l'ensemble des DF, F+ la fermeture transitive et CM la couverture minimale.
 
-`ClasseEspece` :F={} car un seul attribut (nom). Une seule clé candidate : nom.
 
-`Espece` : F={nom → classe}. F+=F et CM=F. La seule clé candidate est nom.
 
 `Client` : 
 
