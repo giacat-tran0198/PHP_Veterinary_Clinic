@@ -156,10 +156,28 @@ F+= F U
     {
         id → classe ;
         (nom, proprietaire) → classe
+        id → nomProprietaire, prenomProprietaire, dateNaissanceProprietaire, adresseProprietaire, numeroProprietaire
+        (nom, proprietaire) → nomProprietaire, prenomProprietaire, dateNaissanceProprietaire, adresseProprietaire, numeroProprietaire
     }
 
-car on a espece → classe et id → espece ainsi que (nom, proprietaire) → espece
+
 
 `Medicament` : F={nomMolecule → description}. Une seule DF donc F+=F et CM=F. Une seule clé candidate : nomMolecule.
+
+`Traitement` :
+
+F={
+
+    id → debut, animal, duree, veterinaire
+
+}
+
+F+= F U 
+    {
+        id → nomAnimal, proprietaire, poidsAnimal, tailleAnimal, dateNaissanceAnimal, especeAnimal, classeAnimal
+        id → nomProprietaire, prenomProprietaire, dateNaissanceProprietaire, adresseProprietaire, numeroProprietaire
+        id → nomVeterinaire, prenomVeterinaire, dateNaissanceVeterinaire, adresseVeterinaire, numeroVeterinaire, specialiteVeterinaire
+    }
+
 
 `Prescription` : F={(medicament,traitement) → quantite}. Une seule DF donc F+=F. CM=F car on a besoin des 2 attributs medicament et traitement pour déterminer la quantité à prescrire. Une seule clé candidate : (médicament,traitement).
