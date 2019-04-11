@@ -136,8 +136,10 @@ De la même manière, (nom,prenom,dateNaissance) est une clé candidate.
 `Animal` : 
 
 F={
+
     id → nom, proprietaire,poids, taille, dateNaissance, espece ;
     (nom, proprietaire) → id, poids, taille, dateNaissance, espece
+
 }
 
 F+= F U 
