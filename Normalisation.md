@@ -31,7 +31,14 @@ Dans toutes les tables, F désigne l'ensemble des DF, F+ la fermeture transitive
 ClasseEspece est en **3NF** 
 
 
-`Espece` : F={nom → classe}. F+=F et CM=F. La seule clé candidate est nom. 
+`Espece` : 
+F= {
+
+    nom → classe
+    
+}
+
+F+=F et CM=F. La seule clé candidate est nom. 
 - 1NF ? : 
     - une clé : nom
     - attributs atomiques
@@ -79,7 +86,7 @@ De manière analogue, (nom,prenom,dateNaissance) est une clé candidate.
 - 2NF ?
     - 1NF 
     - Pour la clé candidate (id), c'est trivial car un seul attribut 
-    - La clé candidate (nom,prenom,dateNaissance) est bien minimale, d'après la note de clarification, pour déterminer une personne. 
+    - Aucune partie de (nom, prenom, dateNaissance) ne peut déterminer seule tous les autres attributs
 - 3NF ? 
     - 2NF 
     - Oui, car un téléphone et une adresse ne se déterminent pas l'un l'autre : deux personnes habitant à la même adresse ont deux numéros de portable différents.
@@ -162,10 +169,10 @@ id et (nom, prenom, dateNaissance) sont des clés candidates, car ils détermine
 - 2NF ? 
     - 1NF 
     - Pour la clé candidate (id), c'est trivial car un seul attribut 
-    - La clé candidate (nom,prenom,dateNaissance) est bien minimale d'après la note de clarification, pour déterminer une personne. 
+    - Aucune partie de (nom, prenom, dateNaissance) ne peut déterminer seule tous les autres attributs
 - 3NF ? 
     - 2NF 
-    - Oui, car aucun attribut non clé ne peut déterminer l'adresse, le téléphone ou la spécialité
+    - Oui, car adresse, numero, specialite qui sont les seuls attributs non-clés ne se déterminent pas les uns les autres
 
 Veterinaire et Assistant  sont en **3NF** 
 
