@@ -132,6 +132,16 @@ F+=F, CM={id → nom ; id → prenom ; id → dateNaissance ; id → adresse ; i
 id apparaissant toujours à gauche, il appartient à une clé candidate. Comme il détermine tous les autres attributs, c'est déjà une clé.Donc id est une clé candidate.
 De la même manière, (nom,prenom,dateNaissance) est une clé candidate.
 
+`Veterinaire` et `Assistant`
+
+F={
+
+    id → nom, prenom, dateNaissance, adresse, numero, specialite ; 
+    (nom, prenom, dateNaissance) → id, adresse, numero, specialite
+
+}
+
+F+= F
 
 `Animal` : 
 
