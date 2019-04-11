@@ -61,7 +61,6 @@ ORDER BY A.espece ;
 /* ------------------------------------------------------------------ */ 
 /* ------------------------------------------------------------------ */ 
 
-/* PAS TESTE
 
 DO $$ 
 DECLARE
@@ -70,13 +69,11 @@ BEGIN
    RAISE NOTICE 'Le client a pour id :  %', client_id ;
 END $$;
 
-
 SELECT A.id, A.nom, A.poids, A.taille, A.dateNaissance, A.espece, E.classe
 FROM Clinique.Animal A, Clinique.Espece E
 WHERE A.proprietaire = 1 AND 
-      A.espece = E.nom
-;
-*/
+      A.espece = E.nom ;
+
 
 
 /* ------------------------------------------------------------------ */ 
@@ -97,7 +94,7 @@ GROUP BY E.nom ;
 /* ------------------------------------------------------------------ */ 
 /* ------------------------------------------------------------------ */ 
 
-/* PAS TESTE
+
 DO $$ 
 DECLARE
    MAX_AGE INTEGER := 5 ;
@@ -105,11 +102,18 @@ BEGIN
    RAISE NOTICE 'Age maximal en annees :  %', MAX_AGE ;
 END $$;
 
-
 SELECT A.id, A.nom, A.poids, A.taille, A.dateNaissance, A.espece, E.classe
 FROM Clinique.Animal A, Clinique.Espece E
 WHERE A.espece = E.nom AND 
       A.dateNaissance IS NOT NULL AND
-      EXTRACT(YEAR FROM (NOW() - A.dateNaissance)) <= 5
-;
-*/
+      EXTRACT(YEAR FROM NOW())-EXTRACT(YEAR FROM A.dateNaissance) <= 5 ;
+      /* EXTRACT(YEAR FROM (NOW() - A.dateNaissance)) <= 5 ;*/ 
+
+/*
+SELECT EXTRACT(YEAR FROM NOW())-EXTRACT(YEAR FROM A.dateNaissance)
+FROM Clinique.Animal A 
+WHERE A.dateNaissance IS NOT NULL ; 
+*/ 
+
+
+     
