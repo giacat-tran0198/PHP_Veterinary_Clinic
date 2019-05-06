@@ -25,3 +25,10 @@ while (date.hasNext()){
     animal = date.next();
     print("- ",animal.nom," : ",animal.dateNaissance.toISOString().slice(0, 10));
 }
+
+print("Affichage des animaux qui n'a pas traitement")
+nonTrait = db.Clinique.find({traitement:{$exists: false}},{ "_id": 0, "nom": 1 })
+while (nonTrait.hasNext()){
+    animal = nonTrait.next();
+    print("- ",animal.nom);
+}

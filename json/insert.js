@@ -61,7 +61,7 @@ db.Clinique.insert({
     classe: "mammifere"
   },
   traitement: [{
-    debut: "2019-08-15",
+    debut: new Date("2019-08-15"),
     duree: 10,
     medicament: [{
       nomMolecule: "ANIMAZEN",
@@ -112,7 +112,7 @@ db.Clinique.insert({
     classe: "mammifere"
   },
   traitement: [{
-    debut: "2019-09-10",
+    debut: new Date("2019-09-10"),
     duree: 5,
     medicament: [{
       nomMolecule: "MILBEMAX",
@@ -146,7 +146,7 @@ db.Clinique.insert({
   traitement:
     [
       {
-        debut: "2019-07-5",
+        debut: new Date("2019-07-5"),
         duree: 40,
         medicament: [
           {
@@ -187,7 +187,7 @@ db.Clinique.insert({
     [
 
       {
-        debut: "2019-10-10",
+        debut: new Date("2019-10-10"),
         duree: 5,
         medicament: [
           {
@@ -216,3 +216,6 @@ db.Clinique.find({ "espece.nom": "chien" }, { "_id": 0, "nom": 1 })
 
 //Selection des animaux d'age apres 2010
 db.Clinique.find({"dateNaissance":{$gte:new Date ("2010-01-01")}},{ "_id": 0, "nom": 1 })
+
+//Affichage des animaux qui n'a pas traitement
+db.Clinique.find({traitement:{$exists: false}},{ "_id": 0, "nom": 1 })
