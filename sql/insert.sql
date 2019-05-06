@@ -1,7 +1,7 @@
 /* Insertions */
 
 /*------------------------------------------------------------*/
-/*------------- Les différents types d'animaux : -------------*/ 
+/*------------- Les différents types d'animaux : -------------*/
 /*------------------------------------------------------------*/
 INSERT INTO Clinique.ClasseEspece(nom) VALUES('mammifere');
 INSERT INTO Clinique.ClasseEspece(nom) VALUES('reptile');
@@ -36,7 +36,7 @@ INSERT INTO Clinique.Assistant(nom,prenom,dateNaissance,adresse,numero, speciali
 
 
 /*------------------------------------------------------------*/
-/*---------------------- Les animaux :------------------------*/ 
+/*---------------------- Les animaux :------------------------*/
 /*------------------------------------------------------------*/
 INSERT INTO Clinique.Animal(nom,proprietaire,poids,taille,espece) VALUES ('Filou','1','5','45','chat');
 INSERT INTO Clinique.Animal(nom,proprietaire,poids,taille,espece) VALUES ('Izao','3','7','55','chien');
@@ -46,7 +46,7 @@ INSERT INTO Clinique.Animal(nom,proprietaire,poids,taille,dateNaissance,espece) 
 INSERT INTO Clinique.Animal(nom,proprietaire,poids,taille,dateNaissance,espece) VALUES ('Margerite','1','600','80','2018-12-15','vache');
 
 /*------------------------------------------------------------*/
-/*---------------------- Les soins : -------------------------*/ 
+/*---------------------- Les soins : -------------------------*/
 /*------------------------------------------------------------*/
 
 INSERT INTO Clinique.Medicament(nomMolecule,description) VALUES('MILBEMAX','Antiparasitaire (milbémycine et praziquantel) contre les cestodes et les nématodes des chiens');
