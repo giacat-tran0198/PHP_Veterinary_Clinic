@@ -1,0 +1,71 @@
+@startuml
+class Client {
+    nom : string 
+    prenom : string 
+    dateNaissance : date 
+    adresse : string 
+    numero : char[10]
+}
+
+
+class Animal {
+    nom : string 
+    poids : float 
+    taille : float 
+    dateNaissance : date 
+}
+
+class Espèce {
+    nom : string {key}
+}
+
+class ClasseEspèce {
+    nom : string {key}
+}
+
+
+class Traitement {
+    début : date 
+    durée : integer 
+}
+
+class Medicament {
+    nomMolecule : string {key}
+    description : string 
+}
+
+
+Client "1" -- "1..*" Animal : possede  >
+Animal "1" -- "*" Traitement : suit >
+Animal "*" -- "1" Espèce : appartient >
+Espèce "*" -- "1" ClasseEspèce : appartient >
+Medicament "*" -- "1..*" Espèce : autorisé pour > 
+
+Medicament "1..*" - "*" Traitement
+
+
+
+
+
+note "Le numéro de téléphone est composé de 10 chiffres " as N1 
+note "Le poids est en kilogrammes et la taille en centimètres \n avec poids > 0 et taille > 0 \n\nLes animaux portant un même nom \n ont des propriétaires différents \n\n Un animal n'est pas obligé de suivre un traitement" as N2
+note "La durée d'un traitement est en jours \navec durée > 0" as N3 
+note "Il peut exister des classes espèces pour lesquelles il n'y pas de personnel médical specialisé \n\nUne classe d'espèce peut ne pas avoir d'espèce associée" as N5 
+note "La clinique utilise uniquement des médicaments autorisés" as N6
+note  "{(nom,prenom,dateNaissance) key }" as N7
+note " Tous les attributs sont en NOT NULL excepté \npour la dateNaissance de l'animal " as N9 
+note " Tous les héritages sont exclusifs" as N10 
+note "Une espèce peut ne pas avoir d'animal associé " as N12 
+
+
+Client -- N1 
+Animal -- N2 
+Traitement -- N3 
+ClasseEspèce -- N5 
+Medicament -- N6 
+Client -- N7 
+Espèce -- N12 
+
+
+
+@enduml
