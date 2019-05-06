@@ -67,19 +67,14 @@ db.Clinique.insert(
                 {nom : "VITAREPTILE",
                 quantite : 3}
                 
-                
-                
+
                 ]
             
         }
-            
-            
+
             
              ]
-        
-        
-        
-        
+
         
     }
     
