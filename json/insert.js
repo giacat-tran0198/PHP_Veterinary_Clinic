@@ -63,7 +63,7 @@ db.Clinique.insert({
       debut : "2019-08-15", 
       duree : 10 ,
       medicament : [{
-        nomMolecure : "ANIMAZEN", 
+        nomMolecule : "ANIMAZEN", 
         description : "Aliment complémentaire pour les périodes de stress chez les chiens, chats.", 
         quantite : 3 
       }]
@@ -82,34 +82,102 @@ db.Clinique.insert({
 
   // Bob 
 
-
-  nom : "anaconda", 
-  classe : "reptile"
-},
-
-traitement :
-[
-    
+db.Clinique.insert({
+        
+        nom : "Bob",
+        poids : "20",  
+        taille : "40", 
+        proprietaire :
     {
-        debut : "2019-07-5",
-        duree : 40,
-        medicament : 
-        [
-            {nom : "VITAREPTILE",
-            quantite : 3}
-            
-
+      nom : "Guerin",
+      prenom:"Maurice",
+      dateNaissance:"1940-04-04",
+      adresse:"Saint-Andre",
+      numero:"0643564829"
+    }, 
+    
+    dateNaissance : "2013-12-15",
+    espece : {
+      nom : "anaconda", 
+      classe : "reptile"
+    },
+    
+    traitement :
+    [
+        
+        {
+            debut : "2019-07-5",
+            duree : "40",
+            medicament : [
+                {nomMolecule : "VITAREPTILE", 
+                description : "Aliment complémentaire riche en vitamine pour reptiles.", 
+                quantite : "3" }
             ]
+            
+        }
+
+            
+    ]
+
         
     }
-
-        
-         ]
-}
+    
+    
 )
 
+
   // Margerite 
+  
+  db.Clinique.insert({
+        
+        nom : "Margerite",
+        poids : "600",  
+        taille : "80", 
+        proprietaire :
+    {
+      nom : "Guerin",
+      prenom:"Maurice",
+      dateNaissance:"1940-04-04",
+      adresse:"Saint-Andre",
+      numero:"0643564829"
+    }, 
+    
+    dateNaissance : "2018-12-15",
+    espece : {
+      nom : "vache", 
+      classe : "mammifere"
+    },
+    
+    traitement :
+    [
+        
+        {
+            debut : "2019-10-10",
+            duree : "5",
+            medicament : [
+                {nomMolecule : "ACTICARP", 
+                description : "Anti-inflammatoire non-stéroïdien (carprofène) en solution injectable pour bovins", 
+                quantite : "3" },
+                {nomMolecule : "ACTIDRALYTE", 
+                description : "Aliment complémentaire pour compenser la perte en électrolytes chez les poulains, veaux, agneaux, chevreaux et porcelets", 
+                quantite : "1" }
+            ]
+            
+        }
+
+            
+    ]
+
+        
+    }
+    
+    
+)
+
 
 
   // Création de qq requete 
+  
+  //Affichage des animaux appartenant à un client donné
+  db.Clinique.find({"proprietaire.nom":"Guerin"},{"nom":1,"_id":0}) 
  
