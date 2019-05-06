@@ -26,14 +26,14 @@ db.Clinique.drop()
 
 db.Clinique.insert({
   nom: "Sunny",
-  poids: "6",
-  taille: "40",
-  dateNaissance: "2014-12-15",
+  poids: 6,
+  taille: 40,
+  dateNaissance:new Date("2014-12-15"),
   proprietaire:
   {
     nom: "Allaire",
     prenom: "Laurence",
-    dateNaissance: "1969-02-04",
+    dateNaissance: new Date("1969-02-04"),
     adresse: "Saint-Molf",
     numero: "0761444829"
   },
@@ -46,13 +46,13 @@ db.Clinique.insert({
 
 db.Clinique.insert({
   nom: "Filou",
-  poids: "5",
-  taille: "45",
+  poids: 5,
+  taille: 45,
   proprietaire:
   {
     nom: "Guerin",
     prenom: "Maurice",
-    dateNaissance: "1940-04-04",
+    dateNaissance: new Date("1940-04-04"),
     adresse: "Saint-Andre",
     numero: "0643564829"
   },
@@ -82,7 +82,7 @@ db.Clinique.insert({
   proprietaire: {
     nom: "Danilo",
     prenom: "Melani",
-    dateNaissance: "1999-04-15",
+    dateNaissance: new Date("1999-04-15"),
     adresse: "Guerande",
     numero: "0643784890"
   },
@@ -103,7 +103,7 @@ db.Clinique.insert({
   proprietaire: {
     nom: "Halgand",
     prenom: "Melanie",
-    dateNaissance: "1998-01-01",
+    dateNaissance: new Date("1998-01-01"),
     adresse: "Herbignac",
     numero: "0656764829"
   },
@@ -128,17 +128,17 @@ db.Clinique.insert({
 db.Clinique.insert({
 
   nom: "Bob",
-  poids: "20",
-  taille: "40",
+  poids: 20,
+  taille: 40,
+  dateNaissance: new Date("2013-12-15"),
   proprietaire:
   {
     nom: "Guerin",
     prenom: "Maurice",
-    dateNaissance: "1940-04-04",
+    dateNaissance: new Date("1940-04-04"),
     adresse: "Saint-Andre",
     numero: "0643564829"
   },
-  dateNaissance: "2013-12-15",
   espece: {
     nom: "anaconda",
     classe: "reptile"
@@ -147,12 +147,12 @@ db.Clinique.insert({
     [
       {
         debut: "2019-07-5",
-        duree: "40",
+        duree: 40,
         medicament: [
           {
             nomMolecule: "VITAREPTILE",
             description: "Aliment complémentaire riche en vitamine pour reptiles.",
-            quantite: "3"
+            quantite: 3
           }
         ]
 
@@ -166,18 +166,18 @@ db.Clinique.insert({
 db.Clinique.insert({
 
   nom: "Margerite",
-  poids: "600",
-  taille: "80",
+  poids: 600,
+  taille: 80,
+  dateNaissance: new Date("2018-12-15"),
+
   proprietaire:
   {
     nom: "Guerin",
     prenom: "Maurice",
-    dateNaissance: "1940-04-04",
+    dateNaissance: new Date("1940-04-04"),
     adresse: "Saint-Andre",
     numero: "0643564829"
   },
-
-  dateNaissance: "2018-12-15",
   espece: {
     nom: "vache",
     classe: "mammifere"
@@ -188,17 +188,17 @@ db.Clinique.insert({
 
       {
         debut: "2019-10-10",
-        duree: "5",
+        duree: 5,
         medicament: [
           {
             nomMolecule: "ACTICARP",
             description: "Anti-inflammatoire non-stéroïdien (carprofène) en solution injectable pour bovins",
-            quantite: "3"
+            quantite: 3
           },
           {
             nomMolecule: "ACTIDRALYTE",
             description: "Aliment complémentaire pour compenser la perte en électrolytes chez les poulains, veaux, agneaux, chevreaux et porcelets",
-            quantite: "1"
+            quantite: 1
           }
         ]
 
@@ -212,4 +212,7 @@ db.Clinique.insert({
 db.Clinique.find({ "proprietaire.nom": "Guerin" }, { "nom": 1, "_id": 0 })
 
 //Affichage des noms de chien
-db.Clinique.find({ "espece.nom": "chien" },{ "_id": 0, "nom": 1 })
+db.Clinique.find({ "espece.nom": "chien" }, { "_id": 0, "nom": 1 })
+
+//Selection des animaux d'age apres 2010
+db.Clinique.find({"dateNaissance":{$gte:new Date ("2010-01-01")}},{ "_id": 0, "nom": 1 })
