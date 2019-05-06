@@ -83,7 +83,33 @@ db.Clinique.insert({
   // Bob 
 
 
+  nom : "anaconda", 
+  classe : "reptile"
+},
+
+traitement :
+[
+    
+    {
+        debut : "2019-07-5",
+        duree : 40,
+        medicament : 
+        [
+            {nom : "VITAREPTILE",
+            quantite : 3}
+            
+
+            ]
+        
+    }
+
+        
+         ]
+}
+)
+
   // Margerite 
 
 
   // Création de qq requete 
+ 
