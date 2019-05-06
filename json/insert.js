@@ -16,5 +16,16 @@ db.Clinique.insert(
       nom : "chien", 
       classe : "mammifere"
     } 
+    
+    traitement : [
+        
+        {medicament : "",
+         quantite : "",
+         date : ""
+        }
+        
+        
+        
+        ]
   }
 )
