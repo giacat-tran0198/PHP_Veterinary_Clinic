@@ -32,6 +32,7 @@ class Traitement {
 class Medicament {
     nomMolecule : string {key}
     description : string 
+    quantite : integer 
 }
 
 
