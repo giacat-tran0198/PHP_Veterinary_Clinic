@@ -1,7 +1,7 @@
 conn = new Mongo();
 db = conn.getDB("Clinique");
 
-print("1) Affiche tous les animaux de Mr.Guerin : ")
+print("\n 1) Affiche tous les animaux de Mr.Guerin : ")
 
 animaux = db.Clinique.find({ "proprietaire.nom": "Guerin" }, { "nom": 1, "_id": 0 })
 
@@ -10,7 +10,7 @@ while (animaux.hasNext()) {
     print("- ", animal.nom);
 }
 
-print("2) Affiche les noms de chiens : ")
+print("\n 2) Affiche les noms de chiens : ")
 
 chiens = db.Clinique.find({ "espece.nom": "chien" }, { "_id": 0, "nom": 1 })
 
@@ -21,10 +21,9 @@ while (chiens.hasNext()) {
 
 
 
-print("3) Affiche les noms des animaux qui sont nés après 2010 : ")
+print("\n 3) Affiche les noms des animaux qui sont nés après 2010 : ")
 
 jeunes = db.Clinique.find({ "dateNaissance": { $gte: new Date("2010") } }, { "_id": 0, "nom": 1 })
-
 
 while (jeunes.hasNext()) {
     jeune = jeunes.next();
@@ -32,7 +31,7 @@ while (jeunes.hasNext()) {
 }
 
 
-print("4) Affiche les noms des animaux sans traitement : ")
+print("\n 4) Affiche les noms des animaux sans traitement : ")
 
 non_traitements = db.Clinique.find({ traitement: { $exists: false } }, { "_id": 0, "nom": 1 })
 
@@ -71,7 +70,8 @@ while (non_traitements.hasNext()) {
 //     }
 // }
 
-print("5) la quantité de chaque type de médicament prescrit pour Margerite")
+print("\n 5) la quantité de chaque type de médicament prescrit pour Margerite")
+
 nomAnimal = db.Clinique.aggregate(
     { $match: { nom: "Margerite" } },
     { $unwind: "$traitement" },
@@ -82,12 +82,14 @@ nomAnimal = db.Clinique.aggregate(
             quantite: { $sum: "$traitement.medicament.quantite" }
         }
     })
+
 while (nomAnimal.hasNext()) {
     let animal = nomAnimal.next()
-    print("- ", animal._id, " quantite: ", animal.quantite)
+    print("- ", animal._id, ", quantite: ", animal.quantite)
 }
 
-print("6) La quantité d'un médicament prescrit au total dans la clinique")
+print("\n 6) La quantité d'un médicament prescrit au total dans la clinique")
+
 medicament = db.Clinique.aggregate(
     { $unwind: "$traitement" },
     { $unwind: "$traitement.medicament" },
@@ -97,12 +99,14 @@ medicament = db.Clinique.aggregate(
             quantite: { $sum: "$traitement.medicament.quantite" }
         }
     })
+
 while (medicament.hasNext()) {
     let medicine = medicament.next()
-    print("- ", medicine._id, " quantite: ", medicine.quantite)
+    print("- ", medicine._id, ", quantite: ", medicine.quantite)
 }
 
-print("7) Nombre d' animaux et les poids et taille moyenne des animaux d'une espèce traités")
+print("\n 7) Nombre d' animaux et les poids et taille moyenne des animaux d'une espèce traités")
+
 escape = db.Clinique.aggregate(
     {
         $group: {
@@ -112,6 +116,7 @@ escape = db.Clinique.aggregate(
             count: { $sum: 1 }
         }
     })
+
 while (escape.hasNext()) {
     let animal = escape.next()
     print("- ", animal._id, ", nombre: ", animal.count, ", poids moyenne: ", animal.poids, "taille moyenne: ", animal.taille)
