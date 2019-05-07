@@ -42,13 +42,25 @@ while ( non_traitements.hasNext() ) {
 }
 
 
+
+print("5) Affiche le poid moyen de chaque annimal ")
+
+animaux = db.Clinique.aggregate([ {$group: {"_id":"$nom", "avg_poids":{$avg: "$poids"},}}, {$sort : {"avg_poids":-1}} ])
+
+while ( non_traitements.hasNext() ) {
+    animal = animaux.next() ;
+   print("- ", animal.nom);	
+}
+
+
+
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 //-----------------------  Code en cours de préparation --------------------------------------
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 
-print("5) la quantité de chaque type de médicament prescrit pour un animal donné")
+print("6) la quantité de chaque type de médicament prescrit pour un animal donné")
 idAnimal = 4
 print("Choisiz le ", idAnimal, "e animal")
 quantie = db.Clinique.find({}, { "_id": 0, "traitement": 1 })
@@ -71,7 +83,7 @@ while (quantie.hasNext()) {
     }
 }
 
-print("6) Nombre d' animaux et les poids et taille moyenne des animaux d'une espèce traités")
+print("7) Nombre d' animaux et les poids et taille moyenne des animaux d'une espèce traités")
 escape = db.Clinique.aggregate({$group: {_id:"$espece.nom", poids: {$avg: "$poids"}, taille: {$avg: "$taille"},count:{$sum:1}}})
 while (escape.hasNext()){
     let animal = escape.next()
