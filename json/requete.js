@@ -1,37 +1,52 @@
 conn = new Mongo();
-db = conn.getDB("Clinique");
+db = conn.getDB("clinique");
 
-print("1) Affichage des animaux appartenant à un client donné")
-NomProp = "Guerin"
-print("Nom de client est "+NomProp)
-proprietaire = db.Clinique.find({ "proprietaire.nom": NomProp }, { "nom": 1, "_id": 0 })
-while ( proprietaire.hasNext() ) {
-   let nom = proprietaire.next() ;
-   print("- ", nom.nom);	
+print("1) Affiche tous les animaux de Mr.Guerin : ")
+
+animaux = db.Clinique.find({"proprietaire.nom":"Guerin"}, {"nom":1,"_id":0})
+
+while ( animaux.hasNext() ) {
+   animal = animaux.next() ;
+   print("- ", animal.nom);	
 }
 
-print("2) Affichage des noms de animaux")
-EspaceAnimal = "chien"
-print("L'espace d'animal est "+EspaceAnimal)
-animaux = db.Clinique.find({ "espece.nom": EspaceAnimal },{ "_id": 0, "nom": 1 })
-while (animaux.hasNext()){
-    let animal = animaux.next();
-    print("- ",animal.nom);
+print("2) Affiche les noms de chiens : ")
+
+chiens = db.Clinique.find({ "espece.nom": "chien" }, { "_id": 0, "nom": 1 })
+
+while ( chiens.hasNext() ) {
+   chien = chiens.next() ;
+   print("- ", chien.nom);	
 }
 
-print("3) Affichage des noms ont date de naissance apres 2010")
-date = db.Clinique.find({"dateNaissance":{$gte:new Date ("2010-01-01")}},{ "_id": 0, "nom": 1, "dateNaissance":1 })
-while (date.hasNext()){
-    let animal = date.next();
-    print("- ",animal.nom," : ",animal.dateNaissance.toISOString().slice(0, 10));
+
+
+print("3) Affiche les noms des animaux qui sont nés après 2010 : ")
+
+jeunes = db.Clinique.find({"dateNaissance":{$gte:new Date ("2010-01-01")}},{ "_id": 0, "nom": 1 })
+
+
+while ( jeunes.hasNext() ) {
+   jeune = jeunes.next() ;
+   print("- ", jeune.nom);	
 }
 
-print("4) Affichage des animaux qui n'a pas traitement")
-nonTrait = db.Clinique.find({traitement:{$exists: false}},{ "_id": 0, "nom": 1 })
-while (nonTrait.hasNext()){
-    let animal = nonTrait.next();
-    print("- ",animal.nom);
+
+print("4) Affiche les noms des animaux sans traitement : ")
+
+non_traitements = db.Clinique.find({traitement:{$exists: false}},{ "_id": 0, "nom": 1 })
+
+while ( non_traitements.hasNext() ) {
+    non_traitement = non_traitements.next() ;
+   print("- ", non_traitement.nom);	
 }
+
+
+//--------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------
+//-----------------------  Code en cours de préparation --------------------------------------
+//--------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------
 
 print("5) la quantité de chaque type de médicament prescrit pour un animal donné")
 idAnimal = 4
