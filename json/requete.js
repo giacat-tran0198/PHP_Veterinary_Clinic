@@ -1,5 +1,5 @@
 conn = new Mongo();
-db = conn.getDB("clinique");
+db = conn.getDB("Clinique");
 
 print("1) Affiche tous les animaux de Mr.Guerin : ")
 
@@ -23,7 +23,7 @@ while ( chiens.hasNext() ) {
 
 print("3) Affiche les noms des animaux qui sont nés après 2010 : ")
 
-jeunes = db.Clinique.find({"dateNaissance":{$gte:new Date ("2010-01-01")}},{ "_id": 0, "nom": 1 })
+jeunes = db.Clinique.find({"dateNaissance":{$gte:new Date ("2010")}},{ "_id": 0, "nom": 1 })
 
 
 while ( jeunes.hasNext() ) {
@@ -48,27 +48,44 @@ while ( non_traitements.hasNext() ) {
 //--------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------
 
-print("5) la quantité de chaque type de médicament prescrit pour un animal donné")
-idAnimal = 4
-print("Choisiz le ", idAnimal, "e animal")
-quantie = db.Clinique.find({}, { "_id": 0, "traitement": 1 })
-id = 0
-while (quantie.hasNext()) {
-    id++
-    let animal = quantie.next()
-    if (id == idAnimal) {
-        if("traitement" in animal){
-            let res = animal.traitement.reduce((acc, next) => {
-                next.medicament.forEach(({ nomMolecule }) => {
-                  acc[nomMolecule] = acc[nomMolecule] + 1 || 1;
-                });
-                return acc;
-              }, {});
-            Object.keys(res).forEach(e => print("nomMolecule = ",e,"   quantite= ",res[e]));
+// print("5) la quantité de chaque type de médicament prescrit pour un animal donné")
+// idAnimal = 4
+// print("Choisiz le ", idAnimal, "e animal")
+// quantie = db.Clinique.find({}, { "_id": 0, "traitement": 1 })
+// id = 0
+// while (quantie.hasNext()) {
+//     id++
+//     let animal = quantie.next()
+//     if (id == idAnimal) {
+//         if("traitement" in animal){
+//             let res = animal.traitement.reduce((acc, next) => {
+//                 next.medicament.forEach(({ nomMolecule }) => {
+//                   acc[nomMolecule] = acc[nomMolecule] + 1 || 1;
+//                 });
+//                 return acc;
+//               }, {});
+//             Object.keys(res).forEach(e => print("nomMolecule = ",e,"   quantite= ",res[e]));
+//         }
+//         else
+//         print("Cet animal n'a pas traitement")
+//     }
+// }
+
+print("5) la quantité de chaque type de médicament prescrit pour Margerite")
+nomAnimal = db.Clinique.aggregate(
+    { $match:{ nom: "Margerite"}},
+    { $unwind: "$traitement" },
+    { $unwind: "$traitement.medicament" },
+    {
+        $group: {
+            _id: "$traitement.medicament.nomMolecule",
+            quantite: { $sum: "$traitement.medicament.quantite" }
         }
-        else
-        print("Cet animal n'a pas traitement")
     }
+)
+while (nomAnimal.hasNext()){
+    let animal = nomAnimal.next()
+    print("- ",animal._id, " quantite: ",animal.quantite)
 }
 
 print("6) Nombre d' animaux et les poids et taille moyenne des animaux d'une espèce traités")
@@ -76,4 +93,20 @@ escape = db.Clinique.aggregate({$group: {_id:"$espece.nom", poids: {$avg: "$poid
 while (escape.hasNext()){
     let animal = escape.next()
     print ("- ",animal._id,", nombre: ", animal.count,", poids moyenne: ",animal.poids, "taille moyenne: ",animal.taille)
+}
+
+print("7) La quantité d'un médicament prescrit au total dans la clinique")
+medicament = db.Clinique.aggregate(
+    { $unwind: "$traitement" },
+    { $unwind: "$traitement.medicament" },
+    {
+        $group: {
+            _id: "$traitement.medicament.nomMolecule",
+            quantite: { $sum: "$traitement.medicament.quantite" }
+        }
+    }
+)
+while (medicament.hasNext()){
+    let medicine = medicament.next()
+    print("- ",medicine._id, " quantite: ",medicine.quantite)
 }
