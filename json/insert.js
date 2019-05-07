@@ -77,7 +77,7 @@ db.Clinique.insert({
 db.Clinique.insert({
 
   nom: "Izao",
-  poid: 7,
+  poids: 7,
   taille: 55,
   proprietaire: {
     nom: "Danilo",
@@ -98,7 +98,7 @@ db.Clinique.insert({
 db.Clinique.insert({
 
   nom: "Cristale",
-  poid: 8,
+  poids: 8,
   taille: 60,
   proprietaire: {
     nom: "Halgand",
