@@ -13,4 +13,4 @@ Tous les objets de la conception initiale en relationnel n'ont pas été retenus
 - Traitement
 - Medicament
 
-Pour des raisons techniques, la base de données ne vérifiera pplus si les médicaments prescrits sont bien autorisés pour l'espèce de l'animal traité.
+Pour des raisons techniques, la base de données ne vérifiera plus si les médicaments prescrits sont bien autorisés pour l'espèce de l'animal traité.
