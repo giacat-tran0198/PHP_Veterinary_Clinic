@@ -24,9 +24,11 @@
 */
 db.Clinique.drop()
 
+
+// --- Sunny --- 
 db.Clinique.insert({
   nom: "Sunny",
-  poids: 6,
+  poids: 6, 
   taille: 40,
   dateNaissance:new Date("2014-12-15"),
   proprietaire:
@@ -43,7 +45,7 @@ db.Clinique.insert({
   }
 })
 
-
+// --- Filou --- 
 db.Clinique.insert({
   nom: "Filou",
   poids: 5,
@@ -72,8 +74,7 @@ db.Clinique.insert({
 })
 
 
-
-// Izao 
+// --- Izao --- 
 db.Clinique.insert({
 
   nom: "Izao",
@@ -93,8 +94,7 @@ db.Clinique.insert({
 })
 
 
-// Cristale 
-
+// --- Cristale --- 
 db.Clinique.insert({
 
   nom: "Cristale",
@@ -123,8 +123,7 @@ db.Clinique.insert({
 })
 
 
-// Bob 
-
+// --- Bob --- 
 db.Clinique.insert({
 
   nom: "Bob",
@@ -161,8 +160,7 @@ db.Clinique.insert({
 })
 
 
-// Margerite 
-
+// --- Margerite --- 
 db.Clinique.insert({
 
   nom: "Margerite",
@@ -206,7 +204,8 @@ db.Clinique.insert({
     ]
 })
 
-// Création de qq requete 
+
+// Création de quelques requetes 
 
 //Affichage des animaux appartenant à un client donné
 db.Clinique.find({ "proprietaire.nom": "Guerin" }, { "nom": 1, "_id": 0 })
@@ -220,4 +219,5 @@ db.Clinique.find({"dateNaissance":{$gte:new Date ("2010-01-01")}},{ "_id": 0, "n
 //Affichage des animaux qui n'a pas traitement
 db.Clinique.find({traitement:{$exists: false}},{ "_id": 0, "nom": 1 })
 
+//Affiche le poid moyen de chaque annimal
 db.Clinique.aggregate([ {$group: {"_id":"$nom", "avg_poids":{$avg: "$poids"},}}, {$sort : {"avg_poids":-1}} ])
