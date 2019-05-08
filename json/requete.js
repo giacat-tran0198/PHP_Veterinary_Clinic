@@ -1,5 +1,5 @@
 conn = new Mongo();
-db = conn.getDB("clinique");   // Attention peut-etre a modifier en fonction de la db choisie 
+db = conn.getDB("Clinique");   // Attention peut-etre a modifier en fonction de la db choisie 
 
 print("\n 1) Affiche tous les nom des animaux de Mr.Guerin : ")
 
