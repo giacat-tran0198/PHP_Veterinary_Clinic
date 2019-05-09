@@ -42,7 +42,7 @@ while (non_traitements.hasNext()) {
 
 
 
-print("\n 5) Affiche le poid moyen de chaque annimal ")
+print("\n 5) Affiche le poids moyen de chaque annimal ")
 
 animaux = db.Clinique.aggregate(
     { $group: {
