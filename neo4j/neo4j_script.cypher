@@ -24,7 +24,7 @@ create (margerite : animal {nom : 'Margerite', poids : 600, taille : 80, dateNai
 
 //Médicaments
 
-create (milbemax : medicament {})
+create (milbemax : medicament {nomMolecule : 'MILBEMAX', description : 'Antiparasitaire (milbémycine et praziquantel) contre les cestodes et les nématodes des chiens'})
 create (animazen : medicament {})
 create (ocevit : medicament {})
 create (actidralyte : medicament {})
