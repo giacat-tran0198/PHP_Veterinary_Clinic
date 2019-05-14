@@ -3,22 +3,23 @@ db = conn.getDB("Clinique");   // Attention peut-etre a modifier en fonction de 
 
 print("\n 1) Affiche tous les nom des animaux de Mr.Guerin : ")
 
-animaux = db.Clinique.find({ "proprietaire.nom": "Guerin" }, { "nom": 1, "_id": 0 })
+animaux = db.Clinique.find({ "nom": "Guerin" }, { "animaux.nom": 1, "_id": 0 })
 
 while (animaux.hasNext()) {
     animal = animaux.next();
-    print("- ", animal.nom);
+    print("- ", animal.animaux.nom);
 }
 
 print("\n 2) Affiche les noms de chiens : ")
 
-chiens = db.Clinique.find({ "espece.nom": "chien" }, { "_id": 0, "nom": 1 })
+chiens = db.Clinique.find({"animaux.espece.nom":"chien"},{"_id":0, "animaux.nom":1})
+
+chiens = db.Clinique.find({ "animaux.espece.nom": "chien" }, { "_id": 0, "nom": 1 } )
 
 while (chiens.hasNext()) {
     chien = chiens.next();
-    print("- ", chien.nom);
+    print("- ", chien.nom_animal);
 }
-
 
 
 print("\n 3) Affiche les noms des animaux qui sont nés après 2010 : ")
