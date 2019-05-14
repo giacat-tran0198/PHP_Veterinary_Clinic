@@ -13,3 +13,11 @@ create (ag : veterinaire {nom : 'Gillespie', prenom : 'Alessa', dateNaissance : 
 create (mk : veterinaire {nom : 'Kaufmann', prenom : 'Michael', dateNaissance : '1965-05-23', adresse : 'Saint-Ange', numero : '0646564595', specialite : 'reptile'})
 create (js : veterinaire {nom : 'Sunderland', prenom : 'James', dateNaissance : '1975-06-16', adresse : 'Saint-Mils', numero : '0648264459', specialite : 'oiseau'})
 
+// Animaux
+
+create (filou : animal {nom : 'Filou', poids : '5', taille : '45', espece : 'chat'})
+create (izao : animal {nom : 'Izao', poids : '7', taille : '55', espece : 'chien'})
+create (cristale : animal {nom : 'Cristale', poids : '8', taille : '60', espece : 'chien'})
+create (sunny : animal {nom : 'Sunny', poids : '6', taille : '40', dateNaissance : '2014-12-15', espece : 'chien'})
+create (bob : animal {nom : 'Filou', poids : '5', taille : '45', dateNaissance : '2014-12-15', espece : 'anaconda'})
+create (margerite : animal {nom : 'Filou', poids : '5', taille : '45', dateNaissance : '2014-12-15', espece : 'vache'})
