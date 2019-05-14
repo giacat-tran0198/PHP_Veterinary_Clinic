@@ -37,5 +37,19 @@ create (vivareptile : medicament {nomMolecule : 'VITA REPTILE', description : 'A
 
 // Propriétaires :
 
+match (p1 : client {nom : 'Guerin'}), (a1 : animal {nom : 'Filou'}), (a2 : animal {nom : 'Bob'}), (a3 : animal {nom : 'Margerite'})
+create (p1) -[r1:POSSEDE]->(a1)
+create (p1) -[r2:POSSEDE]->(a2)
+create (p1) -[r3:POSSEDE]->(a3)
+return p1, a1, r1, r2, r3
+
+match (p2 : client {nom : 'Guerin'}), (b : animal {nom : 'Filou'})
+
+
+
+
+
+
+
 
 // Traitements :
