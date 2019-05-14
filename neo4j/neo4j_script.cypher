@@ -43,8 +43,17 @@ create (p1) -[r2:POSSEDE]->(a2)
 create (p1) -[r3:POSSEDE]->(a3)
 return p1, a1, r1, r2, r3
 
-match (p2 : client {nom : 'Guerin'}), (b : animal {nom : 'Filou'})
+match (p2 : client {nom : 'Allaire'}), (b : animal {nom : Sunny'})
+create (p2) -[s:POSSEDE]->(b)
+return p2, b, s
 
+match (p3 : client {nom : 'Danilo'}), (c : animal {nom : Izao'})
+create (p3) -[t:POSSEDE]->(c)
+return p3, c, t
+
+match (p4 : client {nom : 'Halgand'}), (d : animal {nom : Cristale'})
+create (p4) -[u:POSSEDE]->(d)
+return p4, d, u
 
 
 
