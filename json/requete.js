@@ -3,12 +3,21 @@ db = conn.getDB("Clinique");   // Attention peut-etre a modifier en fonction de 
 
 print("\n 1) Affiche tous les nom des animaux de Mr.Guerin : ")
 
-animaux = db.Clinique.find({ "nom": "Guerin" }, { "animaux.nom": 1, "_id": 0 })
+proprietaire = db.Clinique.find({ "nom": "Guerin" }, { "animaux.nom" : 1, "_id": 0 })
+
+animaux = db.Clinique.aggregate(
+    [
+      { $group : { _id : "$author", books: { $push: "$title" } } }
+    ]
+ )
+
 
 while (animaux.hasNext()) {
     animal = animaux.next();
-    print("- ", animal.animaux.nom);
+    print("- ", animal._nom);
 }
+
+
 
 print("\n 2) Affiche les noms de chiens : ")
 
