@@ -23,3 +23,11 @@ create (bob : animal {nom : 'Bob', poids : 20, taille : 40, dateNaissance : '201
 create (margerite : animal {nom : 'Margerite', poids : 600, taille : 80, dateNaissance : '2018-12-15', espece : 'vache'})
 
 //Médicaments
+
+create (milbemax : medicament {})
+create (animazen : medicament {})
+create (ocevit : medicament {})
+create (actidralyte : medicament {})
+create (acticarp : medicament {})
+create (calciumreptile : medicament {})
+create (vivareptile : medicament {})
