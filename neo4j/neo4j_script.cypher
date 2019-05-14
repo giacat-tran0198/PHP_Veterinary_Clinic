@@ -15,9 +15,9 @@ create (js : veterinaire {nom : 'Sunderland', prenom : 'James', dateNaissance : 
 
 // Animaux
 
-create (filou : animal {nom : 'Filou', poids : '5', taille : '45', espece : 'chat'})
-create (izao : animal {nom : 'Izao', poids : '7', taille : '55', espece : 'chien'})
-create (cristale : animal {nom : 'Cristale', poids : '8', taille : '60', espece : 'chien'})
-create (sunny : animal {nom : 'Sunny', poids : '6', taille : '40', dateNaissance : '2014-12-15', espece : 'chien'})
-create (bob : animal {nom : 'Filou', poids : '5', taille : '45', dateNaissance : '2014-12-15', espece : 'anaconda'})
-create (margerite : animal {nom : 'Filou', poids : '5', taille : '45', dateNaissance : '2014-12-15', espece : 'vache'})
+create (filou : animal {nom : 'Filou', poids : 5, taille : 45, espece : 'chat'})
+create (izao : animal {nom : 'Izao', poids : 7, taille : 55, espece : 'chien'})
+create (cristale : animal {nom : 'Cristale', poids : 8, taille : 60, espece : 'chien'})
+create (sunny : animal {nom : 'Sunny', poids : 6, taille : 40, dateNaissance : '2014-12-15', espece : 'chien'})
+create (bob : animal {nom : 'Bob', poids : 20, taille : 40, dateNaissance : '2013-12-15', espece : 'anaconda'})
+create (margerite : animal {nom : 'Margerite', poids : 600, taille : 80, dateNaissance : '2018-12-15', espece : 'vache'})
