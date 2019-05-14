@@ -31,3 +31,11 @@ create (actidralyte : medicament {nomMolecule : 'ACTIDRALYTE', description : 'Al
 create (acticarp : medicament {nomMolecule : 'ACTICARP', description : 'Anti-inflammatoire non-stéroïdien (carprofène) en solution injectable pour bovins'})
 create (calciumreptile : medicament {nomMolecule : 'CALCIUM REPTILE', description : 'Aliment complémentaire pour assurer la solidité de la carapace et du squelette chez les reptiles'})
 create (vivareptile : medicament {nomMolecule : 'VITA REPTILE', description : 'Aliment complémentaire riche en vitamine pour reptiles'})
+
+
+// Relations : 
+
+// Propriétaires :
+
+
+// Traitements :
