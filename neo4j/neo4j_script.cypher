@@ -1,4 +1,3 @@
-
 create (mg : client {nom : 'Guerin', prenom : 'Maurice', dateNaissance : datetime('1940-04-04'), adresse : 'Saint-Andre', numero : '0643564829'})
 create (la : client {nom : 'Allaire', prenom : 'Laurence', dateNaissance : datetime('1969-02-04'), adresse : 'Saint-Molf', numero : '0761444829'})
 create (md : client {nom : 'Danilo', prenom : 'Melani', dateNaissance : datetime('1999-04-15'), adresse : 'Guerande', numero : '0643784890'})
@@ -37,19 +36,21 @@ match (p1 : client {nom : 'Guerin'}), (a1 : animal {nom : 'Filou'}), (a2 : anima
 create (p1)-[r1:POSSEDE]->(a1)
 create (p1)-[r2:POSSEDE]->(a2)
 create (p1)-[r3:POSSEDE]->(a3)
+return p1, a1, a2, a3, r1, r2, r3
+
 
 
 match (p2 : client {nom : 'Allaire'}), (b : animal {nom : 'Sunny'})
 create (p2) -[s:POSSEDE]->(b)
-
+return p2, b, s
 
 match (p3 : client {nom : 'Danilo'}), (c : animal {nom : 'Izao'})
 create (p3) -[t:POSSEDE]->(c)
-
+return p3, c, t
 
 match (p4 : client {nom : 'Halgand'}), (d : animal {nom : 'Cristale'})
 create (p4) -[u:POSSEDE]->(d)
-
+return p4, d, u
 
 
 match(a: animal {nom: 'Filou'}), (m: medicament{nomMolecule: 'ANIMAZEN'}), (v1: veterinaire{nom:'Mason'})
@@ -57,7 +58,7 @@ create (trait1:Traitements {type: "Traitements", debut: datetime('2019-08-15'), 
 create (v1)-[l:DONNES]->(trait1)
 create (a)<-[l1:TRAITEMENTS]-(trait1)
 create (trait1)<-[l2:COMPOSANT {quantite:3}]-(m)
-
+return a,m,v1,trait,l,l1,l2
 
 match (an2: animal {nom: 'Bob'}), (m1: medicament{nomMolecule: 'VITA REPTILE'}),(m2:medicament{nomMolecule: 'CALCIUM REPTILE'}), (v2: veterinaire{nom:'Bennett'})
 create (trait2:Traitements {type: "Traitements", debut: datetime('2019-07-5'), duree: 40})
@@ -65,7 +66,7 @@ create (v2)-[l3:DONNES]->(trait2)
 create (an2)<-[l4:TRAITEMENTS]-(trait2)
 create (trait2)<-[l5:COMPOSANT {quantite: 3}]-(m1)
 create (trait2)<-[l6:COMPOSANT {quantite: 3}]-(m2)
-
+return an2,m1,m2,v2,trait2,l3,l4,l5,l6
 
 match (an3: animal {nom: 'Margerite'}) , (m3: medicament{nomMolecule: 'ACTICARP'}), (m4: medicament{nomMolecule: 'ACTIDRALYTE'}), (v3: veterinaire{nom:'Mason'})
 create (trait3:Traitements {type: "Traitements", debut: datetime('2019-10-10'), duree: 5})
@@ -73,7 +74,7 @@ create (v3)-[l7:DONNES]->(trait3)
 create (a)<-[l8:TRAITEMENTS]-(trait)
 create (trait)<-[l9:COMPOSANT {quantite:3}]-(m3)
 create (trait)<-[l10:COMPOSANT {quantite:1}]-(m4)
-
+return an3,m1,m2,v3,trait3,l7,l8,l9,l10
 
 match (an4: animal {nom: 'Cristale'}), (m5: medicament{nomMolecule: 'MILBEMAX'}), (v4: veterinaire{nom:'Mason'})
 create (trait4:Traitements {type: "Traitements", debut: datetime('2019-09-10'), duree: 5})
@@ -82,4 +83,4 @@ create (an4)<-[l12:TRAITEMENTS]-(trait4)
 create (trait4)<-[l13:COMPOSANT {quantite: 3}]-(m5)
 
 
-return p1, a1, a2, a3, r1, r2, r3, p2, b, s, p3, c, t, p4, d, u, a,m,v1,trait,l,l1,l2, an2,m1,m2,v,trait2,l3,l4,l5,l6, an3,m1,m2,v3,trait3,l7,l8,l9,l10, an4,m5,v4,trait4,l,l1,l2
+return an4,m5,v4,trait4,l11,l12,l13
