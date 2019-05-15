@@ -193,7 +193,7 @@ db.Clinique.insert({
 // Création de quelques requetes 
 
 //Affichage des animaux appartenant à un client donné
-db.Clinique.find({ "nom": "Guerin" }, { "nom": 1, "_id": 0 })
+db.Clinique.find({ "nom": "Guerin" }, { "animaux.nom": 1, "_id": 0 })
 
 //Affichage des noms de chien
 db.Clinique.find({ "animaux.espece.nom": "chien" }, { "_id": 0, "animaux.nom": 1 })
