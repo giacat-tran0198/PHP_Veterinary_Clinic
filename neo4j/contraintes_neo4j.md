@@ -10,7 +10,7 @@ La classe `Client`:
 - adresse : string (not null)
 - numero : integer (not null) < composé de 10 chiffres>
 
-Les contraintes pour cette classes sont : 
+Les contraintes pour cette classe sont : 
 - (nom,prenom,dateNaissance) UNIQUE 
 
 La classe `Animal` : 
@@ -20,7 +20,7 @@ La classe `Animal` :
 - dateNaissance : date (not null or null)
 - espece : string (not null)
 
-Les contraintes pour cette classes sont : 
+Les contraintes pour cette classe sont : 
 - Un client ne peut pas avoir 2 animaux avec le même nom 
 
 La classe `Vétérinaire` : 
@@ -31,7 +31,7 @@ La classe `Vétérinaire` :
 - numero : integer (not null) < composé de 10 chiffres>
 - specialite : string (not null)
 
-Les contraintes pour cette classes sont : 
+Les contraintes pour cette classe sont : 
 - (nom,prenom,dateNaissance) UNIQUE 
 
 La classe `Traitement` : 
@@ -43,7 +43,7 @@ La classe `Médicament` :
 - nom : string (not null)
 - description : string (not null)
 
-Les contraintes pour cette classes sont : 
+Les contraintes pour cette classe sont : 
 - (nom) UNIQUE 
 
 ## Les Associations : 
