@@ -203,12 +203,3 @@ db.Clinique.find({"animaux.dateNaissance":{$gte:new Date ("2010-01-01")}},{ "_id
 
 //Affichage des animaux qui n'a pas traitement
 db.Clinique.find({"animaux.traitement":{$exists: false}},{ "_id": 0, "animaux.nom": 1 })
-
-
-
-// ---------------------------------------------------------------
-// --------------------------- Refaire ---------------------------
-// ---------------------------------------------------------------
-
-//Affiche le poid moyen de chaque annimal
-db.Clinique.aggregate([ {$group: {"_id":"$animaux.nom", "avg_poids":{$avg: "$animaux.poids"},}}, {$sort : {"avg_poids":-1}} ])
