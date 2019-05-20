@@ -38,7 +38,7 @@ CREATE TYPE TYP_ANIMAL AS OBJECT
 /
 CREATE TYPE LISTE_ANIMAUX AS TABLE OF TYP_ANIMAL;
 /
-CREATE TABLE client
+CREATE TABLE CLIENT
 (
   nom           VARCHAR2(20) NOT NULL,
   prenom        VARCHAR2(20) NOT NULL,
@@ -49,4 +49,5 @@ CREATE TABLE client
   UNIQUE (nom, prenom, dateNaissance),
   CONSTRAINT ck_phone
     CHECK (numero LIKE '[0-9]{10}')
-);
+)
+NESTED TABLE animal STORE AS liste_animaux;
