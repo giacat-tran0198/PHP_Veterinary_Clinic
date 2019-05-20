@@ -23,7 +23,7 @@ CREATE TYPE TYP_TRAITEMENT AS OBJECT
   veterinaire TYP_VETERINAIRE,
   debut       DATE,
   duree       NUMBER(2),
-  medicament  LISTE_MEDICAMENTS
+  medicament  TYP_MEDICAMENT
 );
 /
 CREATE TYPE TYP_ANIMAL AS OBJECT
