@@ -1,22 +1,22 @@
-DROP TABLE IF EXISTS Animal ; 
+DROP TABLE Animal ; 
 /
-DROP TABLE IF EXISTS Client ; 
+DROP TABLE Client ; 
 /
-DROP TYPE  FORCE liste_traitement ; 
+DROP TYPE liste_traitement FORCE; 
 /
-DROP TYPE FORCE typ_traitement ;  
+DROP TYPE typ_traitement FORCE ;  
 /
-DROP TYPE FORCE liste_medicament ; 
+DROP TYPE liste_medicament FORCE ; 
 /
-DROP TYPE FORCE typ_medicament ; 
+DROP TYPE typ_medicament FORCE ; 
 /
-DROP TABLE IF EXISTS Espece ; 
+DROP TABLE  Espece ; 
 /
-DROP TABLE IF EXISTS ClasseEspece ; 
+DROP TABLE  ClasseEspece ; 
 /
-DROP TYPE FORCE typ_veterinaire ; 
+DROP TYPE typ_veterinaire FORCE ; 
 /
 
--- DROP SEQUENCE IF EXISTS id_client_seq; 
+DROP SEQUENCE id_client_seq;
+/ 
 
--- use of DROP TYPE <type> FORCE to be sure 

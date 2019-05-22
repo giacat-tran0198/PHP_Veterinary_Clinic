@@ -1,9 +1,9 @@
 -- Insert ClasseEspece 
-INSERT INTO ClasseEspece VALUES (nom) VALUES ('mammifere'); 
+INSERT INTO ClasseEspece (nom) VALUES ('mammifere'); 
 /
-INSERT INTO ClasseEspece VALUES (nom) VALUES ('reptile'); 
+INSERT INTO ClasseEspece (nom) VALUES ('reptile'); 
 /
-INSERT INTO ClasseEspece VALUES (nom) VALUES ('oiseau'); 
+INSERT INTO ClasseEspece (nom) VALUES ('oiseau'); 
 /
 
 -- Insert Espece 
