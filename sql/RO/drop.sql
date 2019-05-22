@@ -10,6 +10,7 @@ DROP TYPE liste_medicament ;
 DROP TYPE typ_medicament FORCE ; 
 DROP TABLE Veterinaire ; 
 DROP TYPE typ_veterinaire ; 
+DROP SEQUENCE IF EXISTS id_client_seq; 
 
 -- use of DROP TYPE <type> FORCE to be sure 
 
