@@ -26,8 +26,13 @@ CREATE OR REPLACE TYPE typ_traitement AS OBJECT
   debut       DATE,
   duree       NUMBER(2),
   medicament  liste_medicament
-);
+)
+NESTED TABLE medicament STORE AS nt_liste_medicaments;
 /
+
+CREATE OR REPLACE TYPE liste_traitements AS TABLE OF typ_traitement ;
+/
+
 
 -- Liste des epèces et classes d'annimaux 
 CREATE OR REPLACE TYPE type_classe AS OBJECT 
@@ -59,8 +64,9 @@ CREATE TYPE typ_animal AS OBJECT
   taille        FLOAT,
   dateNaissance DATE,
   espece        REF type_espece, 
-  traitement    typ_traitement
-);
+  traitement    liste_traitements
+)
+NESTED TABLE traitement STORE AS nt_liste_traitement;
 /
 
 CREATE OR REPLACE TYPE liste_animaux AS TABLE OF typ_animal;
