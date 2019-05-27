@@ -1,21 +1,45 @@
 -- Insert ClasseEspece 
-INSERT INTO ClasseEspece (nom) VALUES ('mammifere'); 
+INSERT INTO ClasseEspece VALUES ('mammifere');
 /
-INSERT INTO ClasseEspece (nom) VALUES ('reptile'); 
+INSERT INTO ClasseEspece VALUES ('reptile');
 /
-INSERT INTO ClasseEspece (nom) VALUES ('oiseau'); 
+INSERT INTO ClasseEspece VALUES ('oiseau');
 /
 
 -- Insert Espece 
-INSERT INTO Espece (nom,classe) VALUES ('chat','mammifere'); 
+DECLARE
+  refClasse1 REF typ_ClasseEspece;
+  refClasse2 REF typ_ClasseEspece;
+  refClasse3 REF typ_ClasseEspece;
+  BEGIN
+    SELECT REF(c) INTO refClasse1
+    FROM ClasseEspece c
+    WHERE c.nom = 'mammifere';
+    SELECT REF(c) INTO refClasse2
+    FROM ClasseEspece c
+    WHERE c.nom = 'reptile';
+    SELECT REF(c) INTO refClasse3
+    FROM ClasseEspece c
+    WHERE c.nom = 'oiseau';
+
+    INSERT INTO Espece VALUES ('chat', refClasse1);
+    INSERT INTO Espece VALUES ('chien', refClasse1);
+    INSERT INTO Espece VALUES ('vache', refClasse1);
+    INSERT INTO Espece VALUES ('anaconda', refClasse2);
+    INSERT INTO Espece VALUES ('perroquet', refClasse3);
+END;
 /
-INSERT INTO Espece (nom,classe) VALUES ('chien','mammifere'); 
+
+-- Insert Veterinaire
+INSERT INTO Veterinaire(nom,prenom,dateNaissance,adresse,numero) VALUES('Harry','Mason',to_date('1970-02-03','yyyy-mm-dd'),'Saint-Andre','0643558829');
 /
-INSERT INTO Espece (nom,classe) VALUES ('vache','mammifere'); 
+INSERT INTO Veterinaire(nom,prenom,dateNaissance,adresse,numero) VALUES('Cybil','Bennett',to_date('1980-12-08','yyyy-mm-dd'),'Saint-Andre','0666564529');
 /
-INSERT INTO Espece (nom,classe) VALUES ('anaconda','reptile'); 
+INSERT INTO Veterinaire(nom,prenom,dateNaissance,adresse,numero) VALUES('Alessa','Gillespie',to_date('1960-10-08','yyyy-mm-dd'),'Saint-Brieux','0662565859');
 /
-INSERT INTO Espece (nom,classe) VALUES ('perroquet','oiseau'); 
+INSERT INTO Veterinaire(nom,prenom,dateNaissance,adresse,numero) VALUES('Michael','Kaufmann',to_date('1965-05-23','yyyy-mm-dd'),'Saint-Ange','0646564595');
+/
+INSERT INTO Veterinaire(nom,prenom,dateNaissance,adresse,numero) VALUES('James','Sunderland',to_date('1975-06-16','yyyy-mm-dd'),'Saint-Mils','0648264459');
 /
 
 
@@ -30,6 +54,87 @@ INSERT INTO Client (id,nom,prenom,dateNaissance,adresse,numero) VALUES (id_clien
 /
 INSERT INTO Client (id,nom,prenom,dateNaissance,adresse,numero) VALUES (id_client_seq.NEXTVAL,'Halgand', 'Melanie', to_date('1998-01-01', 'yyyy-mm-dd'), 'Herbignac', '0656764829'); 
 /
+
+-- Insert Medicament
+INSERT INTO Medicament(nomMolecule,descriptionMed) VALUES('MILBEMAX','Antiparasitaire (milbémycine et praziquantel) contre les cestodes et les nématodes des chiens');
+/
+INSERT INTO Medicament(nomMolecule,descriptionMed) VALUES('ANIMAZEN','Aliment complémentaire pour les périodes de stress chez les chiens, chats.');
+/
+INSERT INTO Medicament(nomMolecule,descriptionMed) VALUES('OCEVIT','Aliment complémentaire chez les oiseaux de cage et de voliere');
+/
+INSERT INTO Medicament(nomMolecule,descriptionMed) VALUES('ACTIDRALYTE', 'Aliment complémentaire pour compenser la perte en électrolytes chez les poulains, veaux, agneaux, chevreaux et porcelets');
+/
+INSERT INTO Medicament(nomMolecule,descriptionMed) VALUES('ACTICARP','Anti-inflammatoire non-stéroïdien (carprofène) en solution injectable pour bovins');
+/
+INSERT INTO Medicament(nomMolecule,descriptionMed) VALUES('CALCIUM REPTILE','Aliment complémentaire pour assurer la solidité de la carapace et du squelette chez les reptiles');
+/
+INSERT INTO Medicament(nomMolecule,descriptionMed) VALUES('VITA REPTILE','Aliment complémentaire riche en vitamine pour reptiles');
+/
+
+
+-- Insert Autorisation
+DECLARE
+  refE1 REF typ_Espece;
+  refE2 REF typ_Espece;
+  refE3 REF typ_Espece;
+  refE4 REF typ_Espece;
+  refE5 REF typ_Espece;
+  refM1 REF typ_medicament;
+  refM2 REF typ_medicament;
+  refM3 REF typ_medicament;
+  refM4 REF typ_medicament;
+  refM5 REF typ_medicament;
+  refM6 REF typ_medicament;
+  refM7 REF typ_medicament;
+  BEGIN
+    SELECT REF(e) INTO refE1
+    FROM Espece e
+    WHERE e.nom = 'vache';
+    SELECT REF(e) INTO refE2
+    FROM Espece e
+    WHERE e.nom = 'anaconda';
+    SELECT REF(e) INTO refE3
+    FROM Espece e
+    WHERE e.nom = 'chien';
+    SELECT REF(e) INTO refE4
+    FROM Espece e
+    WHERE e.nom = 'chat';
+    SELECT REF(e) INTO refE5
+    FROM Espece e
+    WHERE e.nom = 'perroquet';
+    SELECT REF(m) INTO refM1
+    FROM  Medicament m
+    WHERE m.nomMolecule = 'ACTICARP';
+    SELECT REF(m) INTO refM2
+    FROM  Medicament m
+    WHERE m.nomMolecule = 'ACTIDRALYTE';
+    SELECT REF(m) INTO refM3
+    FROM  Medicament m
+    WHERE m.nomMolecule = 'CALCIUM REPTILE';
+    SELECT REF(m) INTO refM4
+    FROM  Medicament m
+    WHERE m.nomMolecule = 'VITA REPTILE';
+    SELECT REF(m) INTO refM5
+    FROM  Medicament m
+    WHERE m.nomMolecule = 'MILBEMAX';
+    SELECT REF(m) INTO refM6
+    FROM  Medicament m
+    WHERE m.nomMolecule = 'ANIMAZEN';
+    SELECT REF(m) INTO refM7
+    FROM  Medicament m
+    WHERE m.nomMolecule = 'OCEVIT';
+
+    INSERT INTO Autorisation VALUES (refM1, refE1);
+    INSERT INTO Autorisation VALUES (refM2, refE1);
+    INSERT INTO Autorisation VALUES (refM3, refE2);
+    INSERT INTO Autorisation VALUES (refM4, refE2);
+    INSERT INTO Autorisation VALUES (refM5, refE3);
+    INSERT INTO Autorisation VALUES (refM6, refE3);
+    INSERT INTO Autorisation VALUES (refM6, refE4);
+    INSERT INTO Autorisation VALUES (refM7, refE5);
+END;
+/
+
 
 -- Insert Animaux 
 INSERT INTO Animal (proprietaire,nom,poids,taille,dateNaissance,espece,traitement) VALUES (1,'Filou', 5, 45, NULL,'chien',
