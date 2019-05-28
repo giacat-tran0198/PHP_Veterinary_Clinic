@@ -1,26 +1,3 @@
--- Classe Vétérinaire
-CREATE OR REPLACE TYPE typ_veterinaire AS OBJECT (
-  nom           VARCHAR2(50),
-  prenom        VARCHAR2(50),
-  dateNaissance DATE ,
-  adresse       VARCHAR(50),
-  numero        VARCHAR2(10)
-);
-/
-
-CREATE TABLE Veterinaire OF typ_veterinaire (
-  nom           NOT NULL ,
-  prenom        NOT NULL ,
-  dateNaissance NOT NULL ,
-  adresse       NOT NULL ,
-  numero        NOT NULL ,
-  UNIQUE(nom,prenom,dateNaissance),
-  CONSTRAINT ck_phone
-    CHECK (REGEXP_LIKE(numero, '^0\d{9}$'))
-
-);
-/
-
 -- Class Client
 
 CREATE OR REPLACE TYPE typ_client AS OBJECT (
@@ -67,6 +44,57 @@ CREATE OR REPLACE TYPE  typ_Espece AS OBJECT (
 CREATE TABLE Espece OF typ_Espece (
     PRIMARY KEY (nom),
     SCOPE FOR (classe) IS ClasseEspece
+);
+/
+
+-- Classe Vétérinaire
+CREATE OR REPLACE TYPE typ_veterinaire AS OBJECT (
+  nom           VARCHAR2(50),
+  prenom        VARCHAR2(50),
+  dateNaissance DATE ,
+  adresse       VARCHAR(50),
+  numero        VARCHAR2(10),
+  specialite REF typ_ClasseEspece
+);
+/
+
+CREATE TABLE Veterinaire OF typ_veterinaire (
+  nom           NOT NULL ,
+  prenom        NOT NULL ,
+  dateNaissance NOT NULL ,
+  adresse       NOT NULL ,
+  numero        NOT NULL ,
+  UNIQUE(nom,prenom,dateNaissance),
+  CONSTRAINT ck_phone
+    CHECK (REGEXP_LIKE(numero, '^0\d{9}$')),
+    
+  SCOPE FOR (specialite) IS ClasseEspece
+
+);
+/
+
+CREATE OR REPLACE TYPE typ_assistant AS OBJECT (
+  nom           VARCHAR2(50),
+  prenom        VARCHAR2(50),
+  dateNaissance DATE ,
+  adresse       VARCHAR(50),
+  numero        VARCHAR2(10),
+  specialite REF typ_ClasseEspece
+);
+/
+
+CREATE TABLE Assistant OF typ_assistant (
+  nom           NOT NULL ,
+  prenom        NOT NULL ,
+  dateNaissance NOT NULL ,
+  adresse       NOT NULL ,
+  numero        NOT NULL ,
+  UNIQUE(nom,prenom,dateNaissance),
+  CONSTRAINT ck_phone
+    CHECK (REGEXP_LIKE(numero, '^0\d{9}$')),
+    
+  SCOPE FOR (specialite) IS ClasseEspece
+
 );
 /
 
