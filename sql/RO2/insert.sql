@@ -30,17 +30,34 @@ DECLARE
 END;
 /
 
--- Insert Veterinaire
-INSERT INTO Veterinaire(nom,prenom,dateNaissance,adresse,numero) VALUES('Harry','Mason',to_date('1970-02-03','yyyy-mm-dd'),'Saint-Andre','0643558829');
-/
-INSERT INTO Veterinaire(nom,prenom,dateNaissance,adresse,numero) VALUES('Cybil','Bennett',to_date('1980-12-08','yyyy-mm-dd'),'Saint-Andre','0666564529');
-/
-INSERT INTO Veterinaire(nom,prenom,dateNaissance,adresse,numero) VALUES('Alessa','Gillespie',to_date('1960-10-08','yyyy-mm-dd'),'Saint-Brieux','0662565859');
-/
-INSERT INTO Veterinaire(nom,prenom,dateNaissance,adresse,numero) VALUES('Michael','Kaufmann',to_date('1965-05-23','yyyy-mm-dd'),'Saint-Ange','0646564595');
-/
-INSERT INTO Veterinaire(nom,prenom,dateNaissance,adresse,numero) VALUES('James','Sunderland',to_date('1975-06-16','yyyy-mm-dd'),'Saint-Mils','0648264459');
-/
+-- Insert Veterinaire et Assistant
+DECLARE
+  refClasse1 REF typ_ClasseEspece;
+  refClasse2 REF typ_ClasseEspece;
+  refClasse3 REF typ_ClasseEspece;
+  BEGIN
+    SELECT REF(c) INTO refClasse1
+    FROM ClasseEspece c
+    WHERE c.nom = 'mammifere';
+    SELECT REF(c) INTO refClasse2
+    FROM ClasseEspece c
+    WHERE c.nom = 'reptile';
+    SELECT REF(c) INTO refClasse3
+    FROM ClasseEspece c
+    WHERE c.nom = 'oiseau';
+
+    INSERT INTO Veterinaire VALUES('Harry','Mason',to_date('1970-02-03','yyyy-mm-dd'),'Saint-Andre','0643558829',refClasse1);
+    INSERT INTO Veterinaire VALUES('Cybil','Bennett',to_date('1980-12-08','yyyy-mm-dd'),'Saint-Andre','0666564529',refClasse2);
+    INSERT INTO Veterinaire VALUES('Alessa','Gillespie',to_date('1960-10-08','yyyy-mm-dd'),'Saint-Brieux','0662565859',refClasse3);
+    INSERT INTO Veterinaire VALUES('Michael','Kaufmann',to_date('1965-05-23','yyyy-mm-dd'),'Saint-Ange','0646564595',refClasse2);
+    INSERT INTO Veterinaire VALUES('James','Sunderland',to_date('1975-06-16','yyyy-mm-dd'),'Saint-Mils','0648264459',refClasse3);
+
+    INSERT INTO Assistant VALUES('Lisa','Garland',to_date('1983-04-04','yyyy-mm-dd'),'Saint-Jean','0644664456', refClasse3);
+    INSERT INTO Assistant VALUES('Douglas','Cartland',to_date('1972-11-10','yyyy-mm-dd'),'Saint-Mils','0690564782', refClasse1 );
+    INSERT INTO Assistant VALUES('Claudia','Wolf',to_date('1987-03-01','yyyy-mm-dd'),'Saint-Andre','0641364168',refClasse2);
+    INSERT INTO Assistant VALUES('Vincent','Smith',to_date('1988-07-12','yyyy-mm-dd'),'Saint-Ange','0646564260', refClasse3);
+    INSERT INTO Assistant VALUES('Eileen','Galvin',to_date('1982-05-14','yyyy-mm-dd'),'Saint-Ange','0645964135',refClasse1);
+END;
 
 
 -- Insert Client
@@ -197,4 +214,4 @@ INSERT INTO Animal (proprietaire,nom,poids,taille,dateNaissance,espece,traitemen
           )
     )
 ); 
-/ 
+/
