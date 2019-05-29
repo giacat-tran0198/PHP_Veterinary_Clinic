@@ -1,4 +1,3 @@
-
 -- Classe ClasseEspece
 CREATE OR REPLACE TYPE typ_ClasseEspece AS OBJECT  (
   nom VARCHAR2(20)
@@ -120,7 +119,7 @@ CREATE OR REPLACE TYPE col_Prescription AS TABLE OF typ_Prescription;
 CREATE OR REPLACE TYPE typ_traitement AS OBJECT
 (
   id NUMBER(2),
-  veterinaire typ_veterinaire,
+  veterinaire REF typ_veterinaire,
   debut       DATE,
   duree       NUMBER(2),
   prescriptions col_Prescription
@@ -130,10 +129,10 @@ CREATE OR REPLACE TYPE typ_traitement AS OBJECT
 CREATE TABLE Traitement OF typ_traitement (
 
     PRIMARY KEY (id),
-    veterinaire NOT NULL,
     debut NOT NULL,
     duree NOT NULL,
-    CHECK (duree>0)
+    CHECK (duree>0),
+    SCOPE FOR (veterinaire) IS Veterinaire
 
 
 )NESTED TABLE prescriptions STORE AS nt_prescriptions;
