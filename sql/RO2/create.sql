@@ -34,6 +34,7 @@ CREATE TABLE Espece OF typ_Espece (
 
 -- Classe Vétérinaire
 CREATE OR REPLACE TYPE typ_veterinaire AS OBJECT (
+  id NUMBER(2),
   nom           VARCHAR2(50),
   prenom        VARCHAR2(50),
   dateNaissance DATE ,
@@ -44,6 +45,7 @@ CREATE OR REPLACE TYPE typ_veterinaire AS OBJECT (
 /
 
 CREATE TABLE Veterinaire OF typ_veterinaire (
+  PRIMARY KEY(id),
   nom           NOT NULL ,
   prenom        NOT NULL ,
   dateNaissance NOT NULL ,
@@ -60,6 +62,7 @@ CREATE TABLE Veterinaire OF typ_veterinaire (
 
 
 CREATE OR REPLACE TYPE typ_assistant AS OBJECT (
+  id NUMBER(2),
   nom           VARCHAR2(50),
   prenom        VARCHAR2(50),
   dateNaissance DATE ,
@@ -70,6 +73,7 @@ CREATE OR REPLACE TYPE typ_assistant AS OBJECT (
 /
 
 CREATE TABLE Assistant OF typ_assistant (
+  PRIMARY KEY(id),
   nom           NOT NULL ,
   prenom        NOT NULL ,
   dateNaissance NOT NULL ,
