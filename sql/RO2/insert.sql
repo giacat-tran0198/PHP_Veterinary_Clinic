@@ -245,7 +245,6 @@ DECLARE
 INSERT INTO Animal VALUES ('Filou', 5, 45, NULL,refE3,
     liste_ref_Traitement(
         ref_Traitement(refT3)
-        ,
         
             )
 ); 
@@ -296,9 +295,31 @@ INSERT INTO Animal VALUES ('Cristale', 8, 60, NULL,refE3,
 END;
 /
 
+
+
 -- Insert Client
 CREATE SEQUENCE id_client_seq START WITH 1 ; 
 /
+
+
+DECLARE
+
+    refA1 REF typ_animal;
+    refA2 REF typ_animal;
+    refA3 REF typ_animal;
+    refA4 REF typ_animal;
+    refA5 REF typ_animal;
+    refA6 REF typ_animal;
+    
+BEGIN
+
+    SELECT REF(e) INTO refE1
+    FROM Espece e
+    WHERE e.nom = 'vache';
+
+
+
+
 INSERT INTO Client (id,nom,prenom,dateNaissance,adresse,numero) VALUES (id_client_seq.NEXTVAL,'Guerin', 'Maurice', to_date('1940-04-04', 'yyyy-mm-dd'), 'Saint-Andre', '0643564829') ; 
 /
 INSERT INTO Client (id,nom,prenom,dateNaissance,adresse,numero) VALUES (id_client_seq.NEXTVAL,'Allaire', 'Laurence', to_date('1969-02-04', 'yyyy-mm-dd'), 'Saint-Molf', '0761444829'); 
@@ -308,7 +329,8 @@ INSERT INTO Client (id,nom,prenom,dateNaissance,adresse,numero) VALUES (id_clien
 INSERT INTO Client (id,nom,prenom,dateNaissance,adresse,numero) VALUES (id_client_seq.NEXTVAL,'Halgand', 'Melanie', to_date('1998-01-01', 'yyyy-mm-dd'), 'Herbignac', '0656764829'); 
 /
 
-
+END;
+/
 
 
 
