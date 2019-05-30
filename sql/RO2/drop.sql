@@ -1,73 +1,51 @@
-DROP TABLE Animal ;
+DROP TABLE Animal;
 /
-DROP TABLE Client ;
+DROP TABLE Client;
 /
-
-
-DROP TYPE typ_client FORCE;
+DROP TYPE TYP_CLIENT FORCE;
 /
-
-DROP TYPE liste_ ref_Animal FORCE;
+DROP TYPE liste_ref_Animal FORCE;
 /
-DROP TYPE ref_Animal FORCE;
+DROP TYPE REF_ANIMAL FORCE;
 /
-
-
-DROP TYPE typ_Animal FORCE;
+DROP TYPE TYP_ANIMAL FORCE;
 /
-
-DROP TYPE liste_traitement FORCE;
+DROP TYPE TYP_TRAITEMENT FORCE;
 /
-DROP TYPE typ_traitement FORCE ;
+DROP TYPE COL_PRESCRIPTION FORCE;
 /
-
-DROP TYPE col_Prescription FORCE;
+DROP TYPE TYP_PRESCRIPTION FORCE;
 /
-
-DROP TYPE typ_Prescription FORCE;
+DROP TYPE TYP_MEDICAMENT FORCE;
 /
-DROP TYPE typ_medicament FORCE ;
+DROP TYPE LISTE_REF_TRAITEMENT FORCE;
 /
-
-DROP TYPE liste_ref_Traitement FORCE ;
+DROP TYPE REF_TRAITEMENT FORCE;
 /
-DROP TYPE ref_Traitement FORCE ;
+DROP TABLE Espece;
 /
-
-
-
-DROP TABLE  Espece ;
+DROP TABLE ClasseEspece;
 /
-DROP TABLE  ClasseEspece ;
+DROP TYPE TYP_VETERINAIRE FORCE;
 /
-DROP TYPE typ_veterinaire FORCE ;
+DROP TYPE TYP_ASSISTANT FORCE;
 /
-DROP TYPE typ_assistant FORCE ;
+DROP TYPE TYP_CLASSEESPECE FORCE;
 /
-DROP TYPE typ_client FORCE ;
+DROP TYPE LISTE_REF_ESPECE FORCE;
 /
-DROP TYPE typ_ClasseEspece FORCE ;
+DROP TYPE REF_ESPECE FORCE;
 /
-DROP TYPE liste_ref_Espece FORCE ;
+DROP TYPE TYP_ESPECE FORCE;
 /
-DROP TYPE ref_Espece FORCE ;
-/
-
-DROP TYPE typ_Espece FORCE ;
-/
-
 DROP TABLE Medicament;
 /
 DROP TABLE Veterinaire;
 /
 DROP TABLE Assistant;
 /
-DROP TABLE Espece;
+DROP TABLE Traitement;
 /
-DROP TABLE ClasseEspece;
-/
-
-
 DROP SEQUENCE id_client_seq;
 /
 DROP SEQUENCE id_vet_seq;
@@ -75,6 +53,4 @@ DROP SEQUENCE id_vet_seq;
 DROP SEQUENCE id_assist_seq;
 /
 DROP SEQUENCE id_traitement_seq;
-/
-DROP SEQUENCE id_trait_sq;
 /
