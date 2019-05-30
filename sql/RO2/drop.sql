@@ -30,3 +30,9 @@ DROP TABLE Veterinaire;
 /
 DROP SEQUENCE id_client_seq;
 /
+DROP SEQUENCE id_vet_seq;
+/
+DROP SEQUENCE id_assist_seq;
+/
+DROP SEQUENCE id_traitement_seq;
+/
