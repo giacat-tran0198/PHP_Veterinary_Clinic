@@ -181,13 +181,20 @@ CREATE TABLE Animal OF typ_Animal
 
 -- Class Client
 
+CREATE OR REPLACE TYPE ref_Animal AS OBJECT (ref_Animal REF typ_Animal);
+/
+CREATE OR REPLACE TYPE liste_ ref_Animal AS TABLE OF ref_Animal;
+/
+
 CREATE OR REPLACE TYPE typ_client AS OBJECT (
   id            NUMBER(2),
   nom           VARCHAR2(20),
   prenom        VARCHAR2(20),
   dateNaissance DATE,
   adresse       VARCHAR2(20),
-  numero        VARCHAR2(10)
+  numero        VARCHAR2(10),
+  animaux       liste_ref_animal
+  
 );
 /
 
@@ -200,5 +207,5 @@ CREATE TABLE Client OF typ_client (
   numero        NOT NULL,
   UNIQUE (nom, prenom, dateNaissance),
   CHECK (REGEXP_LIKE(numero, '^0\d{9}$'))
-);
+)NESTED TABLE animaux STORE AS nt_animaux;
 /
