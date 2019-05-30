@@ -344,8 +344,6 @@ liste_ref_Espece(ref_Espece(refE2)));
  END;
 /
 
-DELETE FROM TRAITEMENT;/
-DROP SEQUENCE id_traitement_seq;/
 -- INSERT TRAITEMENTS
 
 CREATE SEQUENCE id_traitement_seq START WITH 1 ; 
