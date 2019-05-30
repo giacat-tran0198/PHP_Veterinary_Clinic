@@ -242,7 +242,7 @@ DECLARE
     WHERE e.nom = 'chien';
     
 
-INSERT INTO Animal VALUES ('Filou', 5, 45, NULL,'chien',
+INSERT INTO Animal VALUES ('Filou', 5, 45, NULL,refE3,
     liste_ref_Traitement(
         ref_Traitement(refT3)
         ,
@@ -250,7 +250,7 @@ INSERT INTO Animal VALUES ('Filou', 5, 45, NULL,'chien',
             )
 ); 
 /
-INSERT INTO Animal VALUES (1,'Bob', 20, 40, to_date('2013-12-15', 'yyyy-mm-dd'),'anaconda',
+INSERT INTO Animal VALUES (1,'Bob', 20, 40, to_date('2013-12-15', 'yyyy-mm-dd'),refE2,
     liste_traitement(
         typ_traitement(
             typ_veterinaire('Cybil'),
@@ -263,7 +263,7 @@ INSERT INTO Animal VALUES (1,'Bob', 20, 40, to_date('2013-12-15', 'yyyy-mm-dd'),
     )
 ); 
 / 
-INSERT INTO Animal VALUES (1,'Margerite', 600, 80, to_date('2018-12-15', 'yyyy-mm-dd'),'vache',
+INSERT INTO Animal VALUES (1,'Margerite', 600, 80, to_date('2018-12-15', 'yyyy-mm-dd'),refE1,
     liste_traitement(
         typ_traitement(
             typ_veterinaire('Alessa'),
@@ -276,11 +276,11 @@ INSERT INTO Animal VALUES (1,'Margerite', 600, 80, to_date('2018-12-15', 'yyyy-m
     )
 ); 
 / 
-INSERT INTO Animal VALUES (2,'Sunny', 6, 40, to_date('2014-12-15', 'yyyy-mm-dd'),'chien',NULL); 
+INSERT INTO Animal VALUES (2,'Sunny', 6, 40, to_date('2014-12-15', 'yyyy-mm-dd'),refE3,NULL); 
 / 
-INSERT INTO Animal VALUES (3,'Izao', 7, 55, NULL,'chien',NULL); 
+INSERT INTO Animal VALUES (3,'Izao', 7, 55, NULL,refE3,NULL); 
 / 
-INSERT INTO Animal VALUES (4,'Cristale', 8, 60, NULL,'chien',
+INSERT INTO Animal VALUES (4,'Cristale', 8, 60, NULL,refE3,
     liste_traitement(
         typ_traitement(
             typ_veterinaire('Harry'),
