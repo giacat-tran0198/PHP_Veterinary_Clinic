@@ -62,6 +62,11 @@ DROP TABLE Veterinaire;
 /
 DROP TABLE Assistant;
 /
+DROP TABLE Espece;
+/
+DROP TABLE ClasseEspece;
+/
+
 
 DROP SEQUENCE id_client_seq;
 /
