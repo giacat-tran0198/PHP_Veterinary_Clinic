@@ -255,15 +255,7 @@ INSERT INTO Animal VALUES ('Bob', 20, 40, to_date('2013-12-15', 'yyyy-mm-dd'),re
 ); 
 / 
 INSERT INTO Animal VALUES ('Margerite', 600, 80, to_date('2018-12-15', 'yyyy-mm-dd'),refE1,
-    liste_traitement(
-        typ_traitement(
-            typ_veterinaire('Alessa'),
-            to_date('2019-10-10', 'yyyy-mm-dd'), 5,
-            liste_medicament(
-                typ_medicament('ACTICARP',80),
-                typ_medicament('ACTIDRALYTE',20)
-            )
-        )
+    liste_traitement(ref_Traitement(refT3)
     )
 ); 
 / 
@@ -272,7 +264,7 @@ INSERT INTO Animal VALUES ('Sunny', 6, 40, to_date('2014-12-15', 'yyyy-mm-dd'),r
 INSERT INTO Animal VALUES ('Izao', 7, 55, NULL,refE3,NULL); 
 / 
 INSERT INTO Animal VALUES ('Cristale', 8, 60, NULL,refE3,
-    liste_traitement(ref_Traitement(refT3)
+    liste_traitement(ref_Traitement(refT2)
     )
 ); 
 /
