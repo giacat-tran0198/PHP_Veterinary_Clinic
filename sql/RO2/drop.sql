@@ -71,3 +71,5 @@ DROP SEQUENCE id_assist_seq;
 /
 DROP SEQUENCE id_traitement_seq;
 /
+DROP SEQUENCE id_trait_sq;
+/
