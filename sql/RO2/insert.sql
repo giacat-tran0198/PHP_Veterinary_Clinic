@@ -240,9 +240,12 @@ DECLARE
     SELECT REF(e) INTO refE3
     FROM Espece e
     WHERE e.nom = 'chien';
+    SELECT REF(e) INTO refE4
+    FROM Espece e
+    WHERE e.nom = 'chat';
     
 
-INSERT INTO Animal VALUES ('Filou', 5, 45, NULL,refE3,
+INSERT INTO Animal VALUES ('Filou', 5, 45, NULL,refE4,
     liste_ref_Traitement(
         ref_Traitement(refT3)
         
@@ -290,20 +293,41 @@ DECLARE
     
 BEGIN
 
-    SELECT REF(e) INTO refE1
-    FROM Espece e
-    WHERE e.nom = 'vache';
+    SELECT REF(a) INTO refA1
+    FROM Animal a
+    WHERE a.nom='Filou' and a.espece.nom='chat';
+    
+    SELECT REF(a) INTO refA2
+    FROM Animal a
+    WHERE a.nom='Bob' and a.espece.nom='anaconda';
+    
+    SELECT REF(a) INTO refA3
+    FROM Animal a
+    WHERE a.nom='Margerite' and a.espece.nom='vache';
+    
+    SELECT REF(a) INTO refA4
+    FROM Animal a
+    WHERE a.nom='Sunny' and a.espece.nom='chien';
+    
+    SELECT REF(a) INTO refA5
+    FROM Animal a
+    WHERE a.nom='Izao' and a.espece.nom='chien';
+    
+    SELECT REF(a) INTO refA6
+    FROM Animal a
+    WHERE a.nom='Cristale' and a.espece.nom='chien';
 
 
 
 
-INSERT INTO Client (id,nom,prenom,dateNaissance,adresse,numero) VALUES (id_client_seq.NEXTVAL,'Guerin', 'Maurice', to_date('1940-04-04', 'yyyy-mm-dd'), 'Saint-Andre', '0643564829') ; 
+INSERT INTO Client VALUES (id_client_seq.NEXTVAL,'Guerin', 'Maurice', to_date('1940-04-04', 'yyyy-mm-dd'), 'Saint-Andre', '0643564829',
+    liste_ref_Animal(ref_Animal(refA1),ref_Animal(refA2),ref_Animal(refA3) ) ) ; 
 /
-INSERT INTO Client (id,nom,prenom,dateNaissance,adresse,numero) VALUES (id_client_seq.NEXTVAL,'Allaire', 'Laurence', to_date('1969-02-04', 'yyyy-mm-dd'), 'Saint-Molf', '0761444829'); 
+INSERT INTO Client VALUES (id_client_seq.NEXTVAL,'Allaire', 'Laurence', to_date('1969-02-04', 'yyyy-mm-dd'), 'Saint-Molf', '0761444829', liste_ref_Animal(ref_Animal(refA4) ) ); 
 /
-INSERT INTO Client (id,nom,prenom,dateNaissance,adresse,numero) VALUES (id_client_seq.NEXTVAL,'Danilo', 'Melani', to_date('1999-04-15', 'yyyy-mm-dd'), 'Guerande', '0643784890'); 
+INSERT INTO Client VALUES (id_client_seq.NEXTVAL,'Danilo', 'Melani', to_date('1999-04-15', 'yyyy-mm-dd'), 'Guerande', '0643784890', liste_ref_Animal(ref_Animal(refA5) )); 
 /
-INSERT INTO Client (id,nom,prenom,dateNaissance,adresse,numero) VALUES (id_client_seq.NEXTVAL,'Halgand', 'Melanie', to_date('1998-01-01', 'yyyy-mm-dd'), 'Herbignac', '0656764829'); 
+INSERT INTO Client VALUES (id_client_seq.NEXTVAL,'Halgand', 'Melanie', to_date('1998-01-01', 'yyyy-mm-dd'), 'Herbignac', '0656764829', liste_ref_Animal(ref_Animal(refA6) )); 
 /
 
 END;
