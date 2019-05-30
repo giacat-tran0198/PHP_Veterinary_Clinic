@@ -74,7 +74,6 @@ CREATE TABLE Assistant OF typ_assistant (
   numero        NOT NULL ,
   UNIQUE(nom,prenom,dateNaissance),
   CHECK (REGEXP_LIKE(numero, '^0\d{9}$')),
-
   SCOPE FOR (specialite) IS ClasseEspece
 
 );
@@ -176,7 +175,6 @@ CREATE OR REPLACE TYPE TYP_CLIENT AS OBJECT(
   adresse       VARCHAR2(20),
   numero        VARCHAR2(10),
   animaux       LISTE_REF_ANIMAL
-
 );
 /
 
