@@ -40,6 +40,7 @@ CREATE TABLE Clinique.Animal (
     dateNaissance DATE,
     espece VARCHAR NOT NULL,
     PRIMARY KEY (id),
+    FOREIGN KEY (proprietaire) REFERENCES Clinique.Client(id), 
     FOREIGN KEY (espece) REFERENCES Clinique.Espece(nom) ,
     UNIQUE (nom,proprietaire),
     CONSTRAINT chk_poids CHECK (poids > 0),

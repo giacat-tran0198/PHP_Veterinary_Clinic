@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="schema_traitement.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<traitements>
+  <traitement>
+    <debut>2015-09-04</debut>
+    <duree>40</duree>
+    <veterinaire> 
+      <nom>Ron</nom>
+      <prenom>Weasley</prenom>
+    </veterinaire>
+    <prescription> 
+      <medicament> 
+        <nomMolecule>Vita Reptile</nomMolecule>
+        <quantite>30</quantite>
+      </medicament>
+    </prescription>
+  </traitement>
+</traitements>

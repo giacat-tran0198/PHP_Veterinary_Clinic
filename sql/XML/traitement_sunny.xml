@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="schema_traitement.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<traitements>
+  <traitement>
+    <debut>2019-09-04</debut>
+    <duree>15</duree>
+    <veterinaire> 
+      <nom>Harry</nom>
+      <prenom>Potter</prenom>
+    </veterinaire>
+    <prescription> 
+      <medicament> 
+        <nomMolecule>Milbemax</nomMolecule>
+        <quantite>3</quantite>
+      </medicament>
+      <medicament> 
+        <nomMolecule>Ocevit</nomMolecule>
+        <quantite>13</quantite>
+      </medicament>
+    </prescription>
+  </traitement>
+  <traitement>
+    <debut>2019-01-24</debut>
+    <duree>30</duree>
+    <veterinaire> 
+      <nom>Hermione</nom>
+      <prenom>Granger</prenom>
+    </veterinaire>
+    <prescription> 
+      <medicament> 
+        <nomMolecule>Stupefix</nomMolecule>
+        <quantite>7</quantite>
+      </medicament>
+      <medicament> 
+        <nomMolecule>Doloris</nomMolecule>
+        <quantite>2</quantite>
+      </medicament>
+    </prescription>
+  </traitement>
+</traitements>

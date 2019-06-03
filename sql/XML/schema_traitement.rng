@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    <start>
+        <element name="traitements">
+            <element name = "traitement">
+                <element name = "debut">
+                    <data type = "date"/>
+                </element>
+                <element name = "duree">
+                    <date type = "integer"/>
+                </element>
+                <element name = "veterinaire">
+                    <element name = "nom">
+                        <data type = "string"/>
+                    </element>
+                    <element name = "prenom">
+                        <data type = "stirng"/>
+                    </element>
+                </element>
+                <element name = "prescription">
+                    <zeroOrMore>
+                        <element name = "medicament">
+                            <element name = "nomMolecule">
+                                <data type = "string"/>
+                            </element>
+                            <element name = "quantite">
+                                <data type = "integer"/>
+                            </element>
+                        </element>
+                    </zeroOrMore>
+                </element>
+            </element>
+        </element>
+    </start>
+</grammar>

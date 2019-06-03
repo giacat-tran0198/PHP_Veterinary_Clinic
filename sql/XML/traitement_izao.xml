@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="schema_traitement.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<traitements>
+  <traitement>
+    <debut>2019-09-04</debut>
+    <duree>15</duree>
+    <veterinaire> 
+      <nom>Ginny</nom>
+      <prenom>Weasley</prenom>
+    </veterinaire>
+  </traitement>
+  <traitement>
+    <debut>1978-04-14</debut>
+    <duree>30</duree>
+    <veterinaire> 
+      <nom>Remus</nom>
+      <prenom>Lupin</prenom>
+    </veterinaire>
+    <prescription> 
+      <medicament> 
+        <nomMolecule>Wolf Spain</nomMolecule>
+        <quantite>75</quantite>
+      </medicament>
+      <medicament> 
+        <nomMolecule>Silver</nomMolecule>
+        <quantite>21</quantite>
+      </medicament>
+    </prescription>
+  </traitement>
+</traitements>
