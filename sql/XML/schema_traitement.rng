@@ -5,34 +5,38 @@
     datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
     <start>
         <element name="traitements">
-            <element name = "traitement">
-                <element name = "debut">
-                    <data type = "date"/>
-                </element>
-                <element name = "duree">
-                    <data type = "integer"/>
-                </element>
-                <element name = "veterinaire">
-                    <element name = "nom">
-                        <data type = "string"/>
+            <oneOrMore>
+                <element name = "traitement">
+                    <element name = "debut">
+                        <data type = "date"/>
                     </element>
-                    <element name = "prenom">
-                        <data type = "string"/>
+                    <element name = "duree">
+                        <data type = "integer"/>
                     </element>
-                </element>
-                <element name = "prescription">
-                    <oneOrMore>
-                        <element name = "medicament">
-                            <element name = "nomMolecule">
-                                <data type = "string"/>
-                            </element>
-                            <element name = "quantite">
-                                <data type = "integer"/>
-                            </element>
+                    <element name = "veterinaire">
+                        <element name = "nom">
+                            <data type = "string"/>
                         </element>
-                    </oneOrMore>
+                        <element name = "prenom">
+                            <data type = "string"/>
+                        </element>
+                    </element>
+                    <optional>
+                        <element name = "prescription">
+                            <oneOrMore>
+                                <element name = "medicament">
+                                    <element name = "nomMolecule">
+                                        <data type = "string"/>
+                                    </element>
+                                    <element name = "quantite">
+                                        <data type = "integer"/>
+                                    </element>
+                                </element>
+                            </oneOrMore>
+                        </element>
+                    </optional>
                 </element>
-            </element>
+            </oneOrMore>
         </element>
     </start>
 </grammar>
