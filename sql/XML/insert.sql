@@ -20,28 +20,32 @@ INSERT INTO Espece (nom,classe) VALUES('vache','mammifere');
 /*------------------------------------------------------------*/
 /*--------------------- Les individus :-----------------------*/ 
 /*------------------------------------------------------------*/
-INSERT INTO Client(nom,prenom,dateNaissance,adresse,numero) VALUES('Guerin','Maurice','1940-04-04','Saint-Andre','0643564829');
+CREATE SEQUENCE id_client_seq START WITH 1;
+
+INSERT INTO Client VALUES(id_client_seq.NEXTVAL,'Guerin','Maurice',to_date('1940-04-04', 'yyyy-mm-dd'),'Saint-Andre','0643564829');
 /
-INSERT INTO Client(nom,prenom,dateNaissance,adresse,numero) VALUES('Allaire','Laurence','1969-02-04','Saint-Molf','0761444829');
+INSERT INTO Client VALUES(id_client_seq.NEXTVAL,'Allaire','Laurence',to_date('1969-02-04', 'yyyy-mm-dd'),'Saint-Molf','0761444829');
 /
-INSERT INTO Client(nom,prenom,dateNaissance,adresse,numero) VALUES('Danilo','Melani','1999-04-15','Guerande','0643784890');
+INSERT INTO Client VALUES(id_client_seq.NEXTVAL,'Danilo','Melani',to_date('1999-04-15', 'yyyy-mm-dd'),'Guerande','0643784890');
 /
-INSERT INTO Client(nom,prenom,dateNaissance,adresse,numero) VALUES('Halgand','Melanie','1998-01-01','Herbignac','0656764829');
+INSERT INTO Client VALUES(id_client_seq.NEXTVAL,'Halgand','Melanie',to_date('1998-01-01', 'yyyy-mm-dd'),'Herbignac','0656764829');
 /
 
 /*------------------------------------------------------------*/
 /*---------------------- Les animaux :------------------------*/
 /*------------------------------------------------------------*/
-INSERT INTO Animal(nom,proprietaire,poids,taille,espece) VALUES ('Filou','1','5','45','chat');
+CREATE SEQUENCE id_animal_seq START WITH 1;
+
+INSERT INTO Animal(id,nom,proprietaire,poids,taille,espece) VALUES (id_animal_seq.NEXTVAL,'Filou',1,5,45,'chat');
 /
-INSERT INTO Animal(nom,proprietaire,poids,taille,espece,traitement) VALUES (
-    'Izao','3','7','55','chien', 
-    XMLType (' 
+INSERT INTO Animal(id,nom,proprietaire,poids,taille,espece,traitement) VALUES (
+    id_animal_seq.NEXTVAL,'Izao',3,7,55,'chien',
+    XMLType ('
     <traitements>
       <traitement>
         <debut>2019-09-04</debut>
         <duree>15</duree>
-        <veterinaire> 
+        <veterinaire>
           <nom>Ginny</nom>
           <prenom>Weasley</prenom>
         </veterinaire>
@@ -49,16 +53,16 @@ INSERT INTO Animal(nom,proprietaire,poids,taille,espece,traitement) VALUES (
       <traitement>
         <debut>1978-04-14</debut>
         <duree>30</duree>
-        <veterinaire> 
+        <veterinaire>
           <nom>Remus</nom>
           <prenom>Lupin</prenom>
         </veterinaire>
-        <prescription> 
-          <medicament> 
+        <prescription>
+          <medicament>
             <nomMolecule>Wolf Spain</nomMolecule>
             <quantite>75</quantite>
           </medicament>
-          <medicament> 
+          <medicament>
             <nomMolecule>Silver</nomMolecule>
             <quantite>21</quantite>
           </medicament>
@@ -69,21 +73,21 @@ INSERT INTO Animal(nom,proprietaire,poids,taille,espece,traitement) VALUES (
 );
 /
 
-INSERT INTO Animal(nom,proprietaire,poids,taille,espece) VALUES ('Cristale','4','8','60','chien');
-INSERT INTO Animal(nom,proprietaire,poids,taille,dateNaissance,espece) VALUES ('Sunny','2','6','40','2014-12-15','chien');
-INSERT INTO Animal(nom,proprietaire,poids,taille,dateNaissance,espece) VALUES (
-    'Bob','1','20','40','2013-12-15','anaconda', 
-    XMLType (' 
+INSERT INTO Animal(id,nom,proprietaire,poids,taille,espece) VALUES (id_animal_seq.NEXTVAL,'Cristale',4,8,60,'chien');
+INSERT INTO Animal(id,nom,proprietaire,poids,taille,dateNaissance,espece) VALUES (id_animal_seq.NEXTVAL,'Sunny',2,6,40,to_date('2014-12-15','yyyy-mm-dd'),'chien');
+INSERT INTO Animal(id,nom,proprietaire,poids,taille,dateNaissance,espece,traitement) VALUES (
+    id_animal_seq.NEXTVAL,'Bob',1,20,40,to_date('2013-12-15','yyyy-mm-dd'),'anaconda',
+    XMLType ('
     <traitements>
       <traitement>
         <debut>2015-09-04</debut>
         <duree>40</duree>
-        <veterinaire> 
+        <veterinaire>
           <nom>Ron</nom>
           <prenom>Weasley</prenom>
         </veterinaire>
-        <prescription> 
-          <medicament> 
+        <prescription>
+          <medicament>
             <nomMolecule>Vita Reptile</nomMolecule>
             <quantite>30</quantite>
           </medicament>
@@ -93,4 +97,5 @@ INSERT INTO Animal(nom,proprietaire,poids,taille,dateNaissance,espece) VALUES (
     ')
 );
 /
-INSERT INTO Animal(nom,proprietaire,poids,taille,dateNaissance,espece) VALUES ('Margerite','1','600','80','2018-12-15','vache');
+INSERT INTO Animal(id,nom,proprietaire,poids,taille,dateNaissance,espece) VALUES (id_animal_seq.NEXTVAL,'Margerite',1,600,80,to_date('2018-12-15','yyyy-mm-dd'),'vache');
+/

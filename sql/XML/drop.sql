@@ -1,15 +1,15 @@
-DROP TABLE Animal; 
-/ 
-
-DROP TABLE Client ; 
+DROP TABLE Animal;
 /
-
-
-DROP TABLE Espece ; 
-/ 
-
-DROP TABLE ClasseEspece ; 
-/ 
+DROP TABLE Client ;
+/
+DROP TABLE Espece ;
+/
+DROP TABLE ClasseEspece ;
+/
+DROP SEQUENCE id_client_seq;
+/
+DROP SEQUENCE id_animal_seq;
+/
 
 
 

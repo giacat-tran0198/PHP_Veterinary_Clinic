@@ -10,14 +10,14 @@
                     <data type = "date"/>
                 </element>
                 <element name = "duree">
-                    <date type = "integer"/>
+                    <data type = "integer"/>
                 </element>
                 <element name = "veterinaire">
                     <element name = "nom">
                         <data type = "string"/>
                     </element>
                     <element name = "prenom">
-                        <data type = "stirng"/>
+                        <data type = "string"/>
                     </element>
                 </element>
                 <element name = "prescription">
