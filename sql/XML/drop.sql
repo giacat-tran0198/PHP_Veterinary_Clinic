@@ -1,6 +1,6 @@
 DROP TABLE Animal;
 /
-DROP TABLE Client ;
+DROP TABLE ClientClinique ;
 /
 DROP TABLE Espece ;
 /

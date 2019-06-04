@@ -18,7 +18,7 @@ CREATE TABLE Espece (
 /*------------------------------------------------------------*/
 /*---------------------- Les Clients :------------------------*/
 /*------------------------------------------------------------*/
-CREATE TABLE Client (
+CREATE TABLE ClientClinique (
     id INTEGER,
     nom VARCHAR2(50) NOT NULL,
     prenom VARCHAR2(50) NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE Animal (
     espece VARCHAR2(50) NOT NULL,
     traitement XMLType,
     PRIMARY KEY (id),
-    FOREIGN KEY (proprietaire) REFERENCES Client(id),
+    FOREIGN KEY (proprietaire) REFERENCES ClientClinique(id),
     FOREIGN KEY (espece) REFERENCES Espece(nom) ,
     UNIQUE (nom,proprietaire),
     CHECK (poids > 0 AND taille > 0)
