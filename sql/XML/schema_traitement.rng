@@ -17,11 +17,11 @@
                         <data type = "string"/>
                     </element>
                     <element name = "prenom">
-                        <data type = "stirng"/>
+                        <data type = "string"/>
                     </element>
                 </element>
                 <element name = "prescription">
-                    <zeroOrMore>
+                    <oneOrMore>
                         <element name = "medicament">
                             <element name = "nomMolecule">
                                 <data type = "string"/>
@@ -30,7 +30,7 @@
                                 <data type = "integer"/>
                             </element>
                         </element>
-                    </zeroOrMore>
+                    </oneOrMore>
                 </element>
             </element>
         </element>
