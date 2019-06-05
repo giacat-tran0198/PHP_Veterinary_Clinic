@@ -8,6 +8,12 @@
       <nom>Ginny</nom>
       <prenom>Weasley</prenom>
     </veterinaire>
+    <prescription> 
+      <medicament> 
+        <nomMolecule>Doliprane</nomMolecule>
+        <quantite>80</quantite>
+      </medicament>
+    </prescription>
   </traitement>
   <traitement>
     <debut>1978-04-14</debut>

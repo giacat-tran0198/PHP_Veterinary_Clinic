@@ -21,7 +21,6 @@
                             <data type = "string"/>
                         </element>
                     </element>
-                    <optional>
                         <element name = "prescription">
                             <oneOrMore>
                                 <element name = "medicament">
@@ -34,7 +33,6 @@
                                 </element>
                             </oneOrMore>
                         </element>
-                    </optional>
                 </element>
             </oneOrMore>
         </element>
