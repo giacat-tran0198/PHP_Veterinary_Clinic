@@ -47,34 +47,40 @@ INSERT INTO Animal(id,nom,proprietaire,poids,taille,espece) VALUES (id_animal_se
 INSERT INTO Animal(id,nom,proprietaire,poids,taille,espece,traitement) VALUES (
     id_animal_seq.NEXTVAL,'Izao',3,7,55,'chien',
     XMLType ('
-    <traitements>
-      <traitement>
-        <debut>2019-09-04</debut>
-        <duree>15</duree>
-        <veterinaire>
-          <nom>Ginny</nom>
-          <prenom>Weasley</prenom>
-        </veterinaire>
-      </traitement>
-      <traitement>
-        <debut>1978-04-14</debut>
-        <duree>30</duree>
-        <veterinaire>
-          <nom>Remus</nom>
-          <prenom>Lupin</prenom>
-        </veterinaire>
-        <prescription>
-          <medicament>
-            <nomMolecule>Wolf Spain</nomMolecule>
-            <quantite>75</quantite>
-          </medicament>
-          <medicament>
-            <nomMolecule>Silver</nomMolecule>
-            <quantite>21</quantite>
-          </medicament>
-        </prescription>
-      </traitement>
-    </traitements>
+<traitements>
+  <traitement>
+    <debut>2019-09-04</debut>
+    <duree>15</duree>
+    <veterinaire> 
+      <nom>Ginny</nom>
+      <prenom>Weasley</prenom>
+    </veterinaire>
+    <prescription> 
+      <medicament> 
+        <nomMolecule>Doliprane</nomMolecule>
+        <quantite>80</quantite>
+      </medicament>
+    </prescription>
+  </traitement>
+  <traitement>
+    <debut>1978-04-14</debut>
+    <duree>30</duree>
+    <veterinaire> 
+      <nom>Remus</nom>
+      <prenom>Lupin</prenom>
+    </veterinaire>
+    <prescription> 
+      <medicament> 
+        <nomMolecule>Wolf Spain</nomMolecule>
+        <quantite>75</quantite>
+      </medicament>
+      <medicament> 
+        <nomMolecule>Silver</nomMolecule>
+        <quantite>21</quantite>
+      </medicament>
+    </prescription>
+  </traitement>
+</traitements>
     ')
 );
 /
@@ -83,66 +89,66 @@ INSERT INTO Animal(id,nom,proprietaire,poids,taille,espece) VALUES (id_animal_se
 INSERT INTO Animal(id,nom,proprietaire,poids,taille,dateNaissance,espece,traitement) VALUES (
     id_animal_seq.NEXTVAL,'Sunny',2,6,40,to_date('2014-12-15','yyyy-mm-dd'),'chien',
     XMLType (' 
-    <traitements>
-      <traitement>
-        <debut>2019-09-04</debut>
-        <duree>15</duree>
-        <veterinaire> 
-          <nom>Harry</nom>
-          <prenom>Potter</prenom>
-        </veterinaire>
-        <prescription> 
-          <medicament> 
-            <nomMolecule>Milbemax</nomMolecule>
-            <quantite>3</quantite>
-          </medicament>
-          <medicament> 
-            <nomMolecule>Ocevit</nomMolecule>
-            <quantite>13</quantite>
-          </medicament>
-        </prescription>
-      </traitement>
-      <traitement>
-        <debut>2019-01-24</debut>
-        <duree>30</duree>
-        <veterinaire> 
-          <nom>Hermione</nom>
-          <prenom>Granger</prenom>
-        </veterinaire>
-        <prescription> 
-          <medicament> 
-            <nomMolecule>Stupefix</nomMolecule>
-            <quantite>7</quantite>
-          </medicament>
-          <medicament> 
-            <nomMolecule>Doloris</nomMolecule>
-            <quantite>2</quantite>
-          </medicament>
-        </prescription>
-      </traitement>
-    </traitements>
+<traitements>
+  <traitement>
+    <debut>2019-09-04</debut>
+    <duree>15</duree>
+    <veterinaire> 
+      <nom>Harry</nom>
+      <prenom>Potter</prenom>
+    </veterinaire>
+    <prescription> 
+      <medicament> 
+        <nomMolecule>Milbemax</nomMolecule>
+        <quantite>3</quantite>
+      </medicament>
+      <medicament> 
+        <nomMolecule>Ocevit</nomMolecule>
+        <quantite>13</quantite>
+      </medicament>
+    </prescription>
+  </traitement>
+  <traitement>
+    <debut>2019-01-24</debut>
+    <duree>30</duree>
+    <veterinaire> 
+      <nom>Hermione</nom>
+      <prenom>Granger</prenom>
+    </veterinaire>
+    <prescription> 
+      <medicament> 
+        <nomMolecule>Stupefix</nomMolecule>
+        <quantite>7</quantite>
+      </medicament>
+      <medicament> 
+        <nomMolecule>Doloris</nomMolecule>
+        <quantite>2</quantite>
+      </medicament>
+    </prescription>
+  </traitement>
+</traitements>
     ')
 );
 /
 INSERT INTO Animal(id,nom,proprietaire,poids,taille,dateNaissance,espece,traitement) VALUES (
     id_animal_seq.NEXTVAL,'Bob',1,20,40,to_date('2013-12-15','yyyy-mm-dd'),'anaconda',
     XMLType ('
-    <traitements>
-      <traitement>
-        <debut>2015-09-04</debut>
-        <duree>40</duree>
-        <veterinaire>
-          <nom>Ron</nom>
-          <prenom>Weasley</prenom>
-        </veterinaire>
-        <prescription>
-          <medicament>
-            <nomMolecule>Vita Reptile</nomMolecule>
-            <quantite>30</quantite>
-          </medicament>
-        </prescription>
-      </traitement>
-    </traitements>
+<traitements>
+  <traitement>
+    <debut>2015-09-04</debut>
+    <duree>40</duree>
+    <veterinaire> 
+      <nom>Ron</nom>
+      <prenom>Weasley</prenom>
+    </veterinaire>
+    <prescription> 
+      <medicament> 
+        <nomMolecule>Vita Reptile</nomMolecule>
+        <quantite>30</quantite>
+      </medicament>
+    </prescription>
+  </traitement>
+</traitements>
     ')
 );
 /
