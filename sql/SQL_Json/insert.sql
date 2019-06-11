@@ -28,7 +28,8 @@ INSERT INTO Client(nom,prenom,dateNaissance,adresse,numero) VALUES('Halgand','Me
 /*------------------------------------------------------------*/
 INSERT INTO Animal(nom,proprietaire,poids,taille,espece,traitement) VALUES ('Filou','1','5','45','chat',
    
-        '{
+    '[
+        {
             "debut" : "15/04/2019", 
             "duree": 4 ,
             "veterinaire" : {
@@ -45,7 +46,8 @@ INSERT INTO Animal(nom,proprietaire,poids,taille,espece,traitement) VALUES ('Fil
                 "quantite" : 3
                 }
             ]
-        }'
+        }
+    ]'
     
 );
 
@@ -53,7 +55,7 @@ INSERT INTO Animal(nom,proprietaire,poids,taille,espece,traitement) VALUES ('Iza
    '[
         {
             "debut" : "03/05/2019", 
-            "duree": 10 ,
+            "duree": 10,
             "veterinaire" : {
                 "nom" : "Granger" ,
                 "prenom" : "Hermione"       
@@ -65,11 +67,49 @@ INSERT INTO Animal(nom,proprietaire,poids,taille,espece,traitement) VALUES ('Iza
                 }
                 
             ]
-        }'
+        }
+    ]'
     
 );
 
-INSERT INTO Animal(nom,proprietaire,poids,taille,espece) VALUES ('Cristale','4','8','60','chien');
+INSERT INTO Animal(nom,proprietaire,poids,taille,espece,traitement) VALUES ('Cristale','4','8','60','chien',
+   '[
+        {
+            "debut" : "26/05/2019", 
+            "duree": 2,
+            "veterinaire" : {
+                "nom" : "Weasley" ,
+                "prenom" : "Ron"       
+            }, 
+            "medicament" :[
+                {
+                "nomMolecule" : "Doliprane", 
+                "quantite" : 12
+                }
+                
+            ]
+        },
+        
+        {
+            "debut" : "27/04/2019", 
+            "duree": 20,
+            "veterinaire" : {
+                "nom" : "Malefoy" ,
+                "prenom" : "Drago"       
+            }, 
+            "medicament" :[
+                {
+                "nomMolecule" : "Avakedavra", 
+                "quantite" : 1
+                }
+                
+            ]
+        }
+    ]'
+    
+);
+
+
 INSERT INTO Animal(nom,proprietaire,poids,taille,dateNaissance,espece) VALUES ('Sunny','2','6','40','2014-12-15','chien');
 INSERT INTO Animal(nom,proprietaire,poids,taille,dateNaissance,espece) VALUES ('Bob','1','20','40','2013-12-15','anaconda');
 INSERT INTO Animal(nom,proprietaire,poids,taille,dateNaissance,espece) VALUES ('Margerite','1','600','80','2018-12-15','vache');
