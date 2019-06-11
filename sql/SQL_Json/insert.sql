@@ -30,7 +30,7 @@ INSERT INTO Animal(nom,proprietaire,poids,taille,espece,traitement) VALUES ('Fil
    
     '[
         {
-            "debut" : "15/04/2019", 
+            "debut" : new Date("15/04/2019"),
             "duree": 4 ,
             "veterinaire" : {
                 "nom" : "Potter" ,
@@ -54,7 +54,7 @@ INSERT INTO Animal(nom,proprietaire,poids,taille,espece,traitement) VALUES ('Fil
 INSERT INTO Animal(nom,proprietaire,poids,taille,espece,traitement) VALUES ('Izao','3','7','55','chien',
    '[
         {
-            "debut" : "03/05/2019", 
+            "debut" : new Date("03/05/2019"),
             "duree": 10,
             "veterinaire" : {
                 "nom" : "Granger" ,
@@ -75,7 +75,7 @@ INSERT INTO Animal(nom,proprietaire,poids,taille,espece,traitement) VALUES ('Iza
 INSERT INTO Animal(nom,proprietaire,poids,taille,espece,traitement) VALUES ('Cristale','4','8','60','chien',
    '[
         {
-            "debut" : "26/05/2019", 
+            "debut" : new Date("26/05/2019"),
             "duree": 2,
             "veterinaire" : {
                 "nom" : "Weasley" ,
@@ -91,7 +91,7 @@ INSERT INTO Animal(nom,proprietaire,poids,taille,espece,traitement) VALUES ('Cri
         },
         
         {
-            "debut" : "27/04/2019", 
+            "debut" : new Date("27/04/2019"),
             "duree": 20,
             "veterinaire" : {
                 "nom" : "Malefoy" ,
