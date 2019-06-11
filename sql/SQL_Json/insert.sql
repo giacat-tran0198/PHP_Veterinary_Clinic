@@ -27,8 +27,8 @@ INSERT INTO Client(nom,prenom,dateNaissance,adresse,numero) VALUES('Halgand','Me
 /*---------------------- Les animaux :------------------------*/
 /*------------------------------------------------------------*/
 INSERT INTO Animal(nom,proprietaire,poids,taille,espece,traitement) VALUES ('Filou','1','5','45','chat',
-   '[
-        {
+   
+        '{
             "debut" : "15/04/2019", 
             "duree": 4 ,
             "veterinaire" : {
@@ -45,10 +45,30 @@ INSERT INTO Animal(nom,proprietaire,poids,taille,espece,traitement) VALUES ('Fil
                 "quantite" : 3
                 }
             ]
-        }
-    ]'
+        }'
+    
 );
-INSERT INTO Animal(nom,proprietaire,poids,taille,espece) VALUES ('Izao','3','7','55','chien');
+
+INSERT INTO Animal(nom,proprietaire,poids,taille,espece,traitement) VALUES ('Izao','3','7','55','chien',
+   '[
+        {
+            "debut" : "03/05/2019", 
+            "duree": 10 ,
+            "veterinaire" : {
+                "nom" : "Granger" ,
+                "prenom" : "Hermione"       
+            }, 
+            "medicament" :[
+                {
+                "nomMolecule" : "Cannabis", 
+                "quantite" : 4 
+                }
+                
+            ]
+        }'
+    
+);
+
 INSERT INTO Animal(nom,proprietaire,poids,taille,espece) VALUES ('Cristale','4','8','60','chien');
 INSERT INTO Animal(nom,proprietaire,poids,taille,dateNaissance,espece) VALUES ('Sunny','2','6','40','2014-12-15','chien');
 INSERT INTO Animal(nom,proprietaire,poids,taille,dateNaissance,espece) VALUES ('Bob','1','20','40','2013-12-15','anaconda');
