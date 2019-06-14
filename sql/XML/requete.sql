@@ -7,7 +7,7 @@ WHERE traitement is NOT NULL ;
 /
 
 -- Liste des vétérinaires qui ont prescrit un traitement a l'animal en question 
-SELECT A.nom , A.traitement.EXTRACT('traitements/traitement/veterinaire/nom/node()').GETSTRINGVAL() AS medicaments 
+SELECT A.nom , A.traitement.EXTRACT('traitements/traitement/veterinaire/nom/node()').GETSTRINGVAL() AS veterinaire
 FROM Animal A
 WHERE traitement is NOT NULL ; 
 /
