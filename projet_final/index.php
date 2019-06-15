@@ -40,6 +40,8 @@
   </table>
   <a href='inscription_client.php' title='inscription_client'>Inscription Client</a>
   <a href='inscription_veterinaire.php' title='inscription_veterinaire'>Inscription Veterinaire</a>
+  <a href='inscription_animal.php' title='inscription_animal'>Inscription Animal</a>
+  <a href='inscription_medicament.php' title='inscription_medicament'>Inscription Medicament</a>
 
 </body>
 </html>
