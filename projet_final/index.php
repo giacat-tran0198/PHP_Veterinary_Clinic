@@ -9,7 +9,7 @@
     <tr><th>Nom</th></tr>
     <?php
     // Connexion à la base de données
-    include('connect.php');
+    require('connect.php');
     // Affichage du tableau de données
     $vSql ='SELECT * FROM Clinique.Client';
     $vSt = $vConn->prepare($vSql);
@@ -25,9 +25,6 @@
   <table border="1">
     <tr><th>Nom</th></tr>
     <?php
-    // Connexion à la base de données
-    include('connect.php');
-    // Affichage du tableau de données
     $vSql ='SELECT * FROM Clinique.Veterinaire';
     $vSt = $vConn->prepare($vSql);
     $vSt->execute();

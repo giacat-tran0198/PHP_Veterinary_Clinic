@@ -1,7 +1,7 @@
 <?php 
 
 /** Connexion **/
-include('connect.php');
+require('connect.php');
 
 /** Préparation et exécution de la requête **/
 

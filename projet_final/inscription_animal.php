@@ -22,7 +22,7 @@
                     </td>
                     <td>
                     <?php
-                        include('connect.php');
+                        require('connect.php');
                         echo "<select name='proprietaire'>";
                         $vSql ="SELECT * FROM Clinique.Client";
                         $vSt = $vConn->prepare($vSql);
@@ -63,7 +63,6 @@
                     <td> espece : </td>
                     <td>
                     <?php
-                        include('connect.php');
                         echo "<select name='espece'>";
                         $vSql ="SELECT * FROM Clinique.Espece";
                         $vSt = $vConn->prepare($vSql);

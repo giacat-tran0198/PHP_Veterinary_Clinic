@@ -51,7 +51,7 @@
                     <td> specialite : </td>
                     <td>
                     <?php
-                        include('connect.php');
+                        require('connect.php');
                         echo "<select name='specialite'>";
                         $vSql ="SELECT * FROM Clinique.ClasseEspece";
                         $vSt = $vConn->prepare($vSql);

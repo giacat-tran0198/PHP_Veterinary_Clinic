@@ -27,7 +27,7 @@
                     <td> espece : </td>
                     <td>
                     <?php
-                        include('connect.php');
+                        require('connect.php');
                         echo "<select name='espece'>";
                         $vSql ="SELECT * FROM Clinique.Espece";
                         $vSt = $vConn->prepare($vSql);
