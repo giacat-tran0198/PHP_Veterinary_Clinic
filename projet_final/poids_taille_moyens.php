@@ -7,7 +7,7 @@
   <body>
     <h1>Poids et taille moyens de l'espèce</h1>
     <table border="1">
-      <tr><th>Taille moyenne</th><th>Poids moyen</th></tr>
+      <tr><th>Espèce</th><th>Taille moyenne</th><th>Poids moyen</th></tr>
     <?php
       require('connect.php');
 
@@ -24,6 +24,7 @@
 
       while ($vResult = $vSt->fetch(PDO::FETCH_ASSOC)) {
         echo '<tr>';
+        echo "<td>$vResult[espece]</td>";
         echo "<td>$vResult[taille_moyenne]</td>";
         echo "<td>$vResult[poids_moyen]</td>";
         echo '</tr>';
