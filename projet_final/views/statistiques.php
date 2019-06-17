@@ -39,13 +39,12 @@
       <h3>Faire les listes des animaux pour un client donné</h3>
 
       <form action="<?=$_SERVER['REQUEST_URI']?>" method="post">
-        <label for="ageMin">Age min</label>
         <select name="customerId">
           <?php foreach($data['getCustomers'] as $key=>$customer): ?>
             <option value="<?=$customer["id"]?>"><?=$customer["prenom"]?> - <?=$customer["nom"]?></option>
           <?php endforeach; ?>
         </select>
-        <input type="submit">
+        <input class="btn btn-success" type="submit">
       </form>
 
       <?php if ($data['getPetsByCustomerId'] == null) : ?>
@@ -124,8 +123,10 @@
         <input type="number" name="ageMin"><br>
         <label for="ageMax">Age max</label>
         <input type="number" name="ageMax"><br>
-        <input type="submit">
+        <input class="btn btn-success" type="submit">
       </form>
+
+      <br/>
 
       <?php if ($data['getPetsBetweenAge'] == null) : ?>
 
@@ -167,6 +168,9 @@
 
     </section>
 
+    <br/>
+    <br/>
+    <br/>
 
   </div>
 
