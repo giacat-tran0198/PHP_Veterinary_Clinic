@@ -115,7 +115,7 @@
 
     <section>
 
-      <h3>Selection des animaux d'un age compris entre une valeur inf et une valeur max </h3>
+      <h3>Selection des animaux d'un âge compris entre une valeur inf et une valeur max </h3>
 
 
       <form action="<?=$_SERVER['REQUEST_URI']?>" method="post">
