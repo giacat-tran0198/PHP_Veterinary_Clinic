@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
   </head>
 <body>
-  <h1> Table client</h1>
+  <h1> Table Client</h1>
   <table border="1">
     <tr>
         <th>Id</th>
@@ -157,6 +157,91 @@
     }
     ?>
   </table>
+
+  <h1> Table Medicament</h1>
+  <table border="1">
+    <tr>
+        <th>Nom de la molecule</th>
+        <th>Description</th>
+    </tr>
+    <?php
+    $vSql ='SELECT * FROM Clinique.Medicament';
+    $vSt = $vConn->prepare($vSql);
+    $vSt->execute();
+    while ($vResult = $vSt->fetch(PDO::FETCH_ASSOC)) {
+      echo '<tr>';
+      echo "<td>$vResult[nommolecule]</td>";
+      echo "<td>$vResult[description]</td>";
+      echo '</tr>';
+    }
+    ?>
+  </table>
+
+  <h1> Table Autorisation Medicament</h1>
+  <table border="1">
+    <tr>
+        <th>Medicament</th>
+        <th>Espece</th>
+    </tr>
+    <?php
+    $vSql ='SELECT * FROM Clinique.AutorisationMedicament';
+    $vSt = $vConn->prepare($vSql);
+    $vSt->execute();
+    while ($vResult = $vSt->fetch(PDO::FETCH_ASSOC)) {
+      echo '<tr>';
+      echo "<td>$vResult[medicament]</td>";
+      echo "<td>$vResult[espece]</td>";
+      echo '</tr>';
+    }
+    ?>
+  </table>
+
+  <h1> Table Traitement </h1>
+  <table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Debut</th>
+        <th>Duree</th>
+        <th>Animal</th>
+        <th>Veterinaire</th>
+    </tr>
+    <?php
+    $vSql ='SELECT * FROM Clinique.Traitement';
+    $vSt = $vConn->prepare($vSql);
+    $vSt->execute();
+    while ($vResult = $vSt->fetch(PDO::FETCH_ASSOC)) {
+      echo '<tr>';
+      echo "<td>$vResult[id]</td>";
+      echo "<td>$vResult[debut]</td>";
+      echo "<td>$vResult[duree]</td>";
+      echo "<td>$vResult[animal]</td>";
+      echo "<td>$vResult[veterinaire]</td>";
+      echo '</tr>';
+    }
+    ?>
+  </table>
+
+  <h1> Table Prescription </h1>
+  <table border="1">
+    <tr>
+        <th>medicament</th>
+        <th>traitement</th>
+        <th>quantite</th>
+    </tr>
+    <?php
+    $vSql ='SELECT * FROM Clinique.Prescription';
+    $vSt = $vConn->prepare($vSql);
+    $vSt->execute();
+    while ($vResult = $vSt->fetch(PDO::FETCH_ASSOC)) {
+      echo '<tr>';
+      echo "<td>$vResult[medicament]</td>";
+      echo "<td>$vResult[traitement]</td>";
+      echo "<td>$vResult[quantite]</td>";
+      echo '</tr>';
+    }
+    ?>
+  </table>
+
 
 
 </body>
