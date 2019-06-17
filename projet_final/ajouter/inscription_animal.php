@@ -5,21 +5,15 @@
         <title>Inscription</title>
     </head>
     <body>
-        <h1>L'inscription Client</h1>
+        <h1>Inscription d'un animal</h1>
         <form action="insert_animal.php" method="POST">
             <table cellpadding="0" cellspacing="0" border="1">
                 <tr>
-                    <td>
-                        nom : 
-                    </td>
-                    <td>
-                        <input type="text" name="nom" size="50" />
-                    </td>
+                    <td>Nom : </td>
+                    <td><input type="text" name="nom" size="50" /></td>
                 </tr>
                 <tr>
-                    <td>
-                        proprietaire :
-                    </td>
+                    <td>Proprietaire :</td>
                     <td>
                     <?php
                         require('connect.php');
@@ -37,30 +31,19 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        Date Naissance :
-                    </td>
-                    <td> <input type="date" name="dateNaissance">
-                    </td>
+                  <td>Date Naissance :</td>
+                  <td> <input type="date" name="dateNaissance"></td>
                 </tr>
                 <tr>
-                    <td>
-                        poids :
-                    </td>
-                    <td>
-                        <input type="text" name="poids" size="50" />
-                    </td>
+                    <td>Poids :</td>
+                    <td><input type="text" name="poids" size="50" /></td>
                 </tr>
                 <tr>
-                    <td>
-                        taille :
-                    </td>
-                    <td>
-                        <input type="text" name="taille" size="50" />
-                    </td>
+                    <td>Taille :</td>
+                    <td><input type="text" name="taille" size="50" /></td>
                 </tr>
                 <tr>
-                    <td> espece : </td>
+                    <td>Espece : </td>
                     <td>
                     <?php
                         echo "<select name='espece'>";

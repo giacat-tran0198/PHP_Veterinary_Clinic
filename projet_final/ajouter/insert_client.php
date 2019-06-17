@@ -18,12 +18,12 @@ $numero = addslashes($_POST['numero']);
 
 
 $vSql ="INSERT INTO Clinique.Client(nom,prenom,dateNaissance,adresse,numero) VALUES('{$nom}','{$prenom}','{$dateNaissance}','{$adresse}','{$numero}')";
-//echo $vSql;
 $vSt = $vConn->prepare($vSql);
-$vSt->execute();
-if (!$vSt) {
-    echo '<br>Un nouveau client a été inseré';
-    //echo $vSt ;
+$vSt->execute() ;
+//echo $vSql;
+//echo strlen($vConn->errorInfo()[2]) ;
+if (!strlen($vConn->errorInfo()[2])) {
+    echo '<br>Un nouveau client a été inseré <br>';
   }
   else {
     echo '<br>Erreur lors de l\'insertion une contrainte n\' pas été respecté !<br>';

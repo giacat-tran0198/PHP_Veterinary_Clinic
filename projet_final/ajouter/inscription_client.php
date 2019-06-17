@@ -5,7 +5,7 @@
         <title>Inscription</title>
     </head>
     <body>
-        <h1>L'inscription Client</h1>
+        <h1>Inscription d'un client</h1>
         <form action="insert_client.php" method="POST">
           <table cellpadding="0" cellspacing="0" border="1">
                   <tr>
