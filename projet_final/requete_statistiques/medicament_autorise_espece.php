@@ -7,13 +7,13 @@
   <body>
     <h1>Médicaments autorisés</h1>
     <table border="1">
-      <tr><th>Nom de la molécule</th></tr>
+      <tr><th>Espèce</th><th>Nom de la molécule</th></tr>
     <?php
       require('connect.php');
 
 
       $nom = $_POST['espece'];
-      $vSql ="SELECT medicament, espece
+      $vSql ="SELECT espece, medicament
       FROM Clinique.AutorisationMedicament A
       WHERE A.espece='$nom';";
 
@@ -22,6 +22,7 @@
 
       while ($vResult = $vSt->fetch(PDO::FETCH_ASSOC)) {
         echo '<tr>';
+        echo "<td>$vResult[espece]</td>";
         echo "<td>$vResult[medicament]</td>";
         echo '</tr>';
       }
