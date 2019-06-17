@@ -10,7 +10,7 @@
             <table cellpadding="0" cellspacing="0" border="1">
                 <tr>
                     <td>
-                        Nom : 
+                        Nom :
                     </td>
                     <td>
                         <input type="text" name="nom" size="50" />
