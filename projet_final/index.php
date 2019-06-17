@@ -39,6 +39,7 @@
   <a href='inscription_veterinaire.php' title='inscription_veterinaire'>Inscription Veterinaire</a>
   <a href='inscription_animal.php' title='inscription_animal'>Inscription Animal</a>
   <a href='inscription_medicament.php' title='inscription_medicament'>Inscription Medicament</a>
+  <a href='inscription_traitement.php' title='inscription_traitement'>Inscription Traitement</a>
 
 </body>
 </html>
