@@ -27,10 +27,15 @@
         $vSt->execute();
         if (!strlen($vConn->errorInfo()[2])) {
             echo '<br>Un nouveau traitement a été inseré <br>';
-             header("Location: inscription_prescription");
+            session_start() ;
+            $_SESSION['animal'] = $animal ;
+            $_SESSION['duree'] = $duree ;
+            $_SESSION['veterinaire'] = $veterinaire ;
+            $_SESSION['debut'] = $debut ;
+            header("Location: inscription_prescription.php");
           }
           else {
-            echo '<br>Erreur lors de l\'insertion une contrainte n\' pas été respecté !<br>';
+            echo '<br>Erreur lors de l\'insertion une contrainte n\' a pas été respectée !<br>';
             print_r($vConn->errorInfo()[2]);
           }
         echo '<br> <button onclick="history.go(-1)">Retour</button>';

@@ -24,7 +24,7 @@ foreach($medicaments as $index => $medicament){
         echo '<br>Une nouvelle prescription a été inserée <br>';
       }
       else {
-        echo '<br>Erreur lors de l\'insertion une contrainte n\' pas été respecté !<br>';
+        echo '<br>Erreur lors de l\'insertion une contrainte n\' a pas été respectée !<br>';
         print_r($vConn->errorInfo()[2]);
       }
 }

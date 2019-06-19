@@ -2,6 +2,7 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
 <?php
+
 /** Connexion **/
 require('connect.php');
 
@@ -10,23 +11,25 @@ date_default_timezone_set("Europe/Berlin");
 
 /** Préparation et exécution de la requête **/
 $nom = addslashes($_POST['nom']);
-$proprietaire = addslashes($_POST['proprietaire']);
+$prenom = addslashes($_POST['prenom']);
 $dateNaissance = date('Y-m-d', strtotime(addslashes($_POST['dateNaissance'])));
-$poids = addslashes($_POST['poids']);
-$taille = addslashes($_POST['taille']);
-$espece = addslashes($_POST['espece']);
-//echo $espece;
+$adresse = addslashes($_POST['adresse']);
+$numero = addslashes($_POST['numero']);
 
-$vSql ="INSERT INTO Clinique.Animal(nom,proprietaire,poids,taille,dateNaissance,espece) VALUES('{$nom}','{$proprietaire}','{$poids}','{$taille}','{$dateNaissance}','{$espece}')";
-//echo $vSql;
+
+$vSql ="INSERT INTO Clinique.Client(nom,prenom,dateNaissance,adresse,numero) VALUES('{$nom}','{$prenom}','{$dateNaissance}','{$adresse}','{$numero}')";
 $vSt = $vConn->prepare($vSql);
-$vSt->execute();
+$vSt->execute() ;
+//echo $vSql;
+//echo strlen($vConn->errorInfo()[2]) ;
 if (!strlen($vConn->errorInfo()[2])) {
-    echo '<br>Un nouvel animal a été inseré <br>';
+    echo '<br>Un nouveau client a été inseré <br>';
   }
   else {
-    echo '<br>Erreur lors de l\'insertion une contrainte n\' pas été respecté !<br>';
+    echo '<br>Erreur lors de l\'insertion une contrainte n\' a pas été respectée !<br>';
     print_r($vConn->errorInfo()[2]);
   }
 echo '<br> <button onclick="history.go(-1)">Retour</button>';
+
+//$vConn->closeCursor();
 ?>

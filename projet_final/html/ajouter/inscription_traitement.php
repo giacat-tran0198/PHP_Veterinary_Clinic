@@ -10,7 +10,7 @@
         </script>
     </head>
     <body>
-        <h1>L'inscription traitement</h1>
+        <h1>Inscription d'un traitement</h1>
         <?php
                 require('connect.php');
                 @$animal_id=$_GET['animal'];
